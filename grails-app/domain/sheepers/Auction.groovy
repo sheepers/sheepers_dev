@@ -11,7 +11,7 @@ class Auction {
     String name
     ArrayList<AuctionItem>  items
     static hasMany = [bids: Bid]
-
+    static embedded = ['toAdr','fromAdr']
 
     //
 
