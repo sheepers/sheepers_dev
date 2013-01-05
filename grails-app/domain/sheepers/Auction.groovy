@@ -13,6 +13,8 @@ class Auction {
     static hasMany = [bids: Bid]
 
 
+    //
+
     static constraints = {
     }
 
