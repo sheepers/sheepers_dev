@@ -8,5 +8,4 @@ class Address{
     String street_number
     int floorNumber
 
-
 }
