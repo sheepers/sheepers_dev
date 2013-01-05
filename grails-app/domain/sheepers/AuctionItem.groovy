@@ -1,13 +1,16 @@
 package sheepers
 
+
 class AuctionItem {
 
+    static belongsTo = [auction : Auction]
 
-    BigInteger id
+    //BigInteger id
     String typeOfItem
-    List<Byte>  picture
+
     String size
     boolean isFragile
+    Set<List<Byte>> pictures
 
     static constraints = {
     }

@@ -1,7 +1,13 @@
 package sheepers
-          // should implement User from roey spring security
-class SUser {
+
+class SUser extends User{
+
+    enum UserType  {Customer,Carrier}
+    String PhoneNumber
+    static hasMany = [bids:Bid, auctions:Auction]
+
 
     static constraints = {
+
     }
 }

@@ -9,8 +9,8 @@ class Auction {
     Address fromAdr
     Address toAdr
     String name
-    ArrayList<AuctionItem>  items
-    static hasMany = [bids: Bid]
+
+    static hasMany = [bids: Bid, items:AuctionItem]
     static embedded = ['toAdr','fromAdr']
 
     //

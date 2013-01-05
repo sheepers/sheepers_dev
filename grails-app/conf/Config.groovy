@@ -105,3 +105,18 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'sheepers.User
 grails.plugins.springsecurity.authority.className = 'sheepers.Role'
 grails.plugins.springsecurity.requestMap.className = 'sheepers.Requestmap'
 grails.plugins.springsecurity.securityConfigType = 'Requestmap'
+grails.plugins.springsecurity.ui.register.postRegisterUrl = '/SUser/create'
+
+
+grails {
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "sheepersinc@gmail.com"
+        password = "yomtov123"
+        props = ["mail.smtp.auth":"true",
+                "mail.smtp.socketFactory.port":"465",
+                "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+                "mail.smtp.socketFactory.fallback":"false"]
+    }
+}
