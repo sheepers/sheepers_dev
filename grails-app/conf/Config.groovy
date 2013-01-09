@@ -120,3 +120,5 @@ grails {
                 "mail.smtp.socketFactory.fallback":"false"]
     }
 }
+grails.plugins.springsecurity. ui.password.validationRegex = '^.*(?=.*\\d)(?=.*[a-zA-Z]).*$'
+grails.plugins.springsecurity.ui.encodePassword = false

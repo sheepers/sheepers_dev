@@ -22,11 +22,11 @@
 	<g:else>
 
 	<br/>
-	<h4><g:message code='spring.security.ui.forgotPassword.description'/></h4>
+	<h4>Enter your Email and a password reset link will be sent to you</h4>
 
 	<table>
 		<tr>
-			<td><label for="username"><g:message code='spring.security.ui.forgotPassword.username'/></label></td>
+			<td><label for="username">Email</label></td>
 			<td><g:textField name="username" size="25" /></td>
 		</tr>
 	</table>
