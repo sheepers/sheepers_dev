@@ -10,8 +10,9 @@ class AuctionItem {
 
     String size
     boolean isFragile
-    Set<List<Byte>> pictures
+    Set<byte[]> pictures
 
     static constraints = {
+
     }
 }
