@@ -5,18 +5,21 @@ import  sheepers.Address
 
 class Auction {
 
-    BigInteger auctionId
+    //BigInteger auctionId
     Address fromAdr
     Address toAdr
     String name
 
+    static belongsTo = SUser
     static hasMany = [bids: Bid, items:AuctionItem]
     static embedded = ['toAdr','fromAdr']
 
-    //
+
 
     static constraints = {
     }
 
+    static mapping = { bids sort: 'amount'}
+    /*replace with dynamic sorting in the future */
 
 }

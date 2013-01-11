@@ -23,47 +23,47 @@
 			</g:if>
 			<ol class="property-list bid">
 			
-				<g:if test="${bidInstance?._amount}">
+				<g:if test="${bidInstance?.amount}">
 				<li class="fieldcontain">
-					<span id="_amount-label" class="property-label"><g:message code="bid._amount.label" default="Amount" /></span>
+					<span id="amount-label" class="property-label"><g:message code="bid.amount.label" default="Amount" /></span>
 					
-						<span class="property-value" aria-labelledby="_amount-label"><g:fieldValue bean="${bidInstance}" field="_amount"/></span>
+						<span class="property-value" aria-labelledby="amount-label"><g:fieldValue bean="${bidInstance}" field="amount"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?._auction}">
+				<g:if test="${bidInstance?.auction}">
 				<li class="fieldcontain">
-					<span id="_auction-label" class="property-label"><g:message code="bid._auction.label" default="Auction" /></span>
+					<span id="auction-label" class="property-label"><g:message code="bid.auction.label" default="Auction" /></span>
 					
-						<span class="property-value" aria-labelledby="_auction-label"><g:link controller="auction" action="show" id="${bidInstance?._auction?.id}">${bidInstance?._auction?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="auction-label"><g:link controller="auction" action="show" id="${bidInstance?.auction?.id}">${bidInstance?.auction?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?._bidId}">
+				<g:if test="${bidInstance?.bidId}">
 				<li class="fieldcontain">
-					<span id="_bidId-label" class="property-label"><g:message code="bid._bidId.label" default="Bid Id" /></span>
+					<span id="bidId-label" class="property-label"><g:message code="bid.bidId.label" default="Bid Id" /></span>
 					
-						<span class="property-value" aria-labelledby="_bidId-label"><g:fieldValue bean="${bidInstance}" field="_bidId"/></span>
+						<span class="property-value" aria-labelledby="bidId-label"><g:fieldValue bean="${bidInstance}" field="bidId"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?._bid_user}">
+				<g:if test="${bidInstance?.bid_user}">
 				<li class="fieldcontain">
-					<span id="_bid_user-label" class="property-label"><g:message code="bid._bid_user.label" default="Biduser" /></span>
+					<span id="bid_user-label" class="property-label"><g:message code="bid.bid_user.label" default="Biduser" /></span>
 					
-						<span class="property-value" aria-labelledby="_bid_user-label"><g:link controller="SUser" action="show" id="${bidInstance?._bid_user?.id}">${bidInstance?._bid_user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="bid_user-label"><g:link controller="SUser" action="show" id="${bidInstance?.bid_user?.id}">${bidInstance?.bid_user?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?._date}">
+				<g:if test="${bidInstance?.dateCreated}">
 				<li class="fieldcontain">
-					<span id="_date-label" class="property-label"><g:message code="bid._date.label" default="Date" /></span>
+					<span id="dateCreated-label" class="property-label"><g:message code="bid.dateCreated.label" default="Date Created" /></span>
 					
-						<span class="property-value" aria-labelledby="_date-label"><g:formatDate date="${bidInstance?._date}" /></span>
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${bidInstance?.dateCreated}" /></span>
 					
 				</li>
 				</g:if>

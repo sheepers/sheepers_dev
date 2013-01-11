@@ -24,15 +24,15 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="_amount" title="${message(code: 'bid._amount.label', default: 'Amount')}" />
+						<g:sortableColumn property="amount" title="${message(code: 'bid.amount.label', default: 'Amount')}" />
 					
-						<th><g:message code="bid._auction.label" default="Auction" /></th>
+						<th><g:message code="bid.auction.label" default="Auction" /></th>
 					
-						<g:sortableColumn property="_bidId" title="${message(code: 'bid._bidId.label', default: 'Bid Id')}" />
+						<g:sortableColumn property="bidId" title="${message(code: 'bid.bidId.label', default: 'Bid Id')}" />
 					
-						<th><g:message code="bid._bid_user.label" default="Biduser" /></th>
+						<th><g:message code="bid.bid_user.label" default="Biduser" /></th>
 					
-						<g:sortableColumn property="_date" title="${message(code: 'bid._date.label', default: 'Date')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'bid.dateCreated.label', default: 'Date Created')}" />
 					
 					</tr>
 				</thead>
@@ -40,15 +40,15 @@
 				<g:each in="${bidInstanceList}" status="i" var="bidInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${bidInstance.id}">${fieldValue(bean: bidInstance, field: "_amount")}</g:link></td>
+						<td><g:link action="show" id="${bidInstance.id}">${fieldValue(bean: bidInstance, field: "amount")}</g:link></td>
 					
-						<td>${fieldValue(bean: bidInstance, field: "_auction")}</td>
+						<td>${fieldValue(bean: bidInstance, field: "auction")}</td>
 					
-						<td>${fieldValue(bean: bidInstance, field: "_bidId")}</td>
+						<td>${fieldValue(bean: bidInstance, field: "bidId")}</td>
 					
-						<td>${fieldValue(bean: bidInstance, field: "_bid_user")}</td>
+						<td>${fieldValue(bean: bidInstance, field: "bid_user")}</td>
 					
-						<td><g:formatDate date="${bidInstance._date}" /></td>
+						<td><g:formatDate date="${bidInstance.dateCreated}" /></td>
 					
 					</tr>
 				</g:each>
