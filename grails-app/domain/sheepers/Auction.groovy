@@ -10,7 +10,9 @@ class Auction {
     Address toAdr
     String name
 
-    static belongsTo = SUser
+    static belongsTo = Profile
+    static hasOne = [profile : Profile]
+
     static hasMany = [bids: Bid, items:AuctionItem]
     static embedded = ['toAdr','fromAdr']
 

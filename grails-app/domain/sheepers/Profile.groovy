@@ -1,6 +1,6 @@
 package sheepers
 
-class SUser extends User{
+class Profile extends User{
 
     enum UserType  {Customer,Carrier}
     String PhoneNumber

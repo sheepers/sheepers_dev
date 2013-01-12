@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/grails-app/domain/sheepers/SUser.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/sheepers/Profile.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/Config.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
@@ -10,11 +12,11 @@
     <ignored path="Sheepers.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357926941132" ignored="false" />
-    <file path="/Auction.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357915167003" ignored="false" />
-    <file path="/SUser.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357416828568" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358018574969" ignored="false" />
+    <file path="/Auction.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019094726" ignored="false" />
+    <file path="/SUser.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019049684" ignored="false" />
     <file path="/AuctionItem.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357857334299" ignored="false" />
-    <file path="/Bid.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357857252065" ignored="false" />
+    <file path="/Bid.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019541920" ignored="false" />
     <file path="/UserController.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357412256902" ignored="false" />
     <file path="/Config.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357412137174" ignored="false" />
     <file path="/User.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1357417885156" ignored="false" />
@@ -82,36 +84,65 @@
       <file leaf-file-name="AuctionController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/AuctionController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="6" selection-start="88" selection-end="88" vertical-scroll-proportion="-2.6086957">
+            <state line="18" column="46" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.73913">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildConfig.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
+      <file leaf-file-name="Auction.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="2" column="7" selection-start="25" selection-end="25" vertical-scroll-proportion="-0.6">
+              <folding>
+                <element signature="e#18#45#0" expanded="true" />
+              </folding>
             </state>
+          </provider>
+          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationResources.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/conf/ApplicationResources.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Config.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="35" selection-start="5082" selection-end="5082" vertical-scroll-proportion="0.6764706">
+            <state line="108" column="74" selection-start="4766" selection-end="4766" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/LoginController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="64" selection-start="1386" selection-end="1402" vertical-scroll-proportion="-11.086957">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Profile.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="9" selection-start="27" selection-end="27" vertical-scroll-proportion="-0.6">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bid.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="61" selection-start="95" selection-end="95" vertical-scroll-proportion="0.22826087">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -149,15 +180,15 @@
         <option value="$PROJECT_DIR$/grails-app/controllers/sheepers/SUserController.groovy" />
         <option value="$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/spring-security-ui-0.2/grails-app/controllers/grails/plugins/springsecurity/ui/UserController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/sheepers/RegisterController.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/SUser.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/sheepers/User.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/sheepers/AuctionItem.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/aa.gsp" />
         <option value="$USER_HOME$/design/css/style.css" />
-        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/SUser.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy" />
       </list>
     </option>
   </component>
@@ -644,7 +675,11 @@
       <created>1357926947116</created>
       <updated>1357926947116</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="minor changes 2">
+      <created>1358018587595</created>
+      <updated>1358018587595</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -740,7 +775,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes 2" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -758,6 +793,7 @@
     <MESSAGE value="change in address" />
     <MESSAGE value="git &amp; email problem" />
     <MESSAGE value="minor changes" />
+    <MESSAGE value="minor changes 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -767,77 +803,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/User.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="27" selection-start="188" selection-end="188" vertical-scroll-proportion="0.35869566">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/design/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="8" selection-start="524" selection-end="524" vertical-scroll-proportion="-8.634497">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/design/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="64" selection-start="5353" selection-end="5353" vertical-scroll-proportion="3.8155556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/login/auth.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="7" selection-end="7" vertical-scroll-proportion="0.037777778">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="45" selection-start="374" selection-end="374" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Role.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.6">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/SUser.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="28" selection-start="194" selection-end="194" vertical-scroll-proportion="-3.9">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="9" selection-start="195" selection-end="195" vertical-scroll-proportion="0.51487416">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/auction/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -869,13 +834,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/AuctionController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="88" selection-end="88" vertical-scroll-proportion="-2.6086957">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BuildConfig.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -890,11 +848,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+    <entry file="file://$USER_HOME$/design/js/ChunkFive_400.font.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="35" selection-start="5082" selection-end="5082" vertical-scroll-proportion="0.6764706">
+        <state line="7" column="54" selection-start="16071" selection-end="16071" vertical-scroll-proportion="0.2112676">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="25" selection-start="1434" selection-end="1434" vertical-scroll-proportion="0.96579474">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/design/js/cufon-yui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="0.18108653">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1358015207000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1358015207000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1358015207000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1358015207000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/conf/Config.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="74" selection-start="4766" selection-end="4766" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/AuctionController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="46" selection-start="496" selection-end="496" vertical-scroll-proportion="-11.73913">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="7" selection-start="25" selection-end="25" vertical-scroll-proportion="-0.6">
+          <folding>
+            <element signature="e#18#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/SUserController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="22" selection-start="129" selection-end="129" vertical-scroll-proportion="0.18480493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/LoginController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="64" selection-start="1386" selection-end="1402" vertical-scroll-proportion="-11.086957">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Profile.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="9" selection-start="27" selection-end="27" vertical-scroll-proportion="-0.6">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Bid.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="61" selection-start="95" selection-end="95" vertical-scroll-proportion="0.22826087">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>
