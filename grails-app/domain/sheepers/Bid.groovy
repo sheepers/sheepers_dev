@@ -8,7 +8,7 @@ class Bid {
      static belongsTo = [ auction : Auction, bid_user:SUser]
 
 
-    BigInteger bidId
+    //BigInteger bidId
     float amount
     Date dateCreated
 
