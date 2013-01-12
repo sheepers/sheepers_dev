@@ -23,22 +23,31 @@
 			</g:if>
 			<ol class="property-list auction">
 			
-				<g:if test="${auctionInstance?.auctionId}">
-				<li class="fieldcontain">
-					<span id="auctionId-label" class="property-label"><g:message code="auction.auctionId.label" default="Auction Id" /></span>
-					
-						<span class="property-value" aria-labelledby="auctionId-label"><g:fieldValue bean="${auctionInstance}" field="auctionId"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${auctionInstance?.bids}">
 				<li class="fieldcontain">
 					<span id="bids-label" class="property-label"><g:message code="auction.bids.label" default="Bids" /></span>
 					
 						<g:each in="${auctionInstance.bids}" var="b">
-						<span class="property-value" aria-labelledby="bids-label"><g:link controller="bid" action="show" id="${b.id}">${b?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="bids-label"><g:link controller="Bid" action="show" id="b.Id" >    ${fieldValue(bean: b, field: "amount")} </g:link></span>
 						</g:each>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${auctionInstance?.dateCreated}">
+				<li class="fieldcontain">
+					<span id="dateCreated-label" class="property-label"><g:message code="auction.dateCreated.label" default="Date Created" /></span>
+					
+						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${auctionInstance?.dateCreated}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${auctionInstance?.deadlineDate}">
+				<li class="fieldcontain">
+					<span id="deadlineDate-label" class="property-label"><g:message code="auction.deadlineDate.label" default="Deadline Date" /></span>
+					
+						<span class="property-value" aria-labelledby="deadlineDate-label"><g:formatDate date="${auctionInstance?.deadlineDate}" /></span>
 					
 				</li>
 				</g:if>
@@ -47,7 +56,18 @@
 				<li class="fieldcontain">
 					<span id="fromAdr-label" class="property-label"><g:message code="auction.fromAdr.label" default="From Adr" /></span>
 					
-						<span class="property-value" aria-labelledby="fromAdr-label"><g:link controller="address" action="show" id="${auctionInstance?.fromAdr?.id}">${auctionInstance?.fromAdr?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="fromAdr-label"><g:fieldValue bean="${auctionInstance}" field="fromAdr"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${auctionInstance?.items}">
+				<li class="fieldcontain">
+					<span id="items-label" class="property-label"><g:message code="auction.items.label" default="Items" /></span>
+					
+						<g:each in="${auctionInstance.items}" var="i">
+						<span class="property-value" aria-labelledby="items-label"><g:link controller="auctionItem" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -61,14 +81,17 @@
 				</li>
 				</g:if>
 			
+
 				<g:if test="${auctionInstance?.toAdr}">
 				<li class="fieldcontain">
 					<span id="toAdr-label" class="property-label"><g:message code="auction.toAdr.label" default="To Adr" /></span>
 					
-						<span class="property-value" aria-labelledby="toAdr-label"><g:link controller="address" action="show" id="${auctionInstance?.toAdr?.id}">${auctionInstance?.toAdr?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="toAdr-label"><g:fieldValue bean="${auctionInstance}" field="toAdr"/></span>
 					
 				</li>
 				</g:if>
+
+
 			
 			</ol>
 			<g:form>

@@ -28,8 +28,6 @@
 					
 						<th><g:message code="bid.auction.label" default="Auction" /></th>
 					
-						<g:sortableColumn property="bidId" title="${message(code: 'bid.bidId.label', default: 'Bid Id')}" />
-					
 						<th><g:message code="bid.bid_user.label" default="Biduser" /></th>
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'bid.dateCreated.label', default: 'Date Created')}" />
@@ -43,8 +41,6 @@
 						<td><g:link action="show" id="${bidInstance.id}">${fieldValue(bean: bidInstance, field: "amount")}</g:link></td>
 					
 						<td>${fieldValue(bean: bidInstance, field: "auction")}</td>
-					
-						<td>${fieldValue(bean: bidInstance, field: "bidId")}</td>
 					
 						<td>${fieldValue(bean: bidInstance, field: "bid_user")}</td>
 					

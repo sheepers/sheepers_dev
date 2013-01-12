@@ -41,20 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${bidInstance?.bidId}">
-				<li class="fieldcontain">
-					<span id="bidId-label" class="property-label"><g:message code="bid.bidId.label" default="Bid Id" /></span>
-					
-						<span class="property-value" aria-labelledby="bidId-label"><g:fieldValue bean="${bidInstance}" field="bidId"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${bidInstance?.bid_user}">
 				<li class="fieldcontain">
 					<span id="bid_user-label" class="property-label"><g:message code="bid.bid_user.label" default="Biduser" /></span>
 					
-						<span class="property-value" aria-labelledby="bid_user-label"><g:link controller="SUser" action="show" id="${bidInstance?.bid_user?.id}">${bidInstance?.bid_user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="bid_user-label"><g:link controller="profile" action="show" id="${bidInstance?.bid_user?.id}">${bidInstance?.bid_user?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

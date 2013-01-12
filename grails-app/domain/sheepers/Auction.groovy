@@ -5,16 +5,23 @@ import  sheepers.Address
 
 class Auction {
 
+
+
     //BigInteger auctionId
-    Address fromAdr
-    Address toAdr
+    String fromAdr
+    String toAdr
     String name
+    Date dateCreated
+    Date deadlineDate
+
+
+
 
     static belongsTo = Profile
     static hasOne = [profile : Profile]
 
     static hasMany = [bids: Bid, items:AuctionItem]
-    static embedded = ['toAdr','fromAdr']
+    //static embedded = ['toAdr','fromAdr']
 
 
 

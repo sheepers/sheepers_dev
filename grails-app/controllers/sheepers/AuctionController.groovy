@@ -3,13 +3,17 @@ package sheepers
 import org.springframework.dao.DataIntegrityViolationException
 
 class AuctionController {
-
+    //static scaffold = true
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
     }
 
+    def bidlist(){
+        def auction = Auction.get(params.id)
+        [bidsList : auction.bids]
+    }
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [auctionInstanceList: Auction.list(params), auctionInstanceTotal: Auction.count()]

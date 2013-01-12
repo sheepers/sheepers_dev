@@ -24,25 +24,33 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="auctionId" title="${message(code: 'auction.auctionId.label', default: 'Auction Id')}" />
+						<g:sortableColumn property="dateCreated" title="${message(code: 'auction.dateCreated.label', default: 'Date Created')}" />
 					
-						<th><g:message code="auction.fromAdr.label" default="From Adr" /></th>
+						<g:sortableColumn property="deadlineDate" title="${message(code: 'auction.deadlineDate.label', default: 'Deadline Date')}" />
+					
+						<g:sortableColumn property="fromAdr" title="${message(code: 'auction.fromAdr.label', default: 'From Adr')}" />
 					
 						<g:sortableColumn property="name" title="${message(code: 'auction.name.label', default: 'Name')}" />
 					
-						<th><g:message code="auction.toAdr.label" default="To Adr" /></th>
+						<th><g:message code="auction.profile.username.label" default="Profile" /></th>
+					
+						<g:sortableColumn property="toAdr" title="${message(code: 'auction.toAdr.label', default: 'To Adr')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${auctionInstanceList}" status="i" var="auctionInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+
+                        <td><g:formatDate date="${auctionInstance.dateCreated}" /></td>
 					
-						<td><g:link action="show" id="${auctionInstance.id}">${fieldValue(bean: auctionInstance, field: "auctionId")}</g:link></td>
+						<td><g:formatDate date="${auctionInstance.deadlineDate}" /></td>
 					
 						<td>${fieldValue(bean: auctionInstance, field: "fromAdr")}</td>
+
+                        <td><g:link action="show" id="${auctionInstance.id}">${fieldValue(bean: auctionInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: auctionInstance, field: "name")}</td>
+						<td>${fieldValue(bean: auctionInstance, field: "profile.username")}</td>
 					
 						<td>${fieldValue(bean: auctionInstance, field: "toAdr")}</td>
 					

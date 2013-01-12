@@ -5,7 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 class BidController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-
+    static scaffold = true
     def index() {
         redirect(action: "list", params: params)
     }
@@ -38,7 +38,7 @@ class BidController {
             return
         }
 
-        [bidInstance: bidInstance]
+        [bidInstance: bidInstance.amount]
     }
 
     def edit(Long id) {

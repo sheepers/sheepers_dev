@@ -105,7 +105,7 @@ grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'sheepers.User
 grails.plugins.springsecurity.authority.className = 'sheepers.Role'
 grails.plugins.springsecurity.requestMap.className = 'sheepers.Requestmap'
 grails.plugins.springsecurity.securityConfigType = 'Requestmap'
-grails.plugins.springsecurity.ui.register.postRegisterUrl = '/SUser/create'
+grails.plugins.springsecurity.ui.register.postRegisterUrl = '/Profile/create'
 grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/Auction'
 
 
