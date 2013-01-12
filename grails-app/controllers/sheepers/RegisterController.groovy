@@ -70,7 +70,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
             return [token: token, command: command]
         }
 
-        String salt = /*saltSource instanceof NullSaltSource ? null :*/ registrationCode.username
+        String salt = saltSource instanceof NullSaltSource ? null : registrationCode.username
         RegistrationCode.withTransaction { status ->
             def user = lookupUserClass().findByUsername(registrationCode.username)
             user.password = springSecurityUiService.encodePassword(command.password, salt)
@@ -94,7 +94,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         return
     }
 
-    String salt = /*saltSource instanceof NullSaltSource ? null :*/ command.username
+    String salt = saltSource instanceof NullSaltSource ? null : command.username
     def user = lookupUserClass().newInstance( username: command.username,
             accountLocked: true, enabled: true)
 
