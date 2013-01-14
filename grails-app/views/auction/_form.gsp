@@ -1,7 +1,7 @@
 <%@ page import="sheepers.Auction" %>
 
 
-
+<!--
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'bids', 'error')} ">
 	<label for="bids">
 		<g:message code="auction.bids.label" default="Bids" />
@@ -14,7 +14,7 @@
 </g:each>
 <li class="add">
 <g:link controller="bid" action="create" params="['auction.id': auctionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'bid.label', default: 'Bid')])}</g:link>
-</li>
+</li> -->
 </ul>
 
 </div>
@@ -60,13 +60,13 @@
 	<g:textField name="name" value="${auctionInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'profile', 'error')} required">
+<!--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'user', 'error')} required">
 	<label for="profile">
-		<g:message code="auction.profile.label" default="Profile" />
+		<g:message code="auction.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="profile" name="profile.id" from="${sheepers.Profile.list()}" optionKey="id" required="" value="${auctionInstance?.profile?.id}" class="many-to-one"/>
-</div>
+	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.user?.id}" class="many-to-one"/>
+</div> -->
 
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
 	<label for="toAdr">

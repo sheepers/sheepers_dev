@@ -11,7 +11,7 @@
 		<a href="#list-auction" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+				<li><a class="home" href="${createLink(uri: '/user/dash')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -32,7 +32,7 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'auction.name.label', default: 'Name')}" />
 					
-						<th><g:message code="auction.profile.username.label" default="Profile" /></th>
+						<th><g:message code="auction.user.username.label" default="User" /></th>
 					
 						<g:sortableColumn property="toAdr" title="${message(code: 'auction.toAdr.label', default: 'To Adr')}" />
 					
@@ -50,7 +50,7 @@
 
                         <td><g:link action="show" id="${auctionInstance.id}">${fieldValue(bean: auctionInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: auctionInstance, field: "profile.username")}</td>
+						<td>${fieldValue(bean: auctionInstance, field: "user.username")}</td>
 					
 						<td>${fieldValue(bean: auctionInstance, field: "toAdr")}</td>
 					
