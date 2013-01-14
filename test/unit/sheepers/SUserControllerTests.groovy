@@ -1,8 +1,5 @@
 package sheepers
 
-
-
-import org.junit.*
 import grails.test.mixin.*
 
 @TestFor(SUserController)

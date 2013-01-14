@@ -8,7 +8,9 @@ class UrlMappings {
 		}
 
 		"/gadmin"(view:"/index")
-        "/"(view:"/login/auth")
+        "/"(controller:"login", action:"index")
 		"500"(view:'/error')
+
+
 	}
 }

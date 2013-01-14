@@ -5,7 +5,7 @@ package sheepers
 class Bid {
 
 
-     static belongsTo = [ auction : Auction, bid_user:Profile]
+     static belongsTo = [ auction : Auction, bid_user:  Profile]
 
 
     //BigInteger bidId
@@ -13,7 +13,7 @@ class Bid {
     Date dateCreated
 
     static constraints = {
-        amount(blank:false)
+        amount blank:false
 
     }
 }
