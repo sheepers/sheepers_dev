@@ -12,20 +12,20 @@ class AuctionController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        if (!params.user)
+        if (!sec.loggedInUserInfo(field: 'id'))
         {
-            [auctionInstanceList: Auction.list(max: 0), auctionInstanceTotal: Auction.count()]
+            [auctionInstanceList: Auction.list(max: 0), auctionInstanceTotal: 0]
         }
         else
         {
-            def auctionList = Auction.find("from Auction as auc, User as usr where usr.id = auc.user.id and usr.username = :un",[un: params.user])
+            def auctionList = Auction.find("from Auction as auc where auc.user.id = :un",[un: sec.loggedInUserInfo(field: 'id').toLong()])
             if (!auctionList)
             {
                 [auctionInstanceList: Auction.list(max: 0), auctionInstanceTotal: Auction.countByUser(User.get((sec.loggedInUserInfo(field: 'id')).toLong()))]
             }
             else
             {
-                [actionInstanceList: auctionList, auctionInstanceTotal: Auction.countByUser(User.get((sec.loggedInUserInfo(field: 'id')).toLong()))]
+                [auctionInstanceList: auctionList.list(max: params.max), auctionInstanceTotal: Auction.countByUser(User.get((sec.loggedInUserInfo(field: 'id')).toLong()))]
             }
         }
 

@@ -68,11 +68,12 @@
 	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.user?.id}" class="many-to-one"/>
 </div> -->
 
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
+<div style="margin-bottom: 30px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
 	<label for="toAdr">
 		<g:message code="auction.toAdr.label" default="To Adr" />
 		
 	</label>
 	<g:textField name="toAdr" value="${auctionInstance?.toAdr}"/>
 </div>
+
 

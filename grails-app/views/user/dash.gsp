@@ -18,7 +18,7 @@
 
     <ul>
         <h1>Welcome <sec:username/></h1>
-        <li><g:link class="list" action="list" controller= "Auction" params="[ user: sec.username() ]">Auction list</g:link> </li>
+        <li><g:link class="list" action="list" controller= "Auction" >Auction list</g:link> </li>
         <li><g:link class="create" controller="Auction" action="create">Create new auction</g:link></li>
         <li><g:link class="edit" controller="Profile" action="edit">Edit profile</g:link></li>
      </ul>
