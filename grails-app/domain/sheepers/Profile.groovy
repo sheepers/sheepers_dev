@@ -1,13 +1,14 @@
 package sheepers
 
-class Profile extends User{
+class Profile {
 
     enum UserType  {Customer,Carrier}
     String userPhoneNumber
-    static hasMany = [bids:Bid, auctions:Auction]
 
+    static belongsTo = User
+    static hasOne = [user: User]
 
     static constraints = {
-        userPhoneNumber blank: true
+       userPhoneNumber nullable: true
     }
 }
