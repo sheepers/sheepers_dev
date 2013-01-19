@@ -17,8 +17,8 @@ class Auction {
 
 
 
-    static belongsTo = User
-    static hasOne = [user : User]
+    static belongsTo = Profile
+    static hasOne = [profile : Profile]
 
     static hasMany = [bids: Bid, items:AuctionItem]
     //static embedded = ['toAdr','fromAdr']

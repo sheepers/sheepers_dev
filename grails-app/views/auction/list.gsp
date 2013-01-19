@@ -50,11 +50,12 @@
 
                         <td><g:link action="show" id="${auctionInstance.id}">${fieldValue(bean: auctionInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: auctionInstance, field: "user.username")}</td>
+						<td>${fieldValue(bean: auctionInstance, field: "profile.user.username")}</td>
 					
 						<td>${fieldValue(bean: auctionInstance, field: "toAdr")}</td>
 					
 					</tr>
+
 				</g:each>
 				</tbody>
 			</table>

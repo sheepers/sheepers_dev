@@ -60,12 +60,12 @@
 	<g:textField name="name" value="${auctionInstance?.name}"/>
 </div>
 
-<!--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'user', 'error')} required">
+<!--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'profile', 'error')} required">
 	<label for="profile">
-		<g:message code="auction.user.label" default="User" />
+		<g:message code="auction.profile.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.user?.id}" class="many-to-one"/>
+	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.profile?.user?.id}" class="many-to-one"/>
 </div> -->
 
 <div style="margin-bottom: 30px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">

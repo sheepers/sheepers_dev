@@ -5,8 +5,8 @@ package sheepers
 class Bid {
 
 
-     static belongsTo = [Auction, User]
-     static hasOne = [bid_user: User,  auction: Auction]
+     static belongsTo = [Auction, Profile]
+     static hasOne = [bid_profile: Profile,  auction: Auction]
 
 
     //BigInteger bidId

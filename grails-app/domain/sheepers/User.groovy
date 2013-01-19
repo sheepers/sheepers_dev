@@ -11,12 +11,11 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-    static hasMany = [ bids: Bid, auctions: Auction]
 	static constraints = {
 		username blank: false, unique: true
         profile  unique:  true
-        bids nullable:  true
-        auctions nullable:  true
+        //bids nullable:  true
+        //auctions nullable:  true
 		password blank: false
 	}
 

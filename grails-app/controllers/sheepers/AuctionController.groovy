@@ -18,14 +18,16 @@ class AuctionController {
         }
         else
         {
-            def auctionList = Auction.find("from Auction as auc where auc.user.id = :un",[un: sec.loggedInUserInfo(field: 'id').toLong()])
+            //def auctionList = Auction.find("from Auction as auc where auc.profile.id = :un",[un: Profile.find("from Profile as prof where prof.user.id = :pid",[pid: sec.loggedInUserInfo(field: 'id').toLong()]).id])
+            def user = User.get(sec.loggedInUserInfo(field: 'id').toLong())
+            def auctionList = user.profile.auctions
             if (!auctionList)
             {
-                [auctionInstanceList: Auction.list(max: 0), auctionInstanceTotal: Auction.countByUser(User.get((sec.loggedInUserInfo(field: 'id')).toLong()))]
+                [auctionInstanceList: Auction.list(max: 0), auctionInstanceTotal: 0]
             }
             else
             {
-                [auctionInstanceList: auctionList.list(max: params.max), auctionInstanceTotal: Auction.countByUser(User.get((sec.loggedInUserInfo(field: 'id')).toLong()))]
+                [auctionInstanceList: auctionList , auctionInstanceTotal: auctionList.size()]
             }
         }
 
@@ -37,7 +39,8 @@ class AuctionController {
     }
 
     def save() {
-        params.setProperty("user.id", sec.loggedInUserInfo(field: "id"))
+        def user = User.get(sec.loggedInUserInfo(field: "id").toLong())
+        params.setProperty("profile.id",user.profile.id)
         def auctionInstance = new Auction(params)
         if (!auctionInstance.save(flush: true)) {
             render(view: "create", model: [auctionInstance: auctionInstance])
