@@ -28,11 +28,35 @@
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">
-	<label for="fromAdr">
-		<g:message code="auction.fromAdr.label" default="From Adr" />
-		
+
+    <span>
+    <label for="fromAdr">
+		Source Address
 	</label>
-	<g:textField name="fromAdr" value="${auctionInstance?.fromAdr}"/>
+	<g:textField  name="fromAdr" value="${auctionInstance?.fromAdr}"/>
+    <label for="fromFloor">
+        <g:message code="auction.fromFloor.label" default="Floor" />
+
+    </label>
+        <g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/>
+    </span>
+</div>
+
+
+<div style="margin-bottom: 30px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
+
+    <span>
+    <label for="toAdr">
+        Destination Address
+
+    </label>
+    <g:textField name="toAdr" value="${auctionInstance?.toAdr}"/>
+    <label for="toFloor">
+        <g:message code="auction.toFloor.label" default="Floor" />
+
+    </label>
+    <g:textField name="toFloor" value="${auctionInstance?.toFloor}"/>
+    </span>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'items', 'error')} ">
@@ -52,12 +76,33 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="auction.name.label" default="Name" />
-		
+<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'IsElevator', 'error')} ">
+    <span>
+    <label for="IsElevator">
+        YES! I Have an elevator
+    </label>
+    <g:checkBox name="IsElevator" value="${auctionInstance?.IsElevator}"/>
+    <label for="disassmble">
+        YES! I`d love some help with dismanteling
+
+    </label>
+    <g:checkBox name="disassmble" value="${auctionInstance?.disassmble}"/>
+    </span>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
+    <label for="maxAmount">
+        <g:message code="auction.maxAmount.label" default="maxAmount" />
+
+    </label>
+    <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
+</div>
+
+<div style="margin-bottom: 40px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
+	<label for="comments">
+		I just wanna say:
 	</label>
-	<g:textField name="name" value="${auctionInstance?.name}"/>
+	<g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
 </div>
 
 <!--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'profile', 'error')} required">
@@ -68,12 +113,5 @@
 	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.profile?.user?.id}" class="many-to-one"/>
 </div> -->
 
-<div style="margin-bottom: 30px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
-	<label for="toAdr">
-		<g:message code="auction.toAdr.label" default="To Adr" />
-		
-	</label>
-	<g:textField name="toAdr" value="${auctionInstance?.toAdr}"/>
-</div>
 
 

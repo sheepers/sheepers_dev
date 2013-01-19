@@ -10,10 +10,17 @@ class Auction {
     //BigInteger auctionId
     String fromAdr
     String toAdr
-    String name
+    String fromFloor
+    String toFloor
+    Set<byte[]> photos
+
+    //String name
     Date dateCreated
     Date deadlineDate
-
+    boolean IsElevator
+    boolean disassmble
+    Integer maxAmount
+    String comments
 
 
 
@@ -26,6 +33,12 @@ class Auction {
 
 
     static constraints = {
+        maxAmount (nullable: true)
+        comments (nullable: true)
+        //photos nullable: true
+
+        //photos size : 0..15
+
     }
 
     static mapping = { bids sort: 'amount'}

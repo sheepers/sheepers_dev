@@ -72,14 +72,7 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${auctionInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="auction.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${auctionInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
+
 			
 
 				<g:if test="${auctionInstance?.toAdr}">
