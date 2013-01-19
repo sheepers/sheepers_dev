@@ -22,14 +22,16 @@
 			</g:if>
 			<ul style="margin: 30px">
 				<g:each in="${auctionInstanceList}" status="i" var="auctionInstance">
-					<li>
-                        <span>
+                    <g:link action="show" id="${auctionInstance.id}">
+                    <li>
+
 						From ${fieldValue(bean: auctionInstance, field: "fromAdr")}
                          To ${fieldValue(bean: auctionInstance, field: "toAdr")}
-                         Due on <g:formatDate type="date" style="short" date="${auctionInstance.deadlineDate}" />
-                        </span>
+                         Due on: <g:formatDate type="date" style="short" date="${auctionInstance.deadlineDate}" />
+
 						<!--<td>${fieldValue(bean: auctionInstance, field: "profile.user.username")}</td>-->
 					</li>
+                    </g:link>
 				</g:each>
 			</ul>
 			<div class="pagination">

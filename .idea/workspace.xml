@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/sheepers/AuctionItem.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/sheepers/AuctionItem.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/auction/list.gsp" afterPath="$PROJECT_DIR$/grails-app/views/auction/list.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/auction/show.gsp" afterPath="$PROJECT_DIR$/grails-app/views/auction/show.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Sheepers.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358025286112" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358623118502" ignored="false" />
     <file path="/Auction.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358621292797" ignored="false" />
     <file path="/SUser.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019049684" ignored="false" />
     <file path="/AuctionItem.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358618012792" ignored="false" />
@@ -26,7 +23,7 @@
     <file path="$PROJECT_DIR$/test/unit/sheepers/AuctionControllerTests.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358020870686" ignored="false" />
     <file path="/ProfileController.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358021733010" ignored="false" />
     <file path="/Profile.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358022265522" ignored="false" />
-    <file path="/list.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358623010323" ignored="false" />
+    <file path="/list.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358624099601" ignored="false" />
     <file path="/show.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358025941183" ignored="false" />
     <file path="/BidController.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358024243071" ignored="false" />
     <file path="$USER_HOME$/design/js/cufon-yui.js" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358592639965" ignored="false" />
@@ -139,8 +136,10 @@
       <file leaf-file-name="list.gsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/views/auction/list.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="35" selection-start="997" selection-end="997" vertical-scroll-proportion="0.46902654">
-              <folding />
+            <state line="24" column="68" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.5218045">
+              <folding>
+                <marker date="1358624120000" expanded="true" signature="1383:1388" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -700,7 +699,11 @@
       <created>1358025292163</created>
       <updated>1358025292163</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="User auction flow 1&#10;">
+      <created>1358623123612</created>
+      <updated>1358623123612</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -796,7 +799,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="bullshit&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="User auction flow 1&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -816,6 +819,7 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="minor changes 2" />
     <MESSAGE value="bullshit&#10;" />
+    <MESSAGE value="User auction flow 1&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -957,8 +961,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/auction/list.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="997" selection-end="997" vertical-scroll-proportion="0.46902654">
-          <folding />
+        <state line="24" column="68" selection-start="1142" selection-end="1142" vertical-scroll-proportion="0.5218045">
+          <folding>
+            <marker date="1358624120000" expanded="true" signature="1383:1388" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
