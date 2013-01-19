@@ -16,10 +16,10 @@
 			</ul>
 		</div>
 		<div  id="list-auction" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+            <h1>My upcoming movings</h1>
 			<ul style="margin: 30px">
 				<g:each in="${auctionInstanceList}" status="i" var="auctionInstance">
                     <g:link action="show" id="${auctionInstance.id}">
