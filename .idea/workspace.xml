@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/images/sheeps.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/css/main.css" afterPath="$PROJECT_DIR$/web-app/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Sheepers.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358624960148" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358635350635" ignored="false" />
     <file path="/Auction.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358621292797" ignored="false" />
     <file path="/SUser.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019049684" ignored="false" />
     <file path="/AuctionItem.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358618012792" ignored="false" />
@@ -28,7 +29,7 @@
     <file path="$USER_HOME$/design/js/cufon-yui.js" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358592639965" ignored="false" />
     <file path="/_form.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358622240270" ignored="false" />
     <file path="/main.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358634818157" ignored="false" />
-    <file path="/main.css" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358635299136" ignored="false" />
+    <file path="/main.css" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358635728922" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +149,7 @@
       <file leaf-file-name="main.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="124" selection-start="1309" selection-end="1309" vertical-scroll-proportion="-13.846154">
+            <state line="20" column="124" selection-start="1309" selection-end="1309" vertical-scroll-proportion="-13.333333">
               <folding />
             </state>
           </provider>
@@ -157,7 +158,7 @@
       <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web-app/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="19" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.28651685">
+            <state line="50" column="30" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.23735955">
               <folding />
             </state>
           </provider>
@@ -712,7 +713,11 @@
       <created>1358624963089</created>
       <updated>1358624963090</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="surprise">
+      <created>1358635354213</created>
+      <updated>1358635354213</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -737,7 +742,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998565" sideWeight="0.6708229" order="3" side_tool="false" content_ui="tabs" />
@@ -750,7 +755,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.21820448" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20086083" sideWeight="0.6708229" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20086083" sideWeight="0.6708229" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32917705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -808,7 +813,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="title" />
+    <option name="LAST_COMMIT_MESSAGE" value="surprise" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -831,6 +836,7 @@
     <MESSAGE value="User auction flow 1&#10;" />
     <MESSAGE value="adding link" />
     <MESSAGE value="title" />
+    <MESSAGE value="surprise" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -958,14 +964,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="124" selection-start="1309" selection-end="1309" vertical-scroll-proportion="-13.846154">
+        <state line="20" column="124" selection-start="1309" selection-end="1309" vertical-scroll-proportion="-13.333333">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="19" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.28651685">
+        <state line="50" column="30" selection-start="1318" selection-end="1318" vertical-scroll-proportion="0.23735955">
           <folding />
         </state>
       </provider>
