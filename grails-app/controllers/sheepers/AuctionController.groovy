@@ -40,7 +40,7 @@ class AuctionController {
 
     def save() {
         def user = User.get(sec.loggedInUserInfo(field: "id").toLong())
-        params.setProperty("profile.id",user.profile.id)
+        params.setProperty("profile",user.profile)
         def auctionInstance = new Auction(params)
         if (!auctionInstance.save(flush: true)) {
             render(view: "create", model: [auctionInstance: auctionInstance])
