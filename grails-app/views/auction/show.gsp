@@ -66,7 +66,7 @@
 					<span id="items-label" class="property-label"><g:message code="auction.items.label" default="Items" /></span>
 					
 						<g:each in="${auctionInstance.items}" var="i">
-						<span class="property-value" aria-labelledby="items-label"><g:link controller="auctionItem" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="items-label"><g:link controller="auctionItem" action="show" id="${i.id}"><g:fieldValue bean="${i}" field="typeOfItem"/></g:link></span>
 						</g:each>
 					
 				</li>

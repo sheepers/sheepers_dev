@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list auctionItem">
 			
-				<g:if test="${auctionItemInstance?.isFragile}">
-				<li class="fieldcontain">
-					<span id="isFragile-label" class="property-label"><g:message code="auctionItem.isFragile.label" default="Is Fragile" /></span>
-					
-						<span class="property-value" aria-labelledby="isFragile-label"><g:formatBoolean boolean="${auctionItemInstance?.isFragile}" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${auctionItemInstance?.size}">
 				<li class="fieldcontain">
 					<span id="size-label" class="property-label"><g:message code="auctionItem.size.label" default="Size" /></span>

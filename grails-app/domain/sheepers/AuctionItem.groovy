@@ -19,6 +19,7 @@ class AuctionItem {
     static constraints = {
         comments( nullable: true)
         amountOfBoxes (nullable : true)
+        auction (nullable: true)
     }
 
 

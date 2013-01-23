@@ -23,9 +23,7 @@
 			<table>
 				<thead>
 					<tr>
-					
-						<g:sortableColumn property="isFragile" title="${message(code: 'auctionItem.isFragile.label', default: 'Is Fragile')}" />
-					
+
 						<g:sortableColumn property="size" title="${message(code: 'auctionItem.size.label', default: 'Size')}" />
 					
 						<g:sortableColumn property="typeOfItem" title="${message(code: 'auctionItem.typeOfItem.label', default: 'Type Of Item')}" />
@@ -36,8 +34,7 @@
 				<g:each in="${auctionItemInstanceList}" status="i" var="auctionItemInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${auctionItemInstance.id}">${fieldValue(bean: auctionItemInstance, field: "isFragile")}</g:link></td>
-					
+
 						<td>${fieldValue(bean: auctionItemInstance, field: "size")}</td>
 					
 						<td>${fieldValue(bean: auctionItemInstance, field: "typeOfItem")}</td>

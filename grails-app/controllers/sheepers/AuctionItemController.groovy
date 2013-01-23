@@ -17,6 +17,7 @@ class AuctionItemController {
 
     def create() {
 
+
         [auctionItemInstance: new AuctionItem(params)]
     }
 
@@ -29,7 +30,7 @@ class AuctionItemController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'auctionItem.label', default: 'AuctionItem'), auctionItemInstance.id])
-        redirect(action: "show", id: auctionItemInstance.id)
+        redirect( uri: "/Auction/show/" + auctionItemInstance.auction.id.toString())
     }
 
     def show(Long id) {

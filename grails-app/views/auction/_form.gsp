@@ -67,7 +67,7 @@
 	
 <ul class="one-to-many">
 <g:each in="${auctionInstance?.items?}" var="i">
-    <li><g:link controller="auctionItem" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="auctionItem" action="show" id="${i.id}"><g:fieldValue bean="${i}" field="typeOfItem"/></g:link></li>
 </g:each>
 <li class="add">
 <g:link controller="auctionItem" action="create" params="['auction.id': auctionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'auctionItem.label', default: 'AuctionItem')])}</g:link>

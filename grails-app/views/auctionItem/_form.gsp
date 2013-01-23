@@ -37,3 +37,9 @@
 </div>
 
 
+<div class="fieldcontain ${hasErrors(bean: auctionItemInstance, field: 'auction.id', 'error')} ">
+    <g:hiddenField name="auction.id" value="${auctionItemInstance?.auction.id}"/>
+</div>
+
+
+
