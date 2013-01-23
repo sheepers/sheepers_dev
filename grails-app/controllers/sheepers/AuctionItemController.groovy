@@ -16,11 +16,13 @@ class AuctionItemController {
     }
 
     def create() {
+
         [auctionItemInstance: new AuctionItem(params)]
     }
 
     def save() {
         def auctionItemInstance = new AuctionItem(params)
+
         if (!auctionItemInstance.save(flush: true)) {
             render(view: "create", model: [auctionItemInstance: auctionItemInstance])
             return
