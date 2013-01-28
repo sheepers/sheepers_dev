@@ -5,6 +5,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+        <r:require module="application"/>
 	</head>
 	<body>
 		<a href="#create-auction" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>

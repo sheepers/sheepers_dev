@@ -1,4 +1,5 @@
 <%@ page import="sheepers.Auction" %>
+<%@ page import="sheepers.AuctionItem" %>
 
 
 <!--
@@ -66,12 +67,32 @@
 	</label>
 	
 <ul class="one-to-many">
-<g:each in="${auctionInstance?.items?}" var="i">
-    <li><g:link controller="auctionItem" action="show" id="${i.id}"><g:fieldValue bean="${i}" field="typeOfItem"/></g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="auctionItem" action="create" params="['auction.id': auctionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'auctionItem.label', default: 'AuctionItem')])}</g:link>
-</li>
+    <table>
+      <thead>
+        <tr>
+            <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
+            <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'${sheepers.ESize.values().toString()}'}">Size </th>
+            <th data="{required:true, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
+            <th data="{required:true, name:'comments', placeholder:'Required'}">Comments </th>
+            <th data="{editable:false}">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <g:each in="${auctionInstance?.items}" var="p" status="i">
+            <tr rowId="${i}">
+                <td>${p.typeOfItem}</td>
+                <td>${p.size}</td>
+                <td>${p.amountOfBoxes}</td>
+                <td>${p.comments}</td>
+                <td><r:img class="deleteRowButton" dir='images' file='skin/database_delete.png'/></td>
+            </tr>
+        </g:each>
+        </tbody>
+    </table>
+
+    <li class="add"><a id="addItemLink" href="#">Add Item</a></li>
+
+
 </ul>
 
 </div>
@@ -114,4 +135,42 @@
 </div> -->
 
 
+
+
+<r:script>
+    $(function() {
+        $.metadata.setType("attr", "data");
+
+        $("table").writetable({
+            autoAddRow: false,
+            rowAdded: function( event, row ) {
+                console.debug("in the rowAdded callback");
+                $(row).children("td").last().append('<r:img class="deleteRowButton" dir="images" file="skin/database_delete.png"/>');
+            },
+            rowSelected: function(event, row) {
+                console.debug("in the rowSelected callback");
+            },
+            rowRemoved: function(event, row) {
+                console.debug("in the rowRemoved callback handler");
+                var rowId =  $(row).attr('rowId');
+                $(row).parent().append("<input type='hidden' name='items[" + rowId + "].deleted' value='true' />");
+//                event.stopPropagation();
+            }
+        });
+
+        $("#addItemLink").click(function() {
+            console.debug("in the click handler");
+            $("table").writetable("addRow");
+            return false;
+        });
+
+        $('img.deleteRowButton').on("click", function(event) {
+            console.debug("in the deleteRowButton click handler");
+            var target = $(event.target);
+            var row = target.closest('tr');
+            $('table').writetable('removeRow', event, row);
+        });
+
+    });
+</r:script>
 

@@ -41,7 +41,10 @@ class Auction {
 
     }
 
-    static mapping = { bids sort: 'amount'}
+    static mapping = {
+        bids sort: 'amount'
+
+    }
     /*replace with dynamic sorting in the future */
 
 }

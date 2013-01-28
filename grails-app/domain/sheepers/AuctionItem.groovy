@@ -16,10 +16,12 @@ class AuctionItem {
     //boolean isFragile
     //Set<byte[]> pictures
 
-    static constraints = {
+
+
+static constraints = {
         comments( nullable: true)
         amountOfBoxes (nullable : true)
-        auction (nullable: true)
+
     }
 
 
