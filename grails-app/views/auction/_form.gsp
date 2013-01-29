@@ -1,24 +1,5 @@
 <%@ page import="sheepers.Auction" %>
-<%@ page import="sheepers.AuctionItem" %>
 
-
-<!--
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'bids', 'error')} ">
-	<label for="bids">
-		<g:message code="auction.bids.label" default="Bids" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${auctionInstance?.bids?}" var="b">
-    <li><g:link controller="bid" action="show" id="${b.id}">${b?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="bid" action="create" params="['auction.id': auctionInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'bid.label', default: 'Bid')])}</g:link>
-</li> -->
-</ul>
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'deadlineDate', 'error')} required">
 	<label for="deadlineDate">
@@ -67,13 +48,13 @@
 	</label>
 	
 <ul class="one-to-many">
-    <table>
+    <table data="{tableName:'items'}">
       <thead>
         <tr>
             <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
             <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'${sheepers.ESize.values().toString()}'}">Size </th>
-            <th data="{required:true, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
-            <th data="{required:true, name:'comments', placeholder:'Required'}">Comments </th>
+            <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
+            <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
             <th data="{editable:false}">&nbsp;</th>
         </tr>
         </thead>
@@ -126,14 +107,6 @@
 	<g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
 </div>
 
-<!--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'profile', 'error')} required">
-	<label for="profile">
-		<g:message code="auction.profile.label" default="User" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="user" name="user.id" from="${sheepers.User.list()}" optionKey="id" required="" value="${auctionInstance?.profile?.user?.id}" class="many-to-one"/>
-</div> -->
-
 
 
 
@@ -161,7 +134,7 @@
         $("#addItemLink").click(function() {
             console.debug("in the click handler");
             $("table").writetable("addRow");
-            return false;
+             return false;
         });
 
         $('img.deleteRowButton').on("click", function(event) {

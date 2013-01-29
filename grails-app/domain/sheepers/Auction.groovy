@@ -21,12 +21,9 @@ class Auction {
     boolean disassmble
     Integer maxAmount
     String comments
-
-
-
+    List items
     static belongsTo = Profile
     static hasOne = [profile : Profile]
-
     static hasMany = [bids: Bid, items:AuctionItem]
     //static embedded = ['toAdr','fromAdr']
 
@@ -43,6 +40,7 @@ class Auction {
 
     static mapping = {
         bids sort: 'amount'
+        items cascade:"all-delete-orphan"
 
     }
     /*replace with dynamic sorting in the future */

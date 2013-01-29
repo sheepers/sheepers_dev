@@ -10,17 +10,19 @@ class AuctionItem {
 
     EtypeOfItem typeOfItem
     ESize size
+    boolean deleted
+    static transients = [ 'deleted' ]
 
     String comments
-    int amountOfBoxes
+    String amountOfBoxes
     //boolean isFragile
     //Set<byte[]> pictures
 
 
 
 static constraints = {
-        comments( nullable: true)
-        amountOfBoxes (nullable : true)
+        comments( blank: true )
+        amountOfBoxes (blank : true)
 
     }
 

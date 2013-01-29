@@ -36,7 +36,7 @@ class AuctionController {
 
     def create() {
 
-        [auctionInstance: new Auction(params)]
+       // [auctionInstance: new Auction(params)]
     }
 
     def save() {
@@ -91,7 +91,7 @@ class AuctionController {
                 return
             }
         }
-
+        auctionInstance.items.removeAll{it.deleted}
         auctionInstance.properties = params
 
         if (!auctionInstance.save(flush: true)) {
