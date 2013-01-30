@@ -91,8 +91,9 @@ class AuctionController {
                 return
             }
         }
-        auctionInstance.items.removeAll{it.deleted}
         auctionInstance.properties = params
+        auctionInstance.items.removeAll{it.deleted}
+
 
         if (!auctionInstance.save(flush: true)) {
             render(view: "edit", model: [auctionInstance: auctionInstance])
