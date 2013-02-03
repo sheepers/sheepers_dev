@@ -27,9 +27,13 @@
         <g:each in="${Auction.list()}" var="auction">
             <div class="accordion-group">
                 <div class="accordion-heading">
+
+
+                    <g:link class="edit" controller="Auction" action="edit" id="${auction.id}" style="float: left"><i class="icon-pencil" ></i></g:link>
                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${auction.id}">
-                     From ${auction.fromAdr} to ${auction.toAdr} on ${auction.deadlineDate.dateString}
+                    From ${auction.fromAdr} to ${auction.toAdr} on ${auction.deadlineDate.dateString}
                     </a>
+
                 </div>
             <div id="collapse${auction.id}" class="accordion-body collapse ">
             <div class="accordion-inner">
