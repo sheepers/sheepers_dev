@@ -4,11 +4,11 @@
     <facet type="web" name="GrailsWeb">
       <configuration>
         <webroots>
-          <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/famfamfam-1.0.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/database-migration-1.2.1/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/jquery-1.8.0/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/spring-security-ui-0.2/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/spring-security-ui-0.2/grails-app/views" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/famfamfam-1.0.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/mail-1.0.1/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/jquery-ui-1.8.24/web-app" relative="/" />
         </webroots>
@@ -17,10 +17,7 @@
     </facet>
     <facet type="hibernate" name="Hibernate">
       <configuration>
-        <datasource-map>
-          <unit-entry name="Gorm" />
-          <unit-entry name="sessionFactory" />
-        </datasource-map>
+        <datasource-map />
       </configuration>
     </facet>
   </component>
@@ -82,7 +79,7 @@
     <content url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/webxml-1.4.1">
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.2/projects/sheepers/plugins/webxml-1.4.1/src/groovy" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="J2SDK" jdkType="JavaSDK" />
+    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="grails-2.1.2" level="application" />
     <orderEntry type="module-library" exported="">
