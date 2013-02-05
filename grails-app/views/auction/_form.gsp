@@ -12,15 +12,20 @@
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">
 
     <span>
-    <label for="fromAdr">
-		Source Address
-	</label>
-	<g:textField  name="fromAdr" value="${auctionInstance?.fromAdr}"/>
-    <label for="fromFloor">
-        <g:message code="auction.fromFloor.label" default="Floor" />
+        <g:form class="form-inline">
+        <label class="control-label" for="fromAdr">Source Address</label>
+        <div class="controls">
+            <g:textField  name="fromAdr" placeholder="Source address" value="${auctionInstance?.fromAdr}"/>
+        </div>
 
+
+    <label class="control-label" for="fromFloor">
+        <g:message code="auction.fromFloor.label" default="Floor" />
     </label>
-        <g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/>
+        <div class="controls">
+            <g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/>
+        </div>
+    </g:form>
     </span>
 </div>
 

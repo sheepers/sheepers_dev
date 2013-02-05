@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" name="Default" comment="surprise">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/ApplicationResources.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/ApplicationResources.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sheepers.iml" afterPath="$PROJECT_DIR$/Sheepers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/user/dash.gsp" afterPath="$PROJECT_DIR$/grails-app/views/user/dash.gsp" />
+    <list default="true" id="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" afterPath="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/auction/create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/auction/create.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sheepers-grailsPlugins.iml" afterPath="$PROJECT_DIR$/sheepers-grailsPlugins.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/stacktrace.log" afterPath="$PROJECT_DIR$/target/stacktrace.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Sheepers.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$USER_HOME$/.grails/" />
-    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360003034190" ignored="false" />
+    <file path="/Dummy.txt" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360008944539" ignored="false" />
     <file path="/Auction.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358621292797" ignored="false" />
     <file path="/SUser.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358019049684" ignored="false" />
     <file path="/AuctionItem.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358618012792" ignored="false" />
@@ -31,12 +28,13 @@
     <file path="/show.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358025941183" ignored="false" />
     <file path="/BidController.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358024243071" ignored="false" />
     <file path="$USER_HOME$/design/js/cufon-yui.js" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358592639965" ignored="false" />
-    <file path="/_form.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358622240270" ignored="false" />
-    <file path="/main.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360007630999" ignored="false" />
+    <file path="/_form.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360095709616" ignored="false" />
+    <file path="/main.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360093217119" ignored="false" />
     <file path="/main.css" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1358635728922" ignored="false" />
     <file path="/a.groovy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1359583677972" ignored="false" />
     <file path="/a.dummy" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360003028569" ignored="false" />
-    <file path="/dash.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360008690950" ignored="false" />
+    <file path="/dash.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360009245041" ignored="false" />
+    <file path="/create.gsp" changelist="1c5da4b3-31e5-41ad-9a0a-4ee2bf521f88" time="1360095679177" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,14 +94,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dash.gsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dash.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/user/dash.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="81" selection-start="854" selection-end="854" vertical-scroll-proportion="0.14376321">
+            <state line="28" column="125" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-5.1369863">
               <folding>
-                <marker date="1360008710000" expanded="true" signature="724:735" placeholder="{...}" />
-                <marker date="1360008710000" expanded="true" signature="1239:1250" placeholder="{...}" />
-                <marker date="1360008710000" expanded="true" signature="202:213" placeholder="{...}" />
+                <marker date="1360009158000" expanded="true" signature="724:735" placeholder="{...}" />
+                <marker date="1360009158000" expanded="true" signature="1239:1250" placeholder="{...}" />
+                <marker date="1360009158000" expanded="true" signature="202:213" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -112,16 +110,7 @@
       <file leaf-file-name="main.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="43" selection-start="1649" selection-end="1649" vertical-scroll-proportion="-8.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/profile/show.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="67" column="46" selection-start="2783" selection-end="2783" vertical-scroll-proportion="-8.7">
               <folding />
             </state>
           </provider>
@@ -130,7 +119,33 @@
       <file leaf-file-name="ProfileController.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/ProfileController.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="6" selection-start="88" selection-end="88" vertical-scroll-proportion="45.173912">
+            <state line="91" column="29" selection-start="3225" selection-end="3225" vertical-scroll-proportion="-20.347826">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.gsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/auction/_form.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="24" selection-start="1709" selection-end="1709" vertical-scroll-proportion="0.5120482">
+              <folding>
+                <marker date="1360095711000" expanded="true" signature="3973:5291" placeholder="{...}" />
+                <marker date="1360095711000" expanded="true" signature="4050:4812" placeholder="{&quot;autoAddRow&quot;: false...}" />
+                <marker date="1360095711000" expanded="true" signature="4128:4336" placeholder="{...}" />
+                <marker date="1360095711000" expanded="true" signature="4384:4461" placeholder="{...}" />
+                <marker date="1360095711000" expanded="true" signature="4508:4802" placeholder="{...}" />
+                <marker date="1360095711000" expanded="true" signature="4859:4993" placeholder="{...}" />
+                <marker date="1360095711000" expanded="true" signature="5058:5282" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/auction/create.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="21" selection-start="1298" selection-end="1298" vertical-scroll-proportion="-8.404255">
               <folding />
             </state>
           </provider>
@@ -147,24 +162,6 @@
       </file>
       <file leaf-file-name="index.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/index.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="myview.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/myview.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/user/edit.gsp">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
               <folding />
@@ -202,13 +199,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/grails-app/conf/Config.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Profile.groovy" />
         <option value="$PROJECT_DIR$/grails-app/controllers/sheepers/BidController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/user/myview.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/sheepers/AuctionItem.groovy" />
         <option value="$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/auction/show.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/auction/list.gsp" />
         <option value="$PROJECT_DIR$/web-app/css/main.css" />
@@ -216,8 +211,10 @@
         <option value="$PROJECT_DIR$/grails-app/controllers/sheepers/AuctionController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/DataSource.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/ApplicationResources.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/user/dash.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/main.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/auction/create.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/auction/_form.gsp" />
       </list>
     </option>
   </component>
@@ -369,6 +366,28 @@
               <option name="myItemId" value="grails-app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sheepers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sheepers_dev" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grails-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -423,24 +442,40 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="135" />
     <property name="project.structure.proportion" value="0.0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="136" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="139" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="recentsLimit" value="5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="$USER_HOME$/design/css/style.css" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="939" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="934" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="141" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="true" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RestoreUpdateTree">
     <UpdateInfo date="Moments ago" ActionInfo="_Update">
@@ -772,7 +807,11 @@
       <created>1358714615128</created>
       <updated>1358714615128</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="integration BS to dash and main (1)">
+      <created>1360008957573</created>
+      <updated>1360008957573</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -813,20 +852,20 @@
       <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20086083" sideWeight="0.7319202" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668328" sideWeight="0.49713057" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.21820448" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668328" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.3690773" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23170732" sideWeight="0.7319202" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2680798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23170732" sideWeight="0.7331671" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26683292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -868,7 +907,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="surprise" />
+    <option name="LAST_COMMIT_MESSAGE" value="integration BS to dash and main (1)" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -892,6 +931,7 @@
     <MESSAGE value="adding link" />
     <MESSAGE value="title" />
     <MESSAGE value="surprise" />
+    <MESSAGE value="integration BS to dash and main (1)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -901,37 +941,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/domain/sheepers/Auction.groovy">
-      <provider selected="true" editor-type-id="org.jetbrains.plugins.grails.perspectives.DomainClassesRelationsEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="78" selection-end="78" vertical-scroll-proportion="11.086957">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/error.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/conf/ApplicationResources.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="38" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/register.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -974,20 +983,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/profile/show.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/ProfileController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="6" selection-start="88" selection-end="88" vertical-scroll-proportion="45.173912">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/UrlMappings.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1002,20 +997,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/user/dash.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="43" selection-start="1649" selection-end="1649" vertical-scroll-proportion="-8.125">
+        <state line="28" column="125" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-5.1369863">
+          <folding>
+            <marker date="1360009158000" expanded="true" signature="724:735" placeholder="{...}" />
+            <marker date="1360009158000" expanded="true" signature="1239:1250" placeholder="{...}" />
+            <marker date="1360009158000" expanded="true" signature="202:213" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/sheepers/ProfileController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="29" selection-start="3225" selection-end="3225" vertical-scroll-proportion="-20.347826">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/user/dash.gsp">
+    <entry file="file://$PROJECT_DIR$/Sheepers.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="81" selection-start="854" selection-end="854" vertical-scroll-proportion="0.14376321">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/profile/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="295" selection-end="295" vertical-scroll-proportion="0.3144654">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/auction/show.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/main.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="46" selection-start="2783" selection-end="2783" vertical-scroll-proportion="-8.7">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/auction/create.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="21" selection-start="1298" selection-end="1298" vertical-scroll-proportion="-8.404255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/auction/_form.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="24" selection-start="1709" selection-end="1709" vertical-scroll-proportion="0.5120482">
           <folding>
-            <marker date="1360008710000" expanded="true" signature="724:735" placeholder="{...}" />
-            <marker date="1360008710000" expanded="true" signature="1239:1250" placeholder="{...}" />
-            <marker date="1360008710000" expanded="true" signature="202:213" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="3973:5291" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="4050:4812" placeholder="{&quot;autoAddRow&quot;: false...}" />
+            <marker date="1360095711000" expanded="true" signature="4128:4336" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="4384:4461" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="4508:4802" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="4859:4993" placeholder="{...}" />
+            <marker date="1360095711000" expanded="true" signature="5058:5282" placeholder="{...}" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,7 @@
     <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Bootstrap, from Twitter</title>
+        <title>Sheepers</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -64,8 +64,8 @@
 
      <div class="container">
 
-         <h1>Bootstrap starter template</h1>
-         <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+         <h1>Sheepers starter template</h1>
+         <p>Market place for moving <business></business>.<br> All you get is this message and a barebones HTML document.</p>
 
      </div> <!-- /container -->
 
