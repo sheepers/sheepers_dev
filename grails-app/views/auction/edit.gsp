@@ -3,21 +3,17 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+        <link href="../../css/bootstrap.css" rel="stylesheet">
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
         <r:require module="application"/>
+        <r:layoutResources/>
 	</head>
 	<body>
-		<a href="#edit-auction" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/user/dash')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+
+    <!-- change-->
 		<div id="edit-auction" class="content scaffold-edit" role="main">
-			<h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+			<h1 style="padding-left: 50px"><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -28,7 +24,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form method="post" >
+			<g:form method="post" class="from-inline" style="padding-left: 50px" >
 				<g:hiddenField name="id" value="${auctionInstance?.id}" />
 				<g:hiddenField name="version" value="${auctionInstance?.version}" />
 				<fieldset class="form">
@@ -40,5 +36,6 @@
 				</fieldset>
 			</g:form>
 		</div>
+    <r:layoutResources/>
 	</body>
 </html>
