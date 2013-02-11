@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+        <link href="../../css/bootstrap.css" rel="stylesheet">
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>

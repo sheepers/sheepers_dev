@@ -9,27 +9,29 @@
 	<g:datePicker name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
 </div>
 
-<table>
-<tr>
+
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">
 
-    <td><label class="control-label" for="fromAdr">Source Address</label></td>
-    <td><g:textField  name="fromAdr" placeholder="Source address" value="${auctionInstance?.fromAdr}"/></td>
-    <td><label class="control-label" for="fromFloor">Floor </label></td>
-    <td><g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/></td>
+    <span class="form-inline">
+    <label class="control-label" for="fromAdr" style="padding-right: 2%">Source Address</label>
+    <g:textField  name="fromAdr" placeholder="Source address" value="${auctionInstance?.fromAdr}"/>
+    <label class="control-label" for="fromFloor">Floor </label>
+    <g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/>
+    </span>
 </div>
-</tr>
 
-<tr>
+
+
 <div style="margin-top: 10px; margin-bottom: 10px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
 
-    <td><label for="toAdr"> Destination Address</label></td>
-    <td><g:textField name="toAdr" value="${auctionInstance?.toAdr}"/></td>
-    <td><label for="toFloor">Floor</label></td>
-    <td><g:textField name="toFloor" value="${auctionInstance?.toFloor}"/></td>
+    <span class="form-inline">
+    <label for="toAdr"> Destination Address</label>
+    <g:textField name="toAdr" value="${auctionInstance?.toAdr}"/>
+    <label for="toFloor">Floor</label></td>
+    <g:textField name="toFloor" value="${auctionInstance?.toFloor}"/>
+    </span>
 </div>
-</tr>
-</table>
+
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'items', 'error')} ">
 	<label for="items">
 		<g:message code="auction.items.label" default="Items" />
@@ -89,7 +91,7 @@
     <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
 </div>
 
-<div style="margin-bottom: 40px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
+<div style="margin-bottom: 10px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
 	<label for="comments">
 		I just wanna say:
 	</label>
