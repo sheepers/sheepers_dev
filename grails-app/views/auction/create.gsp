@@ -11,8 +11,8 @@
 	</head>
 	<body>
         <!-- change -->
-
-		<div id="create-auction" class="content scaffold-create" role="main">
+    <span class="offset1">
+		<div id="create-auction" class="content scaffold-create offset1" role="main">
 			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -130,7 +130,7 @@
 				</fieldset>
 
 		</div>
-
+    </span>
     <r:script>
     $(function() {
         $.metadata.setType("attr", "data");

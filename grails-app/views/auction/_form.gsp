@@ -13,16 +13,16 @@
 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">
 
     <span class="form-inline">
-    <label class="control-label" for="fromAdr" style="padding-right: 2%">Source Address</label>
-    <g:textField  name="fromAdr" placeholder="Source address" value="${auctionInstance?.fromAdr}"/>
-    <label class="control-label" for="fromFloor">Floor </label>
-    <g:textField name="fromFloor" value="${auctionInstance?.fromFloor}"/>
+    <label class="control-label" for="fromAdr">Source Address</label>
+    <g:textField  name="fromAdr"   placeholder="Source address" value="${auctionInstance?.fromAdr}"/>
+    <label class="control-label " for="fromFloor">Floor </label>
+    <g:textField name="fromFloor"  value="${auctionInstance?.fromFloor}"/>
     </span>
 </div>
 
 
 
-<div style="margin-top: 10px; margin-bottom: 10px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
+<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
 
     <span class="form-inline">
     <label for="toAdr"> Destination Address</label>
@@ -91,7 +91,7 @@
     <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
 </div>
 
-<div style="margin-bottom: 10px" class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
 	<label for="comments">
 		I just wanna say:
 	</label>

@@ -12,8 +12,9 @@
 	<body>
 
     <!-- change-->
-		<div id="edit-auction" class="content scaffold-edit" role="main">
-			<h1 style="padding-left: 50px"><g:message code="default.edit.label" args="[entityName]" /></h1>
+
+		<div id="edit-auction" class="content scaffold-edit offset1" role="main">
+			<h1 ><g:message code="default.edit.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -24,7 +25,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form method="post" class="from-inline" style="padding-left: 50px" >
+			<g:form method="post" class="from-inline" >
 				<g:hiddenField name="id" value="${auctionInstance?.id}" />
 				<g:hiddenField name="version" value="${auctionInstance?.version}" />
 				<fieldset class="form">
