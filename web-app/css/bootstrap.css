@@ -3310,26 +3310,6 @@ input[type="button"].btn-block {
   border-color: #c5c5c5;
   border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
 }
-
-.delete,
-.save{
-    color: #ffffff;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #006dcc;
-    *background-color: #0044cc;
-    background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-    background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-    background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-    background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-    background-repeat: repeat-x;
-    border-color: #0044cc #0044cc #002a80;
-    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    border-radius: 10px;
-
-}
 .btn-primary {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -3347,12 +3327,6 @@ input[type="button"].btn-block {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
-.delete:hover,
-.delete:active,
-.delete:disabled,
-.save:hover,
-.save:active,
-.save:disabled,
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active,
@@ -3363,8 +3337,6 @@ input[type="button"].btn-block {
   *background-color: #003bb3;
 }
 
-.delete:active,
-.save:active,
 .btn-primary:active,
 .btn-primary.active {
   background-color: #003399 \9;
