@@ -12,10 +12,10 @@
 	</head>
 	<body>
 
-
-		<div id="create-auction" class="pull-right" role="main">
+        %{--<div class="container-fluid">--}%
+		<div id="create-auction" class="offset1"  role="main">
 			%{--<h1><g:message code="default.create.label" args="[entityName]" /></h1>--}%
-
+             <div class="pull-right">
             <h1>זה מה שיש לי להוביל </h1>
             <g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -27,24 +27,19 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-
-
-            <fieldset class="form">
-                <g:render template="form"/>
-            </fieldset>
-
-
-            %{--<fieldset class="buttons">--}%
-					<g:actionSubmit  class="btn btn-primary pull-right" action="save" value="צור חדש"/>
-			%{--</fieldset>--}%
-
+            </div>
+            <g:form method="post"  >
+                <fieldset class="form">
+                    <g:render template="form"/>
+                </fieldset>
+                <fieldset class="buttons">
+                    <g:actionSubmit  class="btn btn-primary pull-right" action="save" id="save" value="צור חדש"/>
+                    <g:actionSubmit class="btn btn-primary pull-right" action="create" value="create" />
+                </fieldset>
+            </g:form>
 
          </div>
-
-
-
+        %{--</div>--}%
     <r:layoutResources/>
-
-
     </body>
 </html>

@@ -8,19 +8,19 @@
                 %{--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">--}%
                 <span class="form-inline">
 
-                        <g:textField name="fromFloor"  placeholder="מספר קומה" value="${auctionInstance?.fromFloor}"/>
+                        <g:textField class="input-mini" name="fromFloor"  placeholder="מספר" value="${auctionInstance?.fromFloor}"/>
                         <label class="control-label " for="fromFloor">קומה </label>
                         <g:textField  name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
-                        <label class="control-label" for="fromAdr"> מאיפה יוצאים </label>
+                        <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
                 <br>
 
                 %{--</div>--}%
                 %{--<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">--}%
 
-                        <g:textField name="toFloor" placeholder="מספר קומה" value="${auctionInstance?.toFloor}"/>
-                        <label for="toFloor">קומה </label></td>
+                        <g:textField class="input-mini" name="toFloor" placeholder="מספר" value="${auctionInstance?.toFloor}"/>
+                        <label for="toFloor">קומה </label>
                         <g:textField name="הכנס כתובת" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
-                        <label for="toAdr"> לאן מגיעים</label>
+                        <label  class="control-label" for="toAdr"> לאן מגיעים</label>
 
                 %{--</div>--}%
                 </span>
@@ -35,8 +35,8 @@
                     </label>
 
 
-                    <ul class="one-to-many">
-                        <table data="{tableName:'items'}">
+                    %{--<ul class="one-to-many">--}%
+                        <table class="table table-condensed table-hover" data="{tableName:'items'}">
                             <thead>
                             <tr>
                                 <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
@@ -62,7 +62,7 @@
                         <a class="btn btn-primary" id="addItemLink" href="#">Add Item</a>
 
 
-                    </ul>
+                    %{--</ul>--}%
 
                 </div>
             </div>
@@ -86,7 +86,8 @@
                         <g:message code="auction.deadlineDate.label" default="Deadline Date" />
                         <span class="required-indicator">*</span>
                     </label>
-                    <g:datePicker name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
+                    <g:textField id="dp2" name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
+                    %{--<input id="dp2" class="span2" type="text" data-date-format="mm/dd/yy" value="${auctionInstance?.deadlineDate}"></input>--}%
                 </div>
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
                     <label for="maxAmount">
@@ -106,7 +107,10 @@
 </div>
 
 
-
+<script type="text/javascript">
+    $(function(){
+        $('#dp2').datepicker();})
+</script>
 <r:script>
     $(function() {
         $.metadata.setType("attr", "data");
