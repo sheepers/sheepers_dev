@@ -1,101 +1,108 @@
 <%@ page import="sheepers.Auction" %>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span9 offset3">
+                <!-- ADDRESS-->
+            <div class="well pull-right">
+
+                %{--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">--}%
+                <span class="form-inline">
+
+                        <g:textField name="fromFloor"  placeholder="מספר קומה" value="${auctionInstance?.fromFloor}"/>
+                        <label class="control-label " for="fromFloor">קומה </label>
+                        <g:textField  name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
+                        <label class="control-label" for="fromAdr"> מאיפה יוצאים </label>
+                <br>
+
+                %{--</div>--}%
+                %{--<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">--}%
+
+                        <g:textField name="toFloor" placeholder="מספר קומה" value="${auctionInstance?.toFloor}"/>
+                        <label for="toFloor">קומה </label></td>
+                        <g:textField name="הכנס כתובת" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
+                        <label for="toAdr"> לאן מגיעים</label>
+
+                %{--</div>--}%
+                </span>
+            </div>
+        </div>
+     <!-- ITEMS -->
+        <div class="row-fluid">
+        <div class="well pull-right">
+                <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'items', 'error')} ">
+                    <label for="items">
+                        <g:message code="auction.items.label" default="Items" />
+                    </label>
 
 
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'deadlineDate', 'error')} required">
-	<label for="deadlineDate">
-		<g:message code="auction.deadlineDate.label" default="Deadline Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
-</div>
+                    <ul class="one-to-many">
+                        <table data="{tableName:'items'}">
+                            <thead>
+                            <tr>
+                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
+                                <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'${sheepers.ESize.values().toString()}'}">Size </th>
+                                <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
+                                <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
+                                <th data="{editable:false}">&nbsp;</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <g:each in="${auctionInstance?.items}" var="p" status="i">
+                                <tr rowId="${i}">
+                                    <td>${p.typeOfItem}</td>
+                                    <td>${p.size}</td>
+                                    <td>${p.amountOfBoxes}</td>
+                                    <td>${p.comments}</td>
+                                    <td><r:img class="deleteRowButton" dir='images' file='skin/database_delete.png'/></td>
+                                </tr>
+                            </g:each>
+                            </tbody>
+                        </table>
+
+                        <a class="btn btn-primary" id="addItemLink" href="#">Add Item</a>
 
 
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">
+                    </ul>
 
-    <span class="form-inline">
-    <label class="control-label" for="fromAdr">Source Address</label>
-    <g:textField  name="fromAdr"   placeholder="Source address" value="${auctionInstance?.fromAdr}"/>
-    <label class="control-label " for="fromFloor">Floor </label>
-    <g:textField name="fromFloor"  value="${auctionInstance?.fromFloor}"/>
-    </span>
-</div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="well pull-right">
+                <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'IsElevator', 'error')} ">
+                    <span class="form-inline pull-right">
+                        <label for="IsElevator">יש מעלית  </label>
+                        <g:checkBox name="IsElevator" value="${auctionInstance?.IsElevator}"/>
+                        <label for="disassmble">אני צריך פירוק והרכבה</label>
+                        <g:checkBox name="disassmble" value="${auctionInstance?.disassmble}"/>
+                    </span>
+               </div>
+            </div>
+            </div>
+        <div class="row-fluid">
+            <div class="well pull-right">
+                <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'deadlineDate', 'error')} required">
+                    <label for="deadlineDate">
+                        <g:message code="auction.deadlineDate.label" default="Deadline Date" />
+                        <span class="required-indicator">*</span>
+                    </label>
+                    <g:datePicker name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
+                </div>
+                <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
+                    <label for="maxAmount">
+                        <g:message code="auction.maxAmount.label" default="maxAmount" />
 
+                    </label>
+                    <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
+                </div>
+                <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
+                    <label for="comments">הערות נוספות </label>
+                    <g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
+                </div>
+            </div>
+        </div>
 
-
-<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">
-
-    <span class="form-inline">
-    <label for="toAdr"> Destination Address</label>
-    <g:textField name="toAdr" value="${auctionInstance?.toAdr}"/>
-    <label for="toFloor">Floor</label></td>
-    <g:textField name="toFloor" value="${auctionInstance?.toFloor}"/>
-    </span>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'items', 'error')} ">
-	<label for="items">
-		<g:message code="auction.items.label" default="Items" />
-		
-	</label>
-	
-<ul class="one-to-many">
-    <table data="{tableName:'items'}">
-      <thead>
-        <tr>
-            <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
-            <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'${sheepers.ESize.values().toString()}'}">Size </th>
-            <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
-            <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
-            <th data="{editable:false}">&nbsp;</th>
-        </tr>
-        </thead>
-        <tbody>
-        <g:each in="${auctionInstance?.items}" var="p" status="i">
-            <tr rowId="${i}">
-                <td>${p.typeOfItem}</td>
-                <td>${p.size}</td>
-                <td>${p.amountOfBoxes}</td>
-                <td>${p.comments}</td>
-                <td><r:img class="deleteRowButton" dir='images' file='skin/database_delete.png'/></td>
-            </tr>
-        </g:each>
-        </tbody>
-    </table>
-
-    <li class="add"><a id="addItemLink" href="#">Add Item</a></li>
-
-
-</ul>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'IsElevator', 'error')} ">
-    <span class="form-inline">
-    <label for="IsElevator">
-        YES! I Have an elevator
-    </label>
-    <g:checkBox name="IsElevator" value="${auctionInstance?.IsElevator}"/>
-    <label for="disassmble">
-        YES! I`d love some help with dismanteling
-
-    </label>
-    <g:checkBox name="disassmble" value="${auctionInstance?.disassmble}"/>
-    </span>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
-    <label for="maxAmount">
-        <g:message code="auction.maxAmount.label" default="maxAmount" />
-
-    </label>
-    <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
-	<label for="comments">
-		I just wanna say:
-	</label>
-	<g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
+    </div>
 </div>
 
 

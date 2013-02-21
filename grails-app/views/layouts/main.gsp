@@ -32,14 +32,12 @@
 
     </head>
 
-
+    <body>
      <div class="navbar navbar-inverse navbar-fixed-top">
          <div class="navbar-inner">
              <div class="container">
 
-                 <a class="pull-left" href="#">
-                     <img class="img-circle" src="${resource(dir: 'images', file: 'sheeps.jpg')}">
-                 </a>
+                 <!--<a class="pull-left"  href="#"><img class="img-circle"  src="${resource(dir: 'images', file: 'sheeps.jpg')}"></a>-->
 
                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                      <span class="icon-bar"></span>
@@ -62,15 +60,33 @@
          </div>
      </div>
 
-     <div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/sheepers/user/dash">Sheepers</a>
+                <div class="navbar-content">
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="#">צור קשר</a>
+                        </li>
+                        <li>
+                            <a href="#">מי אנחנו</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">בית</a>
+                        </li>
+                    </ul>
+                    <p class="navbar-text pull-left">
+                         <a href="../profile/show" class="navbar-link"><sec:username/></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <g:layoutBody/>
 
-         <h1>Sheepers starter template</h1>
-         <p>Market place for moving <business></business>.<br> All you get is this message and a barebones HTML document.</p>
-
-     </div> <!-- /container -->
-
-     <!-- Le javascript
-    ================================================== -->
+    <!-- Le javascript
+   ================================================== -->
      <!-- Placed at the end of the document so the pages load faster -->
      <script src="../assets/js/jquery.js"></script>
      <script src="../assets/js/bootstrap-transition.js"></script>
@@ -87,7 +103,6 @@
      <script src="../assets/js/bootstrap-typeahead.js"></script>
 
 	<!--	<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'sheeps.jpg')}" alt="Grails"/></a></div>-->
-		<g:layoutBody/>
 
 
 	</body>

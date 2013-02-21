@@ -36,7 +36,7 @@ class AuctionController {
 
     def create() {
 
-       // [auctionInstance: new Auction(params)]
+//       [auctionInstance: new Auction(params)]
     }
 
     def save() {
