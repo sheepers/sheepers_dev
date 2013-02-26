@@ -19,7 +19,7 @@
 
                         <g:textField class="input-mini" name="toFloor" placeholder="מספר" value="${auctionInstance?.toFloor}"/>
                         <label for="toFloor">קומה </label>
-                        <g:textField name="הכנס כתובת" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
+                        <g:textField name="toAdr" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
                         <label  class="control-label" for="toAdr"> לאן מגיעים</label>
 
                 %{--</div>--}%
@@ -86,7 +86,7 @@
                         <g:message code="auction.deadlineDate.label" default="Deadline Date" />
                         <span class="required-indicator">*</span>
                     </label>
-                    <g:textField id="dp2" name="deadlineDate" precision="day"  value="${auctionInstance?.deadlineDate}"  />
+                    <g:textField id="dp2" name="deadlineDate" value="${auctionInstance?.deadlineDate}"  />
                     %{--<input id="dp2" class="span2" type="text" data-date-format="mm/dd/yy" value="${auctionInstance?.deadlineDate}"></input>--}%
                 </div>
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">

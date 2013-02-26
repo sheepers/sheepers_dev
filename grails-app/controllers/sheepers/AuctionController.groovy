@@ -43,6 +43,7 @@ class AuctionController {
     def save() {
         def user = User.get(sec.loggedInUserInfo(field: "id").toLong())
         params.setProperty("profile",user.profile)
+        params.setProperty("deadlineDate",new Date().parse("mm/dd/yyyy",params.deadlineDate))
         def auctionInstance = new Auction(params)
         if (!auctionInstance.save(flush: true)) {
             render(view: "create", model: [auctionInstance: auctionInstance])
