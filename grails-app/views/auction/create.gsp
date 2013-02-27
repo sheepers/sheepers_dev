@@ -16,7 +16,7 @@
 		<div id="create-auction"  role="main">
 			%{--<h1><g:message code="default.create.label" args="[entityName]" /></h1>--}%
             <div class="page-header">
-            <h1 class="offset12">זה מה שיש לי להוביל </h1>
+            <h1 dir="rtl" >זה מה שיש לי להוביל </h1>
             </div>
             <g:if test="${flash.message}">
 			<div class="message rowüfluid" role="status">${flash.message}</div>

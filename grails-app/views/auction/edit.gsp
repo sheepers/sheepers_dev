@@ -14,8 +14,10 @@
 
 
 
-		<div id="edit-auction" class="offset1" role="main">
-			<h1 ><g:message code="default.edit.label" args="[entityName]" /></h1>
+		<div id="edit-auction" role="main">
+            <div class="page-header">
+                <h1 dir="rtl">זה מה שיש לי להוביל</h1>
+             </div>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
