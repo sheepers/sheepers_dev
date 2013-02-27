@@ -23,8 +23,15 @@
                     <g:each in="${Auction.list()}" var="auction">
                      <div class="well" id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}')" >
 
-                         <span>העברה מ ${auction.fromAdr} ל  ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
+                         <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
                         <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
+                         <ul class="hidden">
+                         <li>נוצרה בתאריך ${auction.dateCreated.dateString}</li>
+                         <li>פריטים בהעברה</li>
+                         <g:each in="${auction.items}"  var="item">
+                          <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
+                         </g:each>
+                         </ul>
                      </div>
                     </g:each>
 
@@ -43,21 +50,30 @@
 
             if  ($("#"+controleron).hasClass('open'))
             {
-                $("#"+controleron).animate({height: '30px'},500,function(){});
-                $("#"+controleron).removeClass('open');
                 $("#auctions").children('div.open').each(function(){
-                    $(this).animate({height:'30px'},500,function(){});
                     $(this).removeClass('open');
+                    $(this).children('ul').each(function(){
+                        $(this).addClass('hidden');
+                    });
+                    $(this).animate({height:'30px'},200,function(){});
                 });
-            }
+             }
             else
             {
                 $("#auctions").children('div.open').each(function(){
-                    $(this).animate({height:'30px'},500,function(){});
                     $(this).removeClass('open');
+                    $(this).children('ul').each(function(){
+                        $(this).addClass('hidden');
+                    });
+                    $(this).animate({height:'30px'},200,function(){});
                 });
-                $("#"+controleron).animate({height: '300px'},500,function(){});
+
+                $("#"+controleron).animate({height: '300px'},200,function(){});
                 $("#"+controleron).addClass('open');
+                $("#"+controleron).children("ul.hidden").each(function(){
+                    $(this).removeClass("hidden");
+                });
+
             }
         }
 
