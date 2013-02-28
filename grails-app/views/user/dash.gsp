@@ -23,6 +23,7 @@
                     <!--Sidebar content-->
             <div class="hidden span6 well-white " id="bids">
             <span>
+
             </span>
             </div>
             <div class="span6 " dir="rtl" id="auctions">
@@ -79,7 +80,8 @@
                 $("#"+controleron).children("ul.hidden").each(function(){
                     $(this).removeClass("hidden");
                 });
-                $("#bids").next().text(controleron.toString());
+                $("#bids").children("span").text(controleron.toString());
+                $("#bids").removeClass("hidden") ;
 
             }
         }
