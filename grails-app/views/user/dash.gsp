@@ -14,14 +14,20 @@
 
 </head>
 <body dir="rtl" class=" pull-right">
+<ul class="unstyled" dir="rtl" >
+    <li><g:link class="create" controller="Auction" action="create"><h4>צור מכרז חדש</h4></g:link></li>
+    <li><g:link class="edit" controller="Profile" action="edit" >ערוך את הפרופיל האישי שלך</g:link></li>
+</ul>
 <div class="container-fluid ">
     <div class="row-fluid">
                     <!--Sidebar content-->
-            <ul class="unstyled" dir="rtl" id="auctions">
-               <li><g:link class="create" controller="Auction" action="create"><h4>צור מכרז חדש</h4></g:link></li>
-
+            <div class="hidden span6 well-white " id="bids">
+            <span>
+            </span>
+            </div>
+            <div class="span6 " dir="rtl" id="auctions">
                     <g:each in="${Auction.list()}" var="auction">
-                     <div class="well" id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}')" >
+                     <div  class="well-white " id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}')" >
 
                          <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
                         <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
@@ -34,9 +40,8 @@
                          </ul>
                      </div>
                     </g:each>
+             </div>
 
-                <li><g:link class="edit" controller="Profile" action="edit" >ערוך את הפרופיל האישי שלך</g:link></li>
-            </ul>
          </div>
 </div>
 <div dir="rtl">
@@ -56,7 +61,8 @@
                         $(this).addClass('hidden');
                     });
                     $(this).animate({height:'30px'},200,function(){});
-                });
+                })
+                ;
              }
             else
             {
@@ -73,6 +79,7 @@
                 $("#"+controleron).children("ul.hidden").each(function(){
                     $(this).removeClass("hidden");
                 });
+                $("#bids").next().text(controleron.toString());
 
             }
         }
