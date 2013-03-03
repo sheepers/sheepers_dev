@@ -9,6 +9,7 @@
 
         <!-- Le styles -->
         <link href="../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/layout.css" rel="stylesheet">
         <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -60,6 +61,7 @@
          </div>
      </div>
 
+   <!--
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -83,6 +85,7 @@
             </div>
         </div>
     </div>
+    -->
     <g:layoutBody/>
 
     <!-- Le javascript
