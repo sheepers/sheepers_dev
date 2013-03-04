@@ -19,7 +19,7 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <g:link class="create icon-wrench" controller="Auction" action="create" ></g:link>
+    <g:link class="create icon-tasks" controller="Auction" action="create" ></g:link>
     <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
 </div>
 <div>
@@ -30,10 +30,13 @@
     <div class="row-fluid ">
             <div class=" well-white span6 " id="bids">
             <span class="pull-right">בחר במכרז מן הרשימה </span>
+             <table id="cur_bids" class="pull-right">
+
+             </table>
             </div>
             <div   class="span6 pull-right well-white " dir="rtl" id="auctions">
                     <g:each in="${Auction.list()}" var="auction">
-                     <div  id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}')" >
+                     <div  id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}', ${auction.bids.asList()})" >
 
                          <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
                          <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
@@ -59,7 +62,7 @@
 
 
 <script type="text/javascript">
-    function kvetch( controleron){
+    function kvetch( controleron , blist){
 
             if  ($("#"+controleron).hasClass('open'))
             {
@@ -70,6 +73,14 @@
                     });
                     $(this).animate({height:'30px'},200,function(){});
                 })
+                $("#bids").children("span").text("בחר במכרז מן הרשימה ");
+                $("#cur_bids").children("th").each(function(){
+                  $(this).remove();
+                });
+                $("#cur_bids").children("tr").each(function(){
+                   $(this).remove();
+                });
+
 
              }
             else
@@ -81,13 +92,24 @@
                     });
                     $(this).animate({height:'30px'},200,function(){});
                 });
+                $("#cur_bids").children("th").each(function(){
+                    $(this).remove();
+                });
+                $("#cur_bids").children("tr").each(function(){
+                    $(this).remove();
+                });
 
                 $("#"+controleron).animate({height: '300px'},200,function(){});
                 $("#"+controleron).addClass('open');
                 $("#"+controleron).children("ul.hidden").each(function(){
                     $(this).removeClass("hidden");
                 });
-                $("#bids").children("span").text(controleron.toString());
+                $("#bids").children("span").text("");
+                $("#cur_bids"). append('<th>סכום</th><th>משוב</th><th>מוביל</th>');
+                if   ($(blist).length > 1)
+                {
+                    alert("wow");
+                }
 
             }
         }
