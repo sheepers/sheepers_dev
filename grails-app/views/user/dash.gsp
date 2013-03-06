@@ -103,7 +103,7 @@
                 $("#cur_bids").children("tbody").each(function(){
                     $(this).remove();
                 });
-                $("#bids").animate({minHeight: '1px'},200,function(){});
+
 
 
                 $("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
