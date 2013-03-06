@@ -2,6 +2,7 @@ package sheepers
 
 import sheepers.AuctionItem
 import  sheepers.Address
+import grails.converters.JSON
 
 class Auction {
 
@@ -26,7 +27,6 @@ class Auction {
     static hasOne = [profile : Profile]
     static hasMany = [bids: Bid, items:AuctionItem]
     //static embedded = ['toAdr','fromAdr']
-
 
 
     static constraints = {

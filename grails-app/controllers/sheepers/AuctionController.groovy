@@ -1,6 +1,7 @@
 package sheepers
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class AuctionController {
     //static scaffold = true
@@ -39,6 +40,7 @@ class AuctionController {
        [auctionInstance: new Auction(params)]
 
     }
+
 
     def save() {
         def user = User.get(sec.loggedInUserInfo(field: "id").toLong())

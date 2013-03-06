@@ -1,6 +1,8 @@
 
 <%@ page import="sheepers.Auction" %>
+<%@ page import="sheepers.Bid" %>
 <%@ page import="sheepers.UserController" %>
+<%@ page import="grails.converters.JSON" %>
 <!DOCTYPE html>
 <html dir="rtl">
 <head>
@@ -11,6 +13,8 @@
     <title>Dashboard</title>
     <link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
+    <r:require module="application"/>
+    <r:layoutResources/>
 </head>
 <body dir="rtl" class=" pull-right">
 <div class="container-fluid">
@@ -36,7 +40,7 @@
             </div>
             <div   class="span6 pull-right well-white " dir="rtl" id="auctions">
                     <g:each in="${Auction.list()}" var="auction">
-                     <div  id="auction_num_${auction.id}" onclick="kvetch('auction_num_${auction.id}', ${auction.bids.asList()})" >
+                     <div  id="auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}')">
 
                          <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
                          <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
@@ -61,25 +65,26 @@
 
 
 
-<script type="text/javascript">
-    function kvetch( controleron , blist){
+<r:script>
+    function kvetch( controleron, bids_amounts, bidders){
 
-            if  ($("#"+controleron).hasClass('open'))
+            if  ($("#auction_num_"+controleron).hasClass('open'))
             {
                 $("#auctions").children('div.open').each(function(){
                     $(this).removeClass('open');
                     $(this).children('ul').each(function(){
                         $(this).addClass('hidden');
                     });
-                    $(this).animate({height:'30px'},200,function(){});
+                    $(this).animate({minHeight:'1px'},200,function(){});
                 })
                 $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
-                $("#cur_bids").children("tr").each(function(){
+                $("#cur_bids").children("tbody").each(function(){
                    $(this).remove();
                 });
+                $("#bids").animate({minHeight: '1px'},200,function(){});
 
 
              }
@@ -88,33 +93,46 @@
                 $("#auctions").children('div.open').each(function(){
                     $(this).removeClass('open');
                     $(this).children('ul').each(function(){
-                        $(this).addClass('hidden');
+                         $(this).addClass('hidden');
                     });
-                    $(this).animate({height:'30px'},200,function(){});
+                    $(this).animate({minHeight:'1px'},200,function(){});
                 });
                 $("#cur_bids").children("th").each(function(){
                     $(this).remove();
                 });
-                $("#cur_bids").children("tr").each(function(){
+                $("#cur_bids").children("tbody").each(function(){
                     $(this).remove();
                 });
+                $("#bids").animate({minHeight: '1px'},200,function(){});
 
-                $("#"+controleron).animate({height: '300px'},200,function(){});
-                $("#"+controleron).addClass('open');
-                $("#"+controleron).children("ul.hidden").each(function(){
+
+                $("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
+                $("#auction_num_"+controleron).addClass('open');
+                $("#auction_num_"+controleron).children("ul.hidden").each(function(){
                     $(this).removeClass("hidden");
                 });
                 $("#bids").children("span").text("");
-                $("#cur_bids"). append('<th>סכום</th><th>משוב</th><th>מוביל</th>');
-                if   ($(blist).length > 1)
-                {
-                    alert("wow");
-                }
+                bids_amounts = bids_amounts.replace("[","");
+                bidders = bidders.replace("]","");
+                bids_amounts = bids_amounts.replace("]","");
+                bidders = bidders.replace("[","");
+                bidAmountArray = bids_amounts.split(",");
+                biddersArray = bidders.split(",");
+                $("#bids").animate({minHeight: '300px'},200,function(){
+                    $("#cur_bids"). append('<th>סכום</th><th>משוב</th><th>מוביל</th>');
+                    for (var i = 0; i < bidAmountArray.length; i += 1) {
+
+
+                        $("#cur_bids"). append('<tr><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
+                    }
+                });
+
 
             }
         }
 
-</script>
+</r:script>
+<r:layoutResources/>
 </body>
 
 </html>
