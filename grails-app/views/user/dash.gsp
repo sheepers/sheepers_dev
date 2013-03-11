@@ -23,11 +23,11 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <g:link class="create icon-tasks" controller="Auction" action="create" ></g:link>
+    <a  href="#AuctionCreate"  class="create icon-tasks" data-toggle="modal" data-load-remote="http://localhost:8080/sheepers/auction/create" data-remote-target="#AuctionCreate"/>
     <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
 </div>
 <div>
-    <g:link class="edit icon-user" controller="Profile" action="edit" ></g:link>
+    <g:link class="edit icon-user" controller="Profile" action="edit" />
     <g:link class="edit" controller="Profile" action="edit">ערוך את הפרופיל האישי שלך</g:link>
 </div>
 </div>
@@ -62,9 +62,9 @@
     </div>
 
 </div>
+<div class="modal hide fade in" id="AuctionCreate">
 
-
-
+</div>
 <r:script>
     function kvetch( controleron, bids_amounts, bidders){
 
@@ -130,6 +130,18 @@
 
             }
         }
+
+</r:script>
+
+
+<r:script>
+    $('[data-load-remote]').on('click', function(e) {
+        e.preventDefault();
+        var remote = $(this).data('load-remote');
+        if (remote) {
+            $($(this).data('remote-target')).load(remote);
+        }
+    });
 
 </r:script>
 <r:layoutResources/>
