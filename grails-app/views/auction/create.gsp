@@ -2,13 +2,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
         <link href="../css/datepicker.css" rel="stylesheet">
         <r:require module="application"/>
         <r:layoutResources/>
-        <r:require module="bootstrap"/>
 	</head>
 	<body>
 
@@ -28,16 +25,17 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-            </div>
+
              <g:form method="post"  >
                 <fieldset class="form">
                     <g:render template="form"/>
                 </fieldset>
                 <fieldset class="buttons">
-                    <g:actionSubmit  class="btn btn-primary pull-right" action="save" id="save" value="צור חדש"/>
+                    <g:actionSubmit  class="btn btn-primary pull-right"  action="save" id="save" value="צור חדש"/>
+
                 </fieldset>
             </g:form>
-
+    </div>
         %{--</div>--}%
     <r:layoutResources/>
     </body>

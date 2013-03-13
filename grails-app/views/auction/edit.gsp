@@ -4,11 +4,11 @@
 	<head>
 		<meta name="layout" content="main">
         <link href="../../css/bootstrap.css" rel="stylesheet">
+        <link href="../css/bootstrap-responsive.css" rel="stylesheet">
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
         <r:require module="application"/>
         <r:layoutResources/>
-        <r:require module="bootstrap"/>
 	</head>
 	<body>
 

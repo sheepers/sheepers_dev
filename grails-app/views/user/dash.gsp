@@ -7,12 +7,8 @@
 <html dir="rtl">
 <head>
     <meta name="layout" content="main">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="../js/bootstrap.js"></script>
     <title>Dashboard</title>
-    <link href="../css/bootstrap.css" rel="stylesheet"/>
-    <link href="../css/bootstrap-responsive.css" rel="stylesheet"/>
+    <link href="../css/layout.css" rel="stylesheet">
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
@@ -23,7 +19,7 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href="#AuctionCreate"  class="create icon-tasks" data-toggle="modal" data-load-remote="http://localhost:8080/sheepers/auction/create" data-remote-target="#AuctionCreate"/>
+    <a  href="#AuctionCreate"  class="create icon-tasks"   data-backdrop="true" data-toggle="modal"  ></a>
     <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
 </div>
 <div>
@@ -62,10 +58,16 @@
     </div>
 
 </div>
-<div class="modal hide fade in" id="AuctionCreate">
+<div class="modal hide fade " id="AuctionCreate" >
+    <div class="modal-body">
+    </div>
 
 </div>
+
 <r:script>
+   $(function(){
+               $("#AuctionCreate .modal-body").load("../auction/create");
+   });
     function kvetch( controleron, bids_amounts, bidders){
 
             if  ($("#auction_num_"+controleron).hasClass('open'))
@@ -134,16 +136,6 @@
 </r:script>
 
 
-<r:script>
-    $('[data-load-remote]').on('click', function(e) {
-        e.preventDefault();
-        var remote = $(this).data('load-remote');
-        if (remote) {
-            $($(this).data('remote-target')).load(remote);
-        }
-    });
-
-</r:script>
 <r:layoutResources/>
 </body>
 

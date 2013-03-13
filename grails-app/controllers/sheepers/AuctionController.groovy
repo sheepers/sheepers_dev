@@ -53,7 +53,7 @@ class AuctionController {
         }
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'auction.label', default: 'Auction'), auctionInstance.id])
-        redirect(action: "show", id: auctionInstance.id)
+        redirect(uri: "/")
     }
 
     def show(Long id) {
