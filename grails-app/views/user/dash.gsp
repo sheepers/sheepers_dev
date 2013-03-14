@@ -19,7 +19,7 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href="#AuctionCreate"  class="create icon-tasks"   data-backdrop="true" data-toggle="modal"  ></a>
+    <a  href=""  class="create icon-tasks"   data-backdrop="false" data-toggle="modal" data-target="#AuctionCreate" ></a>
     <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
 </div>
 <div>
@@ -59,15 +59,33 @@
 
 </div>
 <div class="modal hide fade " id="AuctionCreate" >
+    <div class="modal-header">
+        <div class="container-fluid">
+            <a href="" id="closeCreateModal" class=" pull-left icon-remove"></a>
+        </div>
+    </div>
     <div class="modal-body">
     </div>
 
 </div>
 
 <r:script>
-   $(function(){
+
+    $("#closeCreateModal").click(function(){
+        $(".modal").modal({
+            backdrop: false
+        });
+        $(".modal").modal('hide');
+
+     });
+
+    $(function(){
                $("#AuctionCreate .modal-body").load("../auction/create");
+                $(".modal").modal({
+                    backdrop: true
+                });
    });
+
     function kvetch( controleron, bids_amounts, bidders){
 
             if  ($("#auction_num_"+controleron).hasClass('open'))
