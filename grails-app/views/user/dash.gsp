@@ -1,5 +1,5 @@
 
-<%@ page import="sheepers.Auction" %>
+<%@ page import="sheepers.Profile; sheepers.User; sheepers.Auction" %>
 <%@ page import="sheepers.Bid" %>
 <%@ page import="sheepers.UserController" %>
 <%@ page import="grails.converters.JSON" %>
@@ -13,6 +13,9 @@
     <r:layoutResources/>
 </head>
 <body dir="rtl" class=" pull-right">
+<g:set var="userId" value="${sec.loggedInUserInfo(field: 'username')}"/>
+<div>${User.findByUsername(userId.toString()).profile.id}</div>
+
 <div class="container-fluid">
  <ul  dir="rtl" class="breadcrumb">
         <li>האזור האישי שלי</li>

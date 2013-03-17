@@ -14,11 +14,11 @@ class ProfileController {
         params.max = Math.min(max ?: 10, 100)
         [profileInstanceList: Profile.list(params), profileInstanceTotal: Profile.count()]
     }
-
+     */
     def create() {
         [profileInstance: new Profile(params)]
     }
-     */
+
     def save() {
         def profileInstance = new Profile(params)
         if (!profileInstance.save(flush: true)) {

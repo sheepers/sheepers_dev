@@ -19,7 +19,9 @@ class UserController extends grails.plugins.springsecurity.ui.UserController {
         }
         if (!user.profile)
         {
-            user.profile = new Profile()
+            user.profile = new Profile(userType : UserType.Customer)
+
+
         }
         if (!user.save(flush: true)) {
             render view: 'create', model: [user: user, authorityList: sortedRoles()]

@@ -10,3 +10,10 @@ package sheepers
 public enum EtypeOfItem {
     Closet, Bed, Piano, Refrigerator, Stove, Table, Box, Extra
 }
+
+public enum ESize {
+    Small, Medium, Large, XtraLarge
+
+}
+
+public enum UserType  {Customer,Carrier}
