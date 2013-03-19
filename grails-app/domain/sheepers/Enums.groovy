@@ -16,4 +16,6 @@ public enum ESize {
 
 }
 
-public enum UserType  {Customer,Carrier}
+public enum EUserType {
+    Customer,Carrier
+}

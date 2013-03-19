@@ -95,12 +95,9 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 
     String salt = saltSource instanceof NullSaltSource ? null : command.username
-    def user = lookupUserClass().newInstance( username: command.username,
+    def user = lookupUserClass().newInstance( username: command.username, profile : new Profile(),
             accountLocked: true, enabled: true)
-    if (!user.profile)
-    {
-        user.profile = new Profile()
-    }
+
     RegistrationCode registrationCode = springSecurityUiService.register(user, command.password, salt)
     if (registrationCode == null || registrationCode.hasErrors()) {
         // null means problem creating the user

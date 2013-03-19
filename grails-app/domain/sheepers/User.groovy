@@ -4,7 +4,8 @@ class User {
 
 	transient springSecurityService
 
-    static hasOne = [profile : Profile]
+    //static hasOne = [profile : Profile]
+    Profile profile
 	String username
 	String password
 	boolean enabled
