@@ -35,11 +35,13 @@
 		<s2ui:passwordFieldRow name='password2' labelCode='user.password2.label' bean="${command}"
                              size='40' labelCodeDefault='Password (again)' value="${command.password2}"/>
 
+        <g:hiddenField name="userType" value="${command.userType}" bean="${command}" />
+
 	</tbody>
 	</table>
 
-	<s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'/>
-    <s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'/>
+	<s2ui:submitButton elementId='create' form='registerForm' messageCode='spring.security.ui.register.submit'  />
+
 
 	</g:else>
 

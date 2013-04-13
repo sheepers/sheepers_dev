@@ -36,7 +36,8 @@
 		</tr>
 		<tr>
 			<td colspan='2'>
-				<s2ui:linkButton elementId='register' controller='register' messageCode='spring.security.ui.login.register'/>
+				<s2ui:linkButton elementId='register' controller='register' params="[userType:'Customer']" messageCode='register as a customer'/>
+                <s2ui:linkButton elementId='registerc' controller='register' params="[userType:'Carrier']" messageCode='register as Carrier' />
 				<s2ui:submitButton elementId='loginButton' form='loginForm' messageCode='spring.security.ui.login.login'/>
 			</td>
 		</tr>

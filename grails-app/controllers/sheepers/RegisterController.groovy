@@ -87,7 +87,19 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         redirect uri: postResetUrl
     }
 
+    def index = {
+        def copy = [:] + (flash.chainedParams ?: [:])
+        copy.remove 'controller'
+        copy.remove 'action'
+        def command = new RegisterCommand(userType: params.userType)
+
+        [command: new RegisterCommand(userType: params.userType) ]
+    }
+
+
     def register = { RegisterCommand command ->
+
+    //command.userType = parmas.userType
 
     if (command.hasErrors()) {
         render view: 'index', model: [command: command]
@@ -97,7 +109,7 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     String salt = saltSource instanceof NullSaltSource ? null : command.username
 
 
-    Profile prof = new Profile(userType: "Customer")
+    Profile prof = new Profile(userType: command.userType)
 
     def user = lookupUserClass().newInstance( username: command.username,
             accountLocked: true, enabled: true)
@@ -130,6 +142,8 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
 
     render view: 'index', model: [emailSent: true]
 }
+
+
 
     static final passwordValidator = { String password, command ->
         if (command.username && command.username.equals(password)) {
