@@ -14,7 +14,9 @@
 </head>
 <body dir="rtl" class=" pull-right">
 <g:set var="userId" value="${sec.loggedInUserInfo(field: 'username')}"/>
-<div>${User.findByUsername(userId.toString()).profile.id}</div>
+<g:set var="userType" value="${User.findByUsername(userId.toString()).profile.userType}" />
+<g:if test="${userType=='Customer'}" >
+
 
 <div class="container-fluid">
  <ul  dir="rtl" class="breadcrumb">
@@ -71,6 +73,11 @@
     </div>
 
 </div>
+</g:if>
+<g:if test="${userType=='Carrier'}">
+    <div>Im a carrier - let me bid</div>
+
+</g:if>
 
 <r:script>
 

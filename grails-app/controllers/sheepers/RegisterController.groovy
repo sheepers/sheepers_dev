@@ -95,8 +95,15 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
     }
 
     String salt = saltSource instanceof NullSaltSource ? null : command.username
-    def user = lookupUserClass().newInstance( username: command.username, profile : new Profile(),
+
+
+    Profile prof = new Profile(userType: "Customer")
+
+    def user = lookupUserClass().newInstance( username: command.username,
             accountLocked: true, enabled: true)
+
+    user.setProfile(prof)
+
 
     RegistrationCode registrationCode = springSecurityUiService.register(user, command.password, salt)
     if (registrationCode == null || registrationCode.hasErrors()) {
@@ -135,6 +142,50 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
             return 'command.password.error.strength'
         }
     }
+    def verifyRegistration = {
+
+        def conf = SpringSecurityUtils.securityConfig
+        String defaultTargetUrl = conf.successHandler.defaultTargetUrl
+
+        String token = params.t
+
+        def registrationCode = token ? RegistrationCode.findByToken(token) : null
+        if (!registrationCode) {
+            flash.error = message(code: 'spring.security.ui.register.badCode')
+            redirect uri: defaultTargetUrl
+            return
+        }
+
+        //remove it later
+        def mybitchuser = lookupUserClass().findByUsername(registrationCode.username)
+
+        def user
+        RegistrationCode.withTransaction { status ->
+            user = lookupUserClass().findByUsername(registrationCode.username)
+            if (!user) {
+                return
+            }
+            user.accountLocked = false
+            user.save(flush:true)
+            def UserRole = lookupUserRoleClass()
+            def Role = lookupRoleClass()
+            for (roleName in conf.ui.register.defaultRoleNames) {
+                UserRole.create user, Role.findByAuthority(roleName)
+            }
+            registrationCode.delete()
+        }
+
+        if (!user) {
+            flash.error = message(code: 'spring.security.ui.register.badCode')
+            redirect uri: defaultTargetUrl
+            return
+        }
+
+        springSecurityService.reauthenticate user.username
+
+        flash.message = message(code: 'spring.security.ui.register.complete')
+        redirect uri: conf.ui.register.postRegisterUrl ?: defaultTargetUrl
+    }
 
     static boolean checkPasswordRegex(String password, command) {
         def conf = SpringSecurityUtils.securityConfig
@@ -152,6 +203,7 @@ class RegisterCommand {
     String username
     String password
     String password2
+    String userType
 
     def grailsApplication
 
@@ -167,6 +219,7 @@ class RegisterCommand {
         }
         password blank: false, nullable: false, validator: RegisterController.passwordValidator
         password2 validator: RegisterController.password2Validator
+        userType nullable: false
     }
 }
 

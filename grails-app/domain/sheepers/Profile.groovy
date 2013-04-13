@@ -2,15 +2,16 @@ package sheepers
 
 class Profile {
 
-    EUserType userType
+    //EUserType userType
     String userPhoneNumber
-
-    static belongsTo = User
+    String userType
+    static belongsTo = [user : User]
 
     static hasMany = [ bids: Bid, auctions: Auction]
 
     static constraints = {
        userPhoneNumber nullable: true
-       userType nullable: true
+       userType inList:["Carrier","Customer"]
+
     }
 }

@@ -12,10 +12,26 @@ public enum EtypeOfItem {
 }
 
 public enum ESize {
-    Small, Medium, Large, XtraLarge
+    Small('Small'),
+    Medium('Medium'),
+    Large('Large'),
+    XtraLarge('XtraLarge')
+
+    String name
+
+    ESize (String name )
+            {this.name = name }
 
 }
 
 public enum EUserType {
-    Customer,Carrier
+    Customer('Customer'),
+    Carrier('Carrier')
+
+    String name
+    void setEUserType(EUserType e) {
+        name = e?.name()
+    }
+    EUserType (String name)
+    {this.name = name}
 }

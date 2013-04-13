@@ -22,6 +22,8 @@ class User {
 
 	static mapping = {
 		password column: '`password`'
+        //profile cascade : "persist,merge,save-update"
+        profile cascade: "all-delete-orphan"
 	}
 
 	Set<Role> getAuthorities() {
