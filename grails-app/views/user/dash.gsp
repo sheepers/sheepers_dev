@@ -8,7 +8,6 @@
 <head>
     <meta name="layout" content="main">
     <title>Dashboard</title>
-    <link href="../css/layout.css" rel="stylesheet">
     <r:require module="application"/>
     <r:layoutResources/>
 </head>

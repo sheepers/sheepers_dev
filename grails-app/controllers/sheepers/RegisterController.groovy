@@ -91,15 +91,12 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
         def copy = [:] + (flash.chainedParams ?: [:])
         copy.remove 'controller'
         copy.remove 'action'
-        def command = new RegisterCommand(userType: params.userType)
 
         [command: new RegisterCommand(userType: params.userType) ]
     }
 
 
     def register = { RegisterCommand command ->
-
-    //command.userType = parmas.userType
 
     if (command.hasErrors()) {
         render view: 'index', model: [command: command]

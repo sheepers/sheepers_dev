@@ -8,5 +8,6 @@ modules = {
         resource url:'/js/bootstrap-datepicker.js'
         resource url:'/js/bootstrap-modal.js'
 
+
     }
 }
