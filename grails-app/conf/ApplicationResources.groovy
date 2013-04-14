@@ -7,12 +7,7 @@ modules = {
         resource url:'/js/bootstrap.js'
         resource url:'/js/bootstrap-datepicker.js'
         resource url:'/js/bootstrap-modal.js'
-<<<<<<< HEAD
         resource url:'/js/bootstrap-tab.js'
         resource url:'/js/bootstrap-tooltip.js'
-=======
-
-
->>>>>>> 15119a60f480f01a2d9e13606471d818f95d49e4
     }
 }
