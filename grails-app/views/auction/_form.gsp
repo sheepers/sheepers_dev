@@ -39,8 +39,8 @@
                         <table class="table table-condensed table-hover" data="{tableName:'items'}">
                             <thead>
                             <tr>
-                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'${sheepers.EtypeOfItem.values().toString()}'}">Type of item</th>
-                                <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'${sheepers.ESize.values().toString()}'}">Size </th>
+                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'[Closet, Bed, Piano, Refrigerator, Stove, Table, Box, Extra]'}">Type of item</th>
+                                <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'[Small,Medium,Large,XtraLarge]'}">Size </th>
                                 <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
                                 <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
                                 <th data="{editable:false}">&nbsp;</th>

@@ -1,6 +1,6 @@
 
 <%@ page import="sheepers.Profile; sheepers.User; sheepers.Auction" %>
-<%@ page import="sheepers.Bid" %>
+<%@ page import="sheepers.Bid; sheepers.ESize; sheepers.EtypeOfItem" %>
 <%@ page import="sheepers.UserController" %>
 <%@ page import="grails.converters.JSON" %>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
                          <li>נוצרה בתאריך ${auction.dateCreated.dateString}</li>
                          <li>פריטים בהעברה</li>
                          <g:each in="${auction.items}"  var="item">
-                          <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
+                         <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
                          </g:each>
                          </ul>
                      </div>
