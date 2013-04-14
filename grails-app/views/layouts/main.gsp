@@ -8,6 +8,7 @@
         <meta name="author" content="">
 
         <!-- Le styles -->
+        <link href="../css/layout.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
         <style>
         body {
@@ -15,6 +16,7 @@
         }
         </style>
         <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -47,9 +49,11 @@
 
                  <a class="brand" href="/sheepers/user/dash">Sheepers</a>
                  <div class="nav-collapse collapse">
+                     <g:if test="${sec.ifLoggedIn()}">
                      <p class="navbar-text pull-right">
                          Logged in as <a href="/sheepers/profile/show" class="navbar-link"><sec:username/></a>
                      </p>
+                     </g:if>
                      <ul class="nav">
                          <li class="active"><a href="#">Home</a></li>
                          <li><a href="#about">About</a></li>
