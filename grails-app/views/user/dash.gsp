@@ -33,13 +33,36 @@
 </div>
 </div>
     <div class="row-fluid ">
-            <div class=" well-white span6 " id="bids">
+            <div class=" well span4 " id="bids">
             <span class="pull-right">בחר במכרז מן הרשימה </span>
-             <table id="cur_bids" class="pull-right">
+
+             <table id="cur_bids" class="pull-right table">
 
              </table>
             </div>
-            <div   class="span6 pull-right well-white " dir="rtl" id="auctions">
+            <div   class="span8 pull-right well " dir="rtl" id="auctions">
+                    <ul id="auctions_nav" class="nav nav-tabs">
+                        <g:each in="${Auction.list()}" var="auction">
+                            <li class=""><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                        </g:each>
+                    </ul>
+                    <div id="auctions_content" class="tab-content">
+                        <g:each in="${Auction.list()}" var="auction">
+                            <div id="auction_num_${auction.id}" class="tab-pane fade">
+                                <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
+                                <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
+
+                                <ul >
+                                    <li>נוצרה בתאריך ${auction.dateCreated.dateString}</li>
+                                    <li>פריטים בהעברה</li>
+                                    <g:each in="${auction.items}"  var="item">
+                                        <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
+                                    </g:each>
+                                </ul>
+                            </div>
+                        </g:each>
+                     </div>
+                <!--
                     <g:each in="${Auction.list()}" var="auction">
                      <div  id="auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}')">
 
@@ -55,6 +78,7 @@
                          </ul>
                      </div>
                     </g:each>
+                -->
              </div>
 
          </div>
@@ -100,13 +124,13 @@
 
             if  ($("#auction_num_"+controleron).hasClass('open'))
             {
-                $("#auctions").children('div.open').each(function(){
-                    $(this).removeClass('open');
-                    $(this).children('ul').each(function(){
-                        $(this).addClass('hidden');
-                    });
-                    $(this).animate({minHeight:'1px'},200,function(){});
-                })
+               // $("#auctions").children('div.open').each(function(){
+               //     $(this).removeClass('open');
+               //     $(this).children('ul').each(function(){
+                //        $(this).addClass('hidden');
+                 //   });
+                 //   $(this).animate({minHeight:'1px'},200,function(){});
+               // })
                 $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
@@ -120,13 +144,13 @@
              }
             else
             {
-                $("#auctions").children('div.open').each(function(){
-                    $(this).removeClass('open');
-                    $(this).children('ul').each(function(){
-                         $(this).addClass('hidden');
-                    });
-                    $(this).animate({minHeight:'1px'},200,function(){});
-                });
+               // $("#auctions").children('div.open').each(function(){
+               //     $(this).removeClass('open');
+               //     $(this).children('ul').each(function(){
+               //          $(this).addClass('hidden');
+               //     });
+               //     $(this).animate({minHeight:'1px'},200,function(){});
+              //  });
                 $("#cur_bids").children("th").each(function(){
                     $(this).remove();
                 });
@@ -136,11 +160,11 @@
 
 
 
-                $("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
-                $("#auction_num_"+controleron).addClass('open');
-                $("#auction_num_"+controleron).children("ul.hidden").each(function(){
-                    $(this).removeClass("hidden");
-                });
+                //$("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
+                //$("#auction_num_"+controleron).addClass('open');
+                //$("#auction_num_"+controleron).children("ul.hidden").each(function(){
+                  //  $(this).removeClass("hidden");
+                //});
                 $("#bids").children("span").text("");
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
