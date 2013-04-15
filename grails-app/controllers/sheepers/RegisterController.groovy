@@ -167,8 +167,8 @@ class RegisterController extends grails.plugins.springsecurity.ui.RegisterContro
             return
         }
 
-        //remove it later
-        def mybitchuser = lookupUserClass().findByUsername(registrationCode.username)
+
+
 
         def user
         RegistrationCode.withTransaction { status ->

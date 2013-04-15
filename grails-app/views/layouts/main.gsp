@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
         <title>Sheepers</title>
@@ -49,11 +49,16 @@
 
                  <a class="brand" href="/sheepers/user/dash">Sheepers</a>
                  <div class="nav-collapse collapse">
-                     <g:if test="${sec.ifLoggedIn()}">
+                     <sec:ifLoggedIn>
                      <p class="navbar-text pull-right">
-                         Logged in as <a href="/sheepers/profile/show" class="navbar-link"><sec:username/></a>
+                          <a href="/sheepers/profile/show" class="navbar-link"><sec:username/></a> :ברוך הבא
                      </p>
-                     </g:if>
+                     </sec:ifLoggedIn>
+                     <sec:ifNotLoggedIn>
+                         <p class="navbar-text pull-right">
+                             שלום אורח
+                         </p>
+                     </sec:ifNotLoggedIn>
                      <ul class="nav">
                          <li class="active"><a href="#">Home</a></li>
                          <li><a href="#about">About</a></li>

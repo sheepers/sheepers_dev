@@ -18,40 +18,44 @@
         בענףהשוק הפתוח לתחרותיות בענף
             <br>
         </p>
-        <span class="label label-success">יש לך משאית ? הרשם כאן</span>
+        <span class="label label-success ">יש לך משאית ? הרשם כאן</span>
         <p></p>
-        <a class="btn pull-right btn-primary btn-large" href="#loginModal" role="button" data-backdrop="true"  data-toggle="modal"  >הרשם</a>
-        <a class="btn pull-left btn-inverse btn-large" href="#myModal">מוביל&nbsp;</a>
+        <a class="btn pull-right btn-primary btn-large" href="#loginModal" role="button" data-backdrop="true"  data-toggle="modal"  >הכנס</a>
+        <a class="pull-right facebook well-small" href="#" ><h5> הכנס עם פייסבוק</h5></a>
+        %{--<a class="btn btn-success btn-large offset7" href="#myModal">מוביל&nbsp;</a>--}%
+        <s2ui:linkButton class="btn signup-btn btn-large " elementId='register' controller='register' params="[userType:'Carrier']" messageCode='הרשמה למובילים' />
     </div>
 </div>
 %{--=============--}%
 
 
-<div class="modal hide" id="loginModal" role="dialog">
+<div class="modal hide fade" id="loginModal" role="dialog">
 
 
     <div class="well">
-        <legend>Sign in to WebApp</legend>
-        <form action='${postUrl}' method='POST' id="loginForm" name="loginForm" autocomplete='off'>
+        <legend> להמשך, אנא מלא פרטיך </legend>
+        <form action='${postUrl}' method='POST' id="loginForm" name="loginForm" autocomplete='off' >
 
-            <div class="alert alert-block alert-error fade in">
-                <a class="close" data-dismiss="alert" href="#">&times;</a>Incorrect Username or Password!
-            </div>
+            %{--<div class="alert alert-block alert-error fade in">--}%
+                %{--<a class="close" data-dismiss="alert" href="#">&times;</a>Incorrect Username or Password!--}%
+            %{--</div>--}%
             <input  class="span3" type="text" placeholder="שם משתמש" name="j_username" id="username"  />
             <input  class="span3" type="password" placeholder="סיסמא" name="j_password" id="password"  />
 
 
-            <label  class="span3">
-                <g:message code='spring.security.ui.login.rememberme'/><input type="checkbox" name="${rememberMeParameter}" id="remember_me" checked="checked" />
-            </label> |
+            %{--<label  class="span3">--}%
+                %{--<g:message code='spring.security.ui.login.rememberme'/><input type="checkbox" name="${rememberMeParameter}" id="remember_me" checked="checked" />--}%
+            %{--</label> |--}%
             <span class="forgot-link ">
-                <g:link controller='register' action='forgotPassword'><g:message code='spring.security.ui.login.forgotPassword'/></g:link>
+                <g:link controller='register' action='forgotPassword'>שכחתי סיסמא</g:link>
             </span>
             <label class="checkbox">
-            <input type="checkbox" name="remember" value="1"> Remember Me
+            <input type="checkbox" name="${rememberMeParameter}" id="remember_me" checked="checked"> זכור אותי
             </label>
             <div class="modal-footer">
-                <input id="loginButton_submit" class="btn btn-primary" type="submit" value="התחבר"></input>
+                <s2ui:linkButton elementId='register' controller='register' params="[userType:'Carrier']" messageCode='הרשם כמוביל' />
+                %{--<s2ui:submitButton class="btn btn-primary" elementId='loginButton' form='loginForm' messageCode='הכנס'/>--}%
+                <input id="loginButton_submit" class="btn btn-primary" type="submit" value="הכנס "/>
             </div>
         </form>
     </div>
