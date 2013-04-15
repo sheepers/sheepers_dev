@@ -12,7 +12,7 @@ class UserController extends grails.plugins.springsecurity.ui.UserController {
     }
 
     def save = {
-        params.profile = new Profile()
+        params.profile = new Profile(userType: 'Customer')
         def user = lookupUserClass().newInstance(params)
         if (params.password) {
             String salt = saltSource instanceof NullSaltSource ? null : params.username

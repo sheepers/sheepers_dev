@@ -23,6 +23,7 @@ class Auction {
     Integer maxAmount
     String comments
     List items
+
     static belongsTo = Profile
     static hasOne = [profile : Profile]
     static hasMany = [bids: Bid, items:AuctionItem]

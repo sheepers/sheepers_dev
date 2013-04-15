@@ -12,15 +12,8 @@ public enum EtypeOfItem {
 }
 
 public enum ESize {
-    Small('Small'),
-    Medium('Medium'),
-    Large('Large'),
-    XtraLarge('XtraLarge')
+    Small,Medium,Large,XtraLarge
 
-    String name
-
-    ESize (String name )
-            {this.name = name }
 
 }
 

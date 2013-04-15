@@ -9,6 +9,7 @@
 
         <!-- Le styles -->
         <link href="../css/layout.css" rel="stylesheet">
+        <link href="../css/datepicker.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
         <style>
         body {
