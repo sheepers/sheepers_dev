@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
-        <link href="../css/datepicker.css" rel="stylesheet">
         <r:require module="application"/>
         <r:layoutResources/>
 	</head>
@@ -37,6 +36,8 @@
             </g:form>
     </div>
         %{--</div>--}%
+
     <r:layoutResources/>
+
     </body>
 </html>

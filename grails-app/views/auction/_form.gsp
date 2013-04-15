@@ -107,10 +107,10 @@
 </div>
 
 
-<script type="text/javascript">
+<r:script>
     $(function(){
         $('#dp2').datepicker();})
-</script>
+</r:script>
 <r:script>
     $(function() {
         $.metadata.setType("attr", "data");

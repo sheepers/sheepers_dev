@@ -33,7 +33,7 @@
 </div>
     <div class="row-fluid ">
             <div class=" well span4 " id="bids">
-            <span class="pull-right">בחר במכרז מן הרשימה </span>
+            <span class="pull-right"><h4>בחר במכרז מן הרשימה </h4></span>
 
              <table id="cur_bids" class="pull-right table">
 
@@ -121,8 +121,6 @@
 
     function kvetch( controleron, bids_amounts, bidders){
 
-            if  ($("#auction_num_"+controleron).hasClass('open'))
-            {
                // $("#auctions").children('div.open').each(function(){
                //     $(this).removeClass('open');
                //     $(this).children('ul').each(function(){
@@ -130,19 +128,16 @@
                  //   });
                  //   $(this).animate({minHeight:'1px'},200,function(){});
                // })
-                $("#bids").children("span").text("בחר במכרז מן הרשימה ");
+               // $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
                 $("#cur_bids").children("tbody").each(function(){
                    $(this).remove();
                 });
-                $("#bids").animate({minHeight: '1px'},200,function(){});
+                $("#bids").animate({minHeight: '1px'},50,function(){});
 
 
-             }
-            else
-            {
                // $("#auctions").children('div.open').each(function(){
                //     $(this).removeClass('open');
                //     $(this).children('ul').each(function(){
@@ -181,7 +176,6 @@
                 });
 
 
-            }
         }
 
 </r:script>
