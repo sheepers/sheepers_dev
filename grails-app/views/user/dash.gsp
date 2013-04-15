@@ -33,7 +33,7 @@
 </div>
     <div class="row-fluid ">
             <div class=" well span4 " id="bids">
-            <span class="pull-right"><h4>בחר במכרז מן הרשימה </h4></span>
+            <span class="pull-right"><h5>בחר במכרז מן הרשימה </h5></span>
 
              <table id="cur_bids" class="pull-right table">
 
