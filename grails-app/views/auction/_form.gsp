@@ -109,7 +109,10 @@
 
 <r:script>
     $(function(){
-        $('#dp2').datepicker();})
+     $('#dp2').datepicker().on('changeDate',function(){
+         $('#dp2').datepicker('hide');
+        });
+    })
 </r:script>
 <r:script>
     $(function() {
