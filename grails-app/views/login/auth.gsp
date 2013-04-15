@@ -55,6 +55,7 @@
             <div class="modal-footer">
                 <s2ui:linkButton elementId='register' controller='register' params="[userType:'Carrier']" messageCode='הרשם כמוביל' />
                 %{--<s2ui:submitButton class="btn btn-primary" elementId='loginButton' form='loginForm' messageCode='הכנס'/>--}%
+                <s2ui:linkButton class="btn signup-btn" elementId='register' controller='register' params="[userType:'Customer']" messageCode='הרשם'/>
                 <input id="loginButton_submit" class="btn btn-primary" type="submit" value="הכנס "/>
             </div>
         </form>

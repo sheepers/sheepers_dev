@@ -597,3 +597,34 @@ a.skip {
 }
 
 
+.signup-btn{
+    background-color:#fd9a0f;
+    background-repeat:repeat-x;
+    background-image:-moz-linear-gradient(top,#fee94f 0,#fd9a0f 100%);
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fee94f),color-stop(100%,#fd9a0f));
+    background-image:-webkit-linear-gradient(top,#fee94f 0,#fd9a0f 100%);
+    background-image:-ms-linear-gradient(top,#fee94f 0,#fd9a0f 100%);
+    background-image:-o-linear-gradient(top,#fee94f 0,#fd9a0f 100%);
+    background-image:linear-gradient(top,#fee94f 0,#fd9a0f 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee94f',endColorstr='#fd9a0f',GradientType=0);
+    border-color:#fa2
+}
+
+.signup-btn:hover,.signup-btn:focus{
+    color:#333;
+    background-color:#fd9512;
+    background-repeat:repeat-x;
+    background-image:-moz-linear-gradient(top,#fedc4d 0,#fd9512 100%);
+    background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#fedc4d),color-stop(100%,#fd9512));
+    background-image:-webkit-linear-gradient(top,#fedc4d 0,#fd9512 100%);
+    background-image:-ms-linear-gradient(top,#fedc4d 0,#fd9512 100%);
+    background-image:-o-linear-gradient(top,#fedc4d 0,#fd9512 100%);
+    background-image:linear-gradient(top,#fedc4d 0,#fd9512 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fedc4d',endColorstr='#fd9512',GradientType=0);
+    border-color:#ec8b11
+}
+
+.signup-btn:active{
+    background-image:none;
+    border-color:#ec8b11
+}
