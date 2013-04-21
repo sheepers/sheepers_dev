@@ -23,8 +23,8 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href=""  class="create icon-tasks"   data-backdrop="false" data-toggle="modal" data-target="#AuctionCreate" ></a>
-    <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
+    <a  href=""  class="create icon-tasks"   data-toggle="modal" data-target="#AuctionCreate" ></a>
+    <a  href=""  class="create"   data-backdrop="true" data-toggle="modal" data-target="#AuctionCreate" >צור מכרז חדש</a>
 </div>
 <div>
     <g:link class="edit icon-user" controller="Profile" action="edit" />
@@ -86,10 +86,10 @@
     </div>
 
 </div>
-<div class="modal hide fade " id="AuctionCreate" >
+<div class="modal hide fade " id="AuctionCreate"  >
     <div class="modal-header">
         <div class="container-fluid">
-            <a href="" id="closeCreateModal" class=" pull-left icon-remove"></a>
+            <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
         </div>
     </div>
     <div class="modal-body">
@@ -104,20 +104,18 @@
 
 <r:script>
 
-    $("#closeCreateModal").click(function(){
-        $(".modal").modal({
-            backdrop: false
-        });
-        $(".modal").modal('hide');
-
-     });
-
     $(function(){
-               $("#AuctionCreate .modal-body").load("../auction/create");
-                $(".modal").modal({
-                    backdrop: true
-                });
-   });
+     $(".modal").modal({backdrop:true});
+    })
+
+    $("#AuctionCreate").on('show',function(){
+        $("#AuctionCreate .modal-body").load("../auction/create");
+    })
+
+    $("#AuctionCreate").on('hidden',function(){
+        $("#AuctionCreate .modal-body").unload("../auction/create");
+    })
+
 
     function kvetch( controleron, bids_amounts, bidders){
 
