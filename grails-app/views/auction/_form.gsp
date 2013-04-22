@@ -10,7 +10,7 @@
 
                         <g:textField class="input-mini" name="fromFloor"  placeholder="מספר" value="${auctionInstance?.fromFloor}"/>
                         <label class="control-label " for="fromFloor">קומה </label>
-                        <g:textField  name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
+                        <g:textField  id="ofir" name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
                         <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
                 <br>
 
@@ -150,4 +150,6 @@
 
     });
 </r:script>
+
+
 

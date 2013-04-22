@@ -120,8 +120,18 @@ grails {
                 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
                 "mail.smtp.socketFactory.fallback":"false"]
     }
+
+    //Added by Ofir for google place API
+    google {
+        apiKey='AIzaSyD2TUV4p_bw5crHOfbwVNllhS0f6Z53g7A'
+        autoCompleteJsonRequest='https://maps.googleapis.com/maps/api/place/autocomplete/json?'
+    }
 }
 //grails.plugins.springsecurity. ui.password.validationRegex = '^.*(?=.*\\d)(?=.*[a-zA-Z]).*$'
 grails.plugins.springsecurity. ui.password.validationRegex = '^.*(?=.*\\d).*$'
 
 grails.plugins.springsecurity.ui.encodePassword = false
+
+
+
+

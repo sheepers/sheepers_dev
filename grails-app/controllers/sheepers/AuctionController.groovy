@@ -7,6 +7,8 @@ class AuctionController {
     //static scaffold = true
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def geocodeService
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -126,4 +128,10 @@ class AuctionController {
             redirect(action: "show", id: id)
         }
     }
+
+//    def tryGeocode () {
+//        geocodeService = new GeocodeService()
+//        geocodeService.autoCompleteRequest("tel_aviv")
+//
+//    }
 }

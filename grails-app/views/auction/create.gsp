@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+        <g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
         <r:require module="application"/>
         <r:layoutResources/>
 	</head>
@@ -36,8 +37,17 @@
             </g:form>
     </div>
         %{--</div>--}%
+        <r:script>
 
+                function initialize(){
+                    var input = (document.getElementById('ofir'));
+                    var autocomplete = new google.maps.places.Autocomplete(input);
+                }
+                google.maps.event.addDomListener(window, 'load', initialize);
+
+        </r:script>
     <r:layoutResources/>
 
     </body>
+
 </html>

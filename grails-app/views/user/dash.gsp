@@ -7,6 +7,7 @@
 <html dir="rtl">
 <head>
     <meta name="layout" content="main">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <title>Dashboard</title>
     <r:require module="application"/>
     <r:layoutResources/>
@@ -179,8 +180,21 @@
         }
 
 </r:script>
+<r:script>
+       function initialize() {
+            var input = (document.getElementById('ofir'));
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+       $(function () {
+            $("#ofir").on(window,'load',initialize);
+
+       });
 
 
+
+</r:script>
 <r:layoutResources/>
 </body>
 
