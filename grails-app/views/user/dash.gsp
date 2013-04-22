@@ -199,10 +199,10 @@
 
 
 
-                google.maps.event.addListener(autocomplete, "place_changed", function()
-                {
-                    var place = autocomplete.getPlace();
-//
+//                google.maps.event.addListener(autocomplete, "place_changed", function()
+//                {
+//                    var place = autocomplete.getPlace();
+////
 //                    if (place.geometry.viewport) {
 //                        map.fitBounds(place.geometry.viewport);
 //                    } else {
@@ -211,7 +211,7 @@
 //                    }
 //
 //                    marker.setPosition(place.geometry.location);
-                });
+//                });
             });
 </r:script>
 <r:layoutResources/>

@@ -18,5 +18,7 @@ body {
     }
 
 .datepicker.dropdown-menu{
-    z-index:99999;
+    z-index:20;
+    display: inline-block;
 }
+
