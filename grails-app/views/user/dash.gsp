@@ -24,7 +24,7 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>
+    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal" ></a>
     <a  href="#AuctionCreateModal"  role="button"  class="create"    data-remote="../auction/create" data-toggle="modal"  >צור מכרז חדש</a>
 </div>
 <div>
@@ -99,6 +99,13 @@
 </g:if>
 <g:if test="${userType=='Carrier'}">
     <div>Im a carrier - let me bid</div>
+    <div class="container-fluid">
+    <g:textField name="fromArea" value="fromwhere"/>
+    <g:textField name="toArea" value="towhere"/>
+    <g:textField name="date" value="dateoftransport"/>
+
+
+    </div>
 
 </g:if>
 
@@ -114,9 +121,17 @@
 </div>
 <r:script>
 
-   $(".modal").on('hidden',function(){
+
+    $(function(){
+        $('#date').datepicker().on('changeDate',function(){
+            $('#date').datepicker('hide');
+        });
+    });
+
+
+    $(".modal").on('hidden',function(){
        $(".datepicker").remove()
-   })
+   })  ;
 
     function kvetch( controleron, bids_amounts, bidders){
 
@@ -177,21 +192,27 @@
 
         }
 
-</r:script>
-<r:script>
-       function initialize() {
-            var input = (document.getElementById('ofir'));
-            var autocomplete = new google.maps.places.Autocomplete(input);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-
-       $(function () {
-            $("#ofir").on(window,'load',initialize);
-
-       });
+    $(".modal").on("shown", function()
+            {
+                var input = document.getElementById("fromAdr");
+                var autocomplete = new google.maps.places.Autocomplete(input);
 
 
 
+                google.maps.event.addListener(autocomplete, "place_changed", function()
+                {
+                    var place = autocomplete.getPlace();
+//
+//                    if (place.geometry.viewport) {
+//                        map.fitBounds(place.geometry.viewport);
+//                    } else {
+//                        map.setCenter(place.geometry.location);
+//                        map.setZoom(15);
+//                    }
+//
+//                    marker.setPosition(place.geometry.location);
+                });
+            });
 </r:script>
 <r:layoutResources/>
 </body>
