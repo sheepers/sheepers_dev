@@ -3,8 +3,6 @@
 <html>
 	<head>
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
-        <r:require module="application"/>
-        <r:layoutResources/>
 	</head>
 	<body>
 
@@ -37,7 +35,6 @@
     </div>
         %{--</div>--}%
 
-    <r:layoutResources/>
 
     </body>
 </html>

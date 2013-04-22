@@ -23,8 +23,8 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href=""  class="create icon-tasks"   data-toggle="modal" data-target="#AuctionCreate" ></a>
-    <a  href=""  class="create"   data-backdrop="true" data-toggle="modal" data-target="#AuctionCreate" >צור מכרז חדש</a>
+    <a  href="#AuctionCreate" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>
+    <a  href="#AuctionCreate"  role="button"  class="create"    data-remote="../auction/create" data-toggle="modal"  >צור מכרז חדש</a>
 </div>
 <div>
     <g:link class="edit icon-user" controller="Profile" action="edit" />
@@ -86,7 +86,13 @@
     </div>
 
 </div>
-<div class="modal hide fade " id="AuctionCreate"  >
+</g:if>
+<g:if test="${userType=='Carrier'}">
+    <div>Im a carrier - let me bid</div>
+
+</g:if>
+
+<div class="modal hide fade " id="AuctionCreate"  role="dialog">
     <div class="modal-header">
         <div class="container-fluid">
             <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
@@ -96,25 +102,7 @@
     </div>
 
 </div>
-</g:if>
-<g:if test="${userType=='Carrier'}">
-    <div>Im a carrier - let me bid</div>
-
-</g:if>
-
 <r:script>
-
-    $(function(){
-     $(".modal").modal({backdrop:true});
-    })
-
-    $("#AuctionCreate").on('show',function(){
-        $("#AuctionCreate .modal-body").load("../auction/create");
-    })
-
-    $("#AuctionCreate").on('hidden',function(){
-        $("#AuctionCreate .modal-body").unload("../auction/create");
-    })
 
 
     function kvetch( controleron, bids_amounts, bidders){
