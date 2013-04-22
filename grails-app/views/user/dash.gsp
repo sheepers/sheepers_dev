@@ -24,8 +24,8 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href=""  class="create icon-tasks"   data-backdrop="false" data-toggle="modal" data-target="#AuctionCreate" ></a>
-    <g:link class="create" controller="Auction" action="create">צור מכרז חדש</g:link>
+    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>
+    <a  href="#AuctionCreateModal"  role="button"  class="create"    data-remote="../auction/create" data-toggle="modal"  >צור מכרז חדש</a>
 </div>
 <div>
     <g:link class="edit icon-user" controller="Profile" action="edit" />
@@ -49,7 +49,16 @@
                     <div id="auctions_content" class="tab-content">
                         <g:each in="${Auction.list()}" var="auction">
                             <div id="auction_num_${auction.id}" class="tab-pane fade">
-                                <g:link class="edit icon-edit" controller="Auction" action="edit" id="${auction.id}">  </g:link>
+                                <a  href="#AuctionEditModal${auction.id}" role="button"  class="edit icon-edit"  data-remote="../auction/edit/${auction.id}"   data-toggle="modal"  ></a>
+                            <div class="modal hide fade " id="AuctionEditModal${auction.id}"  role="dialog">
+                                <div class="modal-header">
+                                    <div class="container-fluid">
+                                        <a href="" id="closeEditModal${auction.id}" data-dismiss="modal" class=" pull-left icon-remove" ></a>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                </div>
+                                </div>
                                 <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
 
                                 <ul >
@@ -87,38 +96,27 @@
     </div>
 
 </div>
-<div class="modal hide fade " id="AuctionCreate" >
-    <div class="modal-header">
-        <div class="container-fluid">
-            <a href="" id="closeCreateModal" class=" pull-left icon-remove"></a>
-        </div>
-    </div>
-    <div class="modal-body">
-    </div>
-
-</div>
 </g:if>
 <g:if test="${userType=='Carrier'}">
     <div>Im a carrier - let me bid</div>
 
 </g:if>
 
+<div class="modal hide fade " id="AuctionCreateModal"  role="dialog">
+    <div class="modal-header">
+        <div class="container-fluid">
+            <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
+        </div>
+    </div>
+    <div class="modal-body">
+    </div>
+
+</div>
 <r:script>
 
-    $("#closeCreateModal").click(function(){
-        $(".modal").modal({
-            backdrop: false
-        });
-        $(".modal").modal('hide');
-
-     });
-
-    $(function(){
-               $("#AuctionCreate .modal-body").load("../auction/create");
-                $(".modal").modal({
-                    backdrop: true
-                });
-   });
+   $(".modal").on('hidden',function(){
+       $(".datepicker").remove()
+   })
 
     function kvetch( controleron, bids_amounts, bidders){
 
