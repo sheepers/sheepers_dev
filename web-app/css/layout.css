@@ -18,15 +18,17 @@ body {
     }
 
 .datepicker.dropdown-menu{
-<<<<<<< HEAD
     z-index:20;
     display: inline-block;
 }
 
-=======
-    z-index:99999;
+.pac-container {
+    z-index: 20;
+    display: inline-block;
+  }
+.modal{
+    z-index: 20;
 }
-.pac-container{
-    z-index:99999;
-}
->>>>>>> Clear Unnececery folders
+.modal-backdrop{
+    z-index: 10;
+}​

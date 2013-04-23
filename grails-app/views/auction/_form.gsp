@@ -10,7 +10,7 @@
 
                         <g:textField class="input-mini" name="fromFloor"  placeholder="מספר" value="${auctionInstance?.fromFloor}"/>
                         <label class="control-label " for="fromFloor">קומה </label>
-                        <g:textField  id="ofir" name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
+                        <g:textField  name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
                         <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
                 <br>
 
@@ -113,13 +113,11 @@
     $('#dp2').datepicker().on('changeDate',function(){
          $('#dp2').datepicker('hide');
         });
-        google.maps.event.addDomListenerOnce($('#ofir')[0], 'click',initi);
+        var frominput = document.getElementById("fromAdr");
+        var fromautocomplete = new google.maps.places.Autocomplete(frominput);
+        var toinput = document.getElementById("toAdr");
+        var toautocomplete = new google.maps.places.Autocomplete(toinput);
     })
-
-    function initi(){
-        var input = (document.getElementById('ofir'));
-        var autocomplete = new google.maps.places.Autocomplete(input);
-    }
 
  </r:script>
 <r:script>

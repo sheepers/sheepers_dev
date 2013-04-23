@@ -121,28 +121,7 @@
 </div>
 <r:script>
 
-
-    $(function(){
-        $('#date').datepicker().on('changeDate',function(){
-            $('#date').datepicker('hide');
-        });
-    });
-
-
-    $(".modal").on('hidden',function(){
-       $(".datepicker").remove()
-   })  ;
-
     function kvetch( controleron, bids_amounts, bidders){
-
-               // $("#auctions").children('div.open').each(function(){
-               //     $(this).removeClass('open');
-               //     $(this).children('ul').each(function(){
-                //        $(this).addClass('hidden');
-                 //   });
-                 //   $(this).animate({minHeight:'1px'},200,function(){});
-               // })
-               // $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
@@ -151,28 +130,12 @@
                 });
                 $("#bids").animate({minHeight: '1px'},50,function(){});
 
-
-               // $("#auctions").children('div.open').each(function(){
-               //     $(this).removeClass('open');
-               //     $(this).children('ul').each(function(){
-               //          $(this).addClass('hidden');
-               //     });
-               //     $(this).animate({minHeight:'1px'},200,function(){});
-              //  });
                 $("#cur_bids").children("th").each(function(){
                     $(this).remove();
                 });
                 $("#cur_bids").children("tbody").each(function(){
                     $(this).remove();
                 });
-
-
-
-                //$("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
-                //$("#auction_num_"+controleron).addClass('open');
-                //$("#auction_num_"+controleron).children("ul.hidden").each(function(){
-                  //  $(this).removeClass("hidden");
-                //});
                 $("#bids").children("span").text("");
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
@@ -188,31 +151,8 @@
                         $("#cur_bids"). append('<tr><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
                     }
                 });
-
-
         }
 
-    $(".modal").on("shown", function()
-            {
-                var input = document.getElementById("fromAdr");
-                var autocomplete = new google.maps.places.Autocomplete(input);
-
-
-
-//                google.maps.event.addListener(autocomplete, "place_changed", function()
-//                {
-//                    var place = autocomplete.getPlace();
-////
-//                    if (place.geometry.viewport) {
-//                        map.fitBounds(place.geometry.viewport);
-//                    } else {
-//                        map.setCenter(place.geometry.location);
-//                        map.setZoom(15);
-//                    }
-//
-//                    marker.setPosition(place.geometry.location);
-//                });
-            });
 </r:script>
 <r:layoutResources/>
 </body>
