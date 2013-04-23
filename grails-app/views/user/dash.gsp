@@ -7,8 +7,8 @@
 <html dir="rtl">
 <head>
     <meta name="layout" content="main">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <title>Dashboard</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
@@ -24,7 +24,7 @@
   </ul>
 <div dir="rtl" class="well-white">
 <div>
-    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal" ></a>
+    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>
     <a  href="#AuctionCreateModal"  role="button"  class="create"    data-remote="../auction/create" data-toggle="modal"  >צור מכרז חדש</a>
 </div>
 <div>
@@ -99,13 +99,6 @@
 </g:if>
 <g:if test="${userType=='Carrier'}">
     <div>Im a carrier - let me bid</div>
-    <div class="container-fluid">
-    <g:textField name="fromArea" value="fromwhere"/>
-    <g:textField name="toArea" value="towhere"/>
-    <g:textField name="date" value="dateoftransport"/>
-
-
-    </div>
 
 </g:if>
 
@@ -121,7 +114,24 @@
 </div>
 <r:script>
 
+    $(".modal").on('shown',function(){
+        var input = (document.getElementById('fromAdr'));
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }) ;
+   $(".modal").on('hidden',function(){
+       $(".datepicker").remove()
+   })
+
     function kvetch( controleron, bids_amounts, bidders){
+
+               // $("#auctions").children('div.open').each(function(){
+               //     $(this).removeClass('open');
+               //     $(this).children('ul').each(function(){
+                //        $(this).addClass('hidden');
+                 //   });
+                 //   $(this).animate({minHeight:'1px'},200,function(){});
+               // })
+               // $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
@@ -130,12 +140,28 @@
                 });
                 $("#bids").animate({minHeight: '1px'},50,function(){});
 
+
+               // $("#auctions").children('div.open').each(function(){
+               //     $(this).removeClass('open');
+               //     $(this).children('ul').each(function(){
+               //          $(this).addClass('hidden');
+               //     });
+               //     $(this).animate({minHeight:'1px'},200,function(){});
+              //  });
                 $("#cur_bids").children("th").each(function(){
                     $(this).remove();
                 });
                 $("#cur_bids").children("tbody").each(function(){
                     $(this).remove();
                 });
+
+
+
+                //$("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
+                //$("#auction_num_"+controleron).addClass('open');
+                //$("#auction_num_"+controleron).children("ul.hidden").each(function(){
+                  //  $(this).removeClass("hidden");
+                //});
                 $("#bids").children("span").text("");
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
@@ -151,9 +177,13 @@
                         $("#cur_bids"). append('<tr><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
                     }
                 });
+
+
         }
 
 </r:script>
+
+
 <r:layoutResources/>
 </body>
 
