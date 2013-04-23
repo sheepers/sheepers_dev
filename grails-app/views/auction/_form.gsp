@@ -109,13 +109,15 @@
 
 <r:script>
 
-    $(function(){
-     $('#dp2').datepicker().on('changeDate',function(){
+ $(function(){
+    $('#dp2').datepicker().on('changeDate',function(){
          $('#dp2').datepicker('hide');
         });
-
+        var fromInput = document.getElementById("fromAdr");
+        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput);
+        var toInput = document.getElementById("toAdr");
+        var toAutocomplete = new google.maps.places.Autocomplete(toInput);
     });
-
  </r:script>
 <r:script>
     $(function() {
@@ -153,4 +155,6 @@
 
     });
 </r:script>
+
+
 

@@ -21,10 +21,13 @@ body {
     z-index:20;
     display: inline-block;
 }
-.pac-container{
-    z-index:20;
+.pac-container {
+    z-index: 20;
     display: inline-block;
-}
+  }
 .modal{
-    z-index: 10;
+    z-index: 20;
 }
+.modal-backdrop{
+    z-index: 10;
+}​

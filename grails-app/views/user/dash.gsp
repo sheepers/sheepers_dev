@@ -114,24 +114,7 @@
 </div>
 <r:script>
 
-    $(".modal").on('shown',function(){
-        var input = (document.getElementById('fromAdr'));
-        var autocomplete = new google.maps.places.Autocomplete(input);
-    }) ;
-   $(".modal").on('hidden',function(){
-       $(".datepicker").remove()
-   })
-
     function kvetch( controleron, bids_amounts, bidders){
-
-               // $("#auctions").children('div.open').each(function(){
-               //     $(this).removeClass('open');
-               //     $(this).children('ul').each(function(){
-                //        $(this).addClass('hidden');
-                 //   });
-                 //   $(this).animate({minHeight:'1px'},200,function(){});
-               // })
-               // $("#bids").children("span").text("בחר במכרז מן הרשימה ");
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
@@ -139,29 +122,12 @@
                    $(this).remove();
                 });
                 $("#bids").animate({minHeight: '1px'},50,function(){});
-
-
-               // $("#auctions").children('div.open').each(function(){
-               //     $(this).removeClass('open');
-               //     $(this).children('ul').each(function(){
-               //          $(this).addClass('hidden');
-               //     });
-               //     $(this).animate({minHeight:'1px'},200,function(){});
-              //  });
                 $("#cur_bids").children("th").each(function(){
                     $(this).remove();
                 });
                 $("#cur_bids").children("tbody").each(function(){
                     $(this).remove();
                 });
-
-
-
-                //$("#auction_num_"+controleron).animate({minHeight : '300px'},200,function(){});
-                //$("#auction_num_"+controleron).addClass('open');
-                //$("#auction_num_"+controleron).children("ul.hidden").each(function(){
-                  //  $(this).removeClass("hidden");
-                //});
                 $("#bids").children("span").text("");
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
@@ -182,8 +148,6 @@
         }
 
 </r:script>
-
-
 <r:layoutResources/>
 </body>
 
