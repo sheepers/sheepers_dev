@@ -18,7 +18,15 @@ body {
     }
 
 .datepicker.dropdown-menu{
+<<<<<<< HEAD
     z-index:20;
     display: inline-block;
 }
 
+=======
+    z-index:99999;
+}
+.pac-container{
+    z-index:99999;
+}
+>>>>>>> Clear Unnececery folders

@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
         <r:require module="forms"/>
         <r:layoutResources/>
 	</head>
@@ -36,6 +37,7 @@
             </g:form>
     </div>
         %{--</div>--}%
+
 
         <r:layoutResources/>
     </body>

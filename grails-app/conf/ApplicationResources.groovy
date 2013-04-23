@@ -8,6 +8,7 @@ modules = {
 //        resource url:'/js/bootstrap-tooltip.js'
     }
     forms {
+        dependsOn 'jquery, jquery-ui'
         resource url:'/js/jquery.metadata.js'
         resource url:'/js/jquery.ui.writetable.js'
         resource url:'/js/bootstrap-datepicker.js'
