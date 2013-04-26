@@ -28,6 +28,11 @@ body {
 .modal{
     z-index: 20;
 }
+.modal.wide{
+    min-width:860px;
+    left: 550px;
+}
+
 .modal-backdrop{
     z-index: 10;
 }​

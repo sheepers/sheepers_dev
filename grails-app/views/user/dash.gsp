@@ -50,7 +50,7 @@
                         <g:each in="${Auction.list()}" var="auction">
                             <div id="auction_num_${auction.id}" class="tab-pane fade">
                                 <a  href="#AuctionEditModal${auction.id}" role="button"  class="edit icon-edit"  data-remote="../auction/edit/${auction.id}"   data-toggle="modal"  ></a>
-                            <div class="modal hide fade " id="AuctionEditModal${auction.id}"  role="dialog">
+                            <div class="modal wide  hide fade " id="AuctionEditModal${auction.id}"  role="dialog">
                                 <div class="modal-header">
                                     <div class="container-fluid">
                                         <a href="" id="closeEditModal${auction.id}" data-dismiss="modal" class=" pull-left icon-remove" ></a>
@@ -109,7 +109,7 @@
 
 </g:if>
 
-<div class="modal hide fade " id="AuctionCreateModal"  role="dialog">
+<div class="modal wide  hide fade " id="AuctionCreateModal"  role="dialog">
     <div class="modal-header">
         <div class="container-fluid">
             <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
