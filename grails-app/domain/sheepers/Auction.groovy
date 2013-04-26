@@ -10,9 +10,11 @@ class Auction {
 
     //BigInteger auctionId
     String fromAdr
-    String fromAdrGoogleMapsRef
+    Double fromAdrLat
+    Double fromAdrLng
     String toAdr
-    String toAdrGoogleMapsRef
+    Double toAdrLat
+    Double toAdrLng
 
     String fromFloor
     String toFloor

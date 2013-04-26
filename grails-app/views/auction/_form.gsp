@@ -12,7 +12,8 @@
                         <label class="control-label " for="fromFloor">קומה </label>
                         <g:textField   name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
                         <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
-                        <g:hiddenField name="fromAdrGoogleMapsRef" value="${auctionInstance?.fromAdrGoogleMapsRef}"/>
+                        <g:hiddenField name="fromAdrLat" value="${auctionInstance?.fromAdrLat}"/>
+                        <g:hiddenField name="fromAdrLng" value="${auctionInstance?.fromAdrLng}"/>
             %{--<g:textField name="ooo" value="aaa" placeholder="mmm" />--}%
                 <br>
 
@@ -23,7 +24,8 @@
                         <label for="toFloor">קומה </label>
                         <g:textField name="toAdr" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
                         <label  class="control-label" for="toAdr"> לאן מגיעים</label>
-                        <g:hiddenField name="toAdrGoogleMapsRef" value="${auctionInstance?.toAdrGoogleMapsRef}"/>
+                        <g:hiddenField name="toAdrLat" value="${auctionInstance?.toAdrLat}"/>
+                        <g:hiddenField name="toAdrLng" value="${auctionInstance?.toAdrLng}"/>
                 %{--</div>--}%
                 </span>
             </div>
@@ -136,7 +138,8 @@
             fromAutocomplete.className = 'notfound';
             return;
          }
-         $('#fromAdrGoogleMapsRef').val(place.geometry.location);
+         $('#fromAdrLat').val(place.geometry.location.lat());
+         $('#fromAdrLng').val(place.geometry.location.lng());
         });
 
         google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
@@ -146,7 +149,8 @@
             toAutocomplete.className = 'notfound';
             return;
          }
-         $('#toAdrGoogleMapsRef').val(place.geometry.location);
+         $('#toAdrLat').val(place.geometry.location.lat());
+         $('#toAdrLng').val(place.geometry.location.lng());
         });
 
 
