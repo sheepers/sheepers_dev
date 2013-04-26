@@ -12,6 +12,8 @@
                         <label class="control-label " for="fromFloor">קומה </label>
                         <g:textField   name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
                         <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
+                        <g:hiddenField name="fromAdrGoogleMapsRef" value="${auctionInstance?.fromAdrGoogleMapsRef}"/>
+            %{--<g:textField name="ooo" value="aaa" placeholder="mmm" />--}%
                 <br>
 
                 %{--</div>--}%
@@ -21,7 +23,7 @@
                         <label for="toFloor">קומה </label>
                         <g:textField name="toAdr" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
                         <label  class="control-label" for="toAdr"> לאן מגיעים</label>
-
+                        <g:hiddenField name="toAdrGoogleMapsRef" value="${auctionInstance?.toAdrGoogleMapsRef}"/>
                 %{--</div>--}%
                 </span>
             </div>
@@ -113,13 +115,47 @@
     $('#dp2').datepicker().on('changeDate',function(){
          $('#dp2').datepicker('hide');
         });
+
+
+        var options = {
+//           types: ['(cities)'],
+           componentRestrictions: {country: 'il'}
+        };
+
         var fromInput = document.getElementById("fromAdr");
-        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput);
+        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
         var toInput = document.getElementById("toAdr");
-        var toAutocomplete = new google.maps.places.Autocomplete(toInput);
+        var toAutocomplete = new google.maps.places.Autocomplete(toInput, options);
+
+
+
+        google.maps.event.addListener(fromAutocomplete, 'place_changed', function() {
+         var place = fromAutocomplete.getPlace();
+         if (!place.geometry) {
+             // Inform the user that the place was not found and return.
+            fromAutocomplete.className = 'notfound';
+            return;
+         }
+         $('#fromAdrGoogleMapsRef').val(place.geometry.location);
+        });
+
+        google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
+         var place = toAutocomplete.getPlace();
+         if (!place.geometry) {
+             // Inform the user that the place was not found and return.
+            toAutocomplete.className = 'notfound';
+            return;
+         }
+         $('#toAdrGoogleMapsRef').val(place.geometry.location);
+        });
+
+
+
     });
- </r:script>
-<r:script>
+
+
+
+// table managment script
     $(function() {
         $.metadata.setType("attr", "data");
 

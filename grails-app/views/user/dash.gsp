@@ -99,6 +99,13 @@
 </g:if>
 <g:if test="${userType=='Carrier'}">
     <div>Im a carrier - let me bid</div>
+    %{--<div class="container-fluid">--}%
+    %{--<g:textField name="fromArea" value="fromwhere"/>--}%
+    %{--<g:textField name="toArea" value="towhere"/>--}%
+    %{--<g:textField name="date" value="dateoftransport"/>--}%
+
+    <a href="" class=""> link to search page for auctions</a>
+    %{--</div>--}%
 
 </g:if>
 

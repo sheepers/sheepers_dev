@@ -10,10 +10,15 @@ class Auction {
 
     //BigInteger auctionId
     String fromAdr
+    String fromAdrGoogleMapsRef
     String toAdr
+    String toAdrGoogleMapsRef
+
     String fromFloor
     String toFloor
     Set<byte[]> photos
+
+    String status
 
     //String name
     Date dateCreated
@@ -33,6 +38,9 @@ class Auction {
     static constraints = {
         maxAmount (nullable: true)
         comments (nullable: true)
+        status inList: ['open','expired','closed']
+
+
         //photos nullable: true
 
         //photos size : 0..15
