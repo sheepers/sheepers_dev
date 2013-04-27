@@ -17,11 +17,11 @@
         %{--<label>עיר מוצא:</label>--}%
             <g:textField name="fromArea"  class="input-small"  placeholder = "מאיפה יוצאים"/>
             <g:checkBox name="fromCloseArea" />
-            <label class="">והסביבה הקרובה </label>
+            <label class="label label-info">והסביבה הקרובה </label>
         %{--<label>עיר יעד</label>--}%
             <g:textField name="toArea"  class="input-small" placeholder="לאיפה מגיעים"/>
             <g:checkBox name="toCloseArea" />
-            <label class="">והסביבה הקרובה </label>
+            <label class="label label-info">והסביבה הקרובה </label>
 
         %{--<label>תאריך סיום:</label>--}%
             <g:textField id="searchDate" name="date" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>

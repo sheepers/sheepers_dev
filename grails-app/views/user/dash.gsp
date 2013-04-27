@@ -8,7 +8,7 @@
 <head>
     <meta name="layout" content="main">
     <title>Dashboard</title>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=he&region=il"></script>
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
