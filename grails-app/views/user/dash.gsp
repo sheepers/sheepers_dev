@@ -8,7 +8,6 @@
 <head>
     <meta name="layout" content="main">
     <title>Dashboard</title>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=he&region=il"></script>
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
@@ -155,6 +154,7 @@
         }
 
 </r:script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
 <r:layoutResources/>
 </body>
 
