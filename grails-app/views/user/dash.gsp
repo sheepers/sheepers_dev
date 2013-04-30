@@ -8,6 +8,7 @@
 <head>
     <meta name="layout" content="main">
     <title>Dashboard</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
@@ -103,7 +104,7 @@
     %{--<g:textField name="toArea" value="towhere"/>--}%
     %{--<g:textField name="date" value="dateoftransport"/>--}%
 
-    <a href="" class=""> link to search page for auctions</a>
+    <g:link controller="auction" action="search" >link to search page for auctions</g:link>
     %{--</div>--}%
 
 </g:if>
@@ -154,7 +155,6 @@
         }
 
 </r:script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
 <r:layoutResources/>
 </body>
 

@@ -43,7 +43,7 @@
                         <table class="table table-condensed table-hover" data="{tableName:'items'}">
                             <thead>
                             <tr>
-                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'[Closet, Bed, Piano, Refrigerator, Stove, Table, Box, Extra]'}">Type of item</th>
+                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'[Closet,Bed,Piano,Refrigerator,Stove,Table,Box,Extra]'}">Type of item</th>
                                 <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'[Small,Medium,Large,XtraLarge]'}">Size </th>
                                 <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
                                 <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
@@ -63,7 +63,7 @@
                             </tbody>
                         </table>
 
-                        <a class="btn btn-primary" id="addItemLink" href="#">Add Item</a>
+                        <a class="btn btn-small btn-info" id="addItemLink" href="#">הוסף פריט</a>
 
 
                     %{--</ul>--}%
@@ -149,8 +149,9 @@
             toAutocomplete.className = 'notfound';
             return;
          }
-         $('#toAdrLat').val(place.geometry.location.lat());
+        $('#toAdrLat').val(place.geometry.location.lat());
          $('#toAdrLng').val(place.geometry.location.lng());
+
         });
 
 
@@ -167,7 +168,8 @@
             autoAddRow: false,
             rowAdded: function( event, row ) {
                 console.debug("in the rowAdded callback");
-                $(row).children("td").last().append('<r:img class="deleteRowButton" dir="images" file="skin/database_delete.png"/>');
+//                $(row).children("td").last().append('<r:img class="deleteRowButton" dir="images" file="skin/database_delete.png"/>');
+                  $(row).children("td").last().append('<i class="icon-trash"/>');
             },
             rowSelected: function(event, row) {
                 console.debug("in the rowSelected callback");
