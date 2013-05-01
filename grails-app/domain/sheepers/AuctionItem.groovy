@@ -23,7 +23,7 @@ class AuctionItem {
 static constraints = {
         comments( blank: true )
         amountOfBoxes (blank : true)
-        size inList:["Small","Medium,Large","XtraLarge"]
+        size inList:["Small","Medium","Large","XtraLarge"]
         typeOfItem inList:["Closet", "Bed", "Piano"," Refrigerator", "Stove", "Table", "Box", "Extra"]
 
     }

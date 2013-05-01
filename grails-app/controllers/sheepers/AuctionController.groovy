@@ -143,8 +143,24 @@ class AuctionController {
     def searchp(){
 
 //        Auction.findAll("from Auction auc where  ( 6371 * acos( cos( radians(37) ) * cos( radians( :ulat ) ) * cos( radians( :ulng ) - radians(-122) ) + sin( radians(37) ) * sin( radians( :ulat ) ) ) ) AS distance1  HAVING distance < 25 ORDER BY distance LIMIT 0 , 20", [ulat:"32.1111", ulng :"34.0001"] );
-         def res = Auction.executeQuery("SELECT id FROM Auction AS a WHERE a.fromAdrLat IS NOT NULL AND a.fromAdrLng IS NOT NULL AND 6371.0*ACOS(COS(RADIANS(a.fromAdrLat))*COS(RADIANS(:qlat))*COS(RADIANS(a.fromAdrLng)-RADIANS(:qlng)) + SIN(RADIANS(a.fromAdrLat))*SIN(RADIANS(:qlat)) ) < :qradius ", [qlat:32.819434d, qlng:34.9989550d, qradius:50d])  ;
-         def aucs =  Auction.findById(res)
+//         def res = Auction.executeQuery("SELECT id FROM Auction AS a WHERE a.fromAdrLat IS NOT NULL AND a.fromAdrLng IS NOT NULL AND 6371.0*ACOS(COS(RADIANS(a.fromAdrLat))*COS(RADIANS(:qlat))*COS(RADIANS(a.fromAdrLng)-RADIANS(:qlng)) + SIN(RADIANS(a.fromAdrLat))*SIN(RADIANS(:qlat)) ) < :qradius ", [qlat:32.819434d, qlng:34.9989550d, qradius:50d])  ;
+//         def aucs =  Auction.findById(res)
+//        def searchDate = params.date('searchDate', 'dd-MM-yyyy'  )
+
+
+//      Query the db according to user params
+        def sd = new Date(params.searchDate)
+        def res = Auction.executeQuery("""
+            SELECT id FROM Auction AS a WHERE a.fromAdrLat IS NOT NULL AND a.fromAdrLng IS NOT NULL AND a.toAdrLat IS NOT NULL AND a.toAdrLng IS NOT NULL
+            AND 6371.0*ACOS(COS(RADIANS(a.fromAdrLat))*COS(RADIANS(:qlatf))*COS(RADIANS(a.fromAdrLng)-RADIANS(:qlngf)) + SIN(RADIANS(a.fromAdrLat))*SIN(RADIANS(:qlatf)) ) < :qradius
+            AND 6371.0*ACOS(COS(RADIANS(a.toAdrLat))*COS(RADIANS(:qlatt))*COS(RADIANS(a.toAdrLng)-RADIANS(:qlngt)) + SIN(RADIANS(a.toAdrLat))*SIN(RADIANS(:qlatt)) ) < :qradius
+            AND a.deadlineDate <= :qsearchDate AND a.status ='open' """,
+            [qlatf:"${params.fromAdrLat}", qlngf:"${params.fromAdrLng}",qlatt:"${params.toAdrLat}",qlngt:"${params.toAdrLng}", qradius:15d, qsearchDate:sd]);
+
+//      Get the relevant auctions
+        def auctions =  Auction.findAllByIdInList(res)
+
+
 
 
     }

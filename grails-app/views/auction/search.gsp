@@ -11,6 +11,7 @@
 <div class="container-fluid">
     <div class="row-fluid" dir="rtl">
         <div class="span9 offset3" >
+            <div class="well">
         <g:form controller="auction" class="form-search">
         <fieldset>
              <legend class="">חיפוש הובלות</legend>
@@ -24,18 +25,19 @@
             <label class="label label-info">והסביבה הקרובה </label>
 
         %{--<label>תאריך סיום:</label>--}%
-            <g:textField id="searchDate" name="date" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>
+            <g:textField id="searchDate" name="searchDate" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>
 
 
 
-            <g:actionSubmit name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp"/>
-
+            <g:actionSubmit name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp" />
+            <g:set var="frmAdrlat" scope="flash" value="1112"/>
             <g:hiddenField name="fromAdrLat" />
             <g:hiddenField name="fromAdrLng" />
             <g:hiddenField name="toAdrLat" />
             <g:hiddenField name="toAdrLng"/>
         </fieldset>
         </g:form>
+            </div>
         </div>
 
 
@@ -92,7 +94,7 @@
 
 
 </r:script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=he&region=il"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
 <r:layoutResources/>
 </body>
 </html>
