@@ -10,7 +10,28 @@
     <title>Dashboard</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=he&region=il"></script>
     <r:require module="application"/>
+    <r:require modules="atmosphere"/>
     <r:layoutResources/>
+
+
+    <r:script>
+      var CurAuc = 0;
+      function callback(response) {
+      if (response.status == 200) {
+        var data = response.responseBody;
+        if (data.length > 0) {
+            //alert ("woohoo");
+            if (data.split(',')[0] = CurAuc){
+            $('tbody').append('<tr><td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+            }
+        }
+     }
+   }
+
+    var url = '${createLink(uri:'/')}atmosphere/Bids';
+    $.atmosphere.subscribe(url, callback, $.atmosphere.request = {transport:'streaming', fallbackTransport: 'long-polling'});
+    </r:script>
+
 </head>
 <body dir="rtl" class=" pull-right">
 <g:set var="userId" value="${sec.loggedInUserInfo(field: 'username')}"/>
@@ -122,6 +143,7 @@
 <r:script>
 
     function kvetch( controleron, bids_amounts, bidders){
+                CurAuc = controleron;
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });

@@ -110,7 +110,7 @@
 <script>
 $(document).ready(function() {
 	$('#username').focus();
-});
+    });
 
 <s2ui:initCheckboxes/>
 

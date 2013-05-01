@@ -5,7 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException
 class BidController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-    static scaffold = true
+
     def index() {
         redirect(action: "list", params: params)
     }
@@ -26,8 +26,11 @@ class BidController {
             return
         }
 
+        log.info 'broadcasting'
+        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , N ")
+
         flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
-        redirect(action: "show", id: bidInstance.id)
+        redirect(action: "list")
     }
 
     def show(Long id) {
@@ -77,8 +80,10 @@ class BidController {
             return
         }
 
+        log.info 'broadcasting'
+        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , U ")
         flash.message = message(code: 'default.updated.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
-        redirect(action: "show", id: bidInstance.id)
+        redirect(action: "list")
     }
 
     def delete(Long id) {
@@ -91,6 +96,8 @@ class BidController {
 
         try {
             bidInstance.delete(flush: true)
+            log.info 'broadcasting'
+            broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , D ")
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'bid.label', default: 'Bid'), id])
             redirect(action: "list")
         }

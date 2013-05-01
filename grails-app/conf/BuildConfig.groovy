@@ -6,6 +6,8 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+grails.tomcat.nio = true
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -32,15 +34,20 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.jboss.com/maven2/"
     }
     dependencies {
-        // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+        build("org.apache.tomcat:tomcat-catalina-ant:$grailsVersion") {
+            transitive = false
+        }
+        build "org.apache.tomcat.embed:tomcat-embed-core:$grailsVersion"
+        build "org.apache.tomcat.embed:tomcat-embed-jasper:$grailsVersion"
+        build "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$grailsVersion"
     }
 
     plugins {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.0"
         runtime ":resources:1.1.6"
+        runtime ":atmosphere:0.4.2.3"
 
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0"
@@ -50,6 +57,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.2.1"
+
 
         compile ':cache:1.0.1'
     }
