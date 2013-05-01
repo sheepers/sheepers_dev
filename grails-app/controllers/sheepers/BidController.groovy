@@ -27,7 +27,7 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , N ")
+        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
         redirect(action: "list")
@@ -81,7 +81,7 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , U ")
+        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , U ")
         flash.message = message(code: 'default.updated.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
         redirect(action: "list")
     }
@@ -97,7 +97,7 @@ class BidController {
         try {
             bidInstance.delete(flush: true)
             log.info 'broadcasting'
-            broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , D ")
+            broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , D ")
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'bid.label', default: 'Bid'), id])
             redirect(action: "list")
         }

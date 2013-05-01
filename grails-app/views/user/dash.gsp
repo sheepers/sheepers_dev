@@ -22,7 +22,20 @@
         if (data.length > 0) {
             //alert ("woohoo");
             if (data.split(',')[0] = CurAuc){
-            $('tbody').append('<tr><td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+            switch (data.split(',')[4].trim()){
+            case 'N' :
+                $('tbody').append('<tr id ="' +data.split(',')[3].trim()+ '"> <td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+                break;
+             case 'U' :
+                $("#" + data.split(',')[3].trim() ).remove();
+                $('tbody').append('<tr id ="' +data.split(',')[3].trim()+ '"> <td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+                break;
+             case 'D' :
+                $("#" + data.split(',')[3].trim() ).remove();
+                break;
+            }
+
+
             }
         }
      }
@@ -64,7 +77,7 @@
             <div   class="span8 pull-right well " dir="rtl" id="auctions">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
-                            <li class=""><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                            <li class=""><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
                         </g:each>
                     </ul>
                     <div id="auctions_content" class="tab-content">
@@ -142,7 +155,7 @@
 </div>
 <r:script>
 
-    function kvetch( controleron, bids_amounts, bidders){
+    function kvetch( controleron, bids_amounts, bidders, bids_id){
                 CurAuc = controleron;
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
@@ -160,16 +173,19 @@
                 $("#bids").children("span").text("");
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
+                bids_id = bids_id.replace("]","");
                 bids_amounts = bids_amounts.replace("]","");
                 bidders = bidders.replace("[","");
+                bids_id = bids_id.replace("[","");
                 bidAmountArray = bids_amounts.split(",");
                 biddersArray = bidders.split(",");
+                bids_idArray = bids_id.split(",");
                 $("#bids").animate({minHeight: '300px'},200,function(){
                     $("#cur_bids"). append('<th>סכום</th><th>משוב</th><th>מוביל</th>');
                     for (var i = 0; i < bidAmountArray.length; i += 1) {
 
 
-                        $("#cur_bids"). append('<tr><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
+                        $("#cur_bids"). append('<tr id=' + bids_idArray[i] + '><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
                     }
                 });
 
