@@ -3,8 +3,6 @@
 <head>
     <title><g:message code='spring.security.ui.login.title'/></title>
     <meta name='layout' content='main'/>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
     <r:require module="application"/>
     <r:layoutResources/>
 </head>
