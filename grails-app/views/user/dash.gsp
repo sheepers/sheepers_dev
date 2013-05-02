@@ -34,8 +34,10 @@
                 $("#" + data.split(',')[3].trim() ).remove();
                 break;
             }
-
-
+            $("#" + data.split(',')[3].trim() ).animate({"color":"#3a87ad"},1000).delay(500);
+            $("#" + data.split(',')[3].trim() ).animate({"color":" #333"},1000);
+            $("#" + data.split(',')[3].trim() ).animate({"color":"#3a87ad"},1000).delay(500);
+            $("#" + data.split(',')[3].trim() ).animate({"color":" #333"},1000);
             }
         }
      }
@@ -181,7 +183,8 @@
                 biddersArray = bidders.split(",");
                 bids_idArray = bids_id.split(",");
                 $("#bids").animate({minHeight: '300px'},200,function(){
-                    $("#cur_bids"). append('<th>סכום</th><th>משוב</th><th>מוביל</th>');
+                    $("#cur_bids"). append('<th >סכום</th><th>משוב</th><th>מוביל</th>');
+
                     for (var i = 0; i < bidAmountArray.length; i += 1) {
 
 
