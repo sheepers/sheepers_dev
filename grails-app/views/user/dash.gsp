@@ -16,35 +16,60 @@
 
     <r:script>
       var CurAuc = 0;
-      function callback(response) {
-      if (response.status == 200) {
-        var data = response.responseBody;
-        if (data.length > 0) {
-            //alert ("woohoo");
-            if (data.split(',')[0] = CurAuc){
-            switch (data.split(',')[4].trim()){
+      var request = { url:'${createLink(uri:'/')}atmosphere/Bids',
+        contentType : "application/json",
+        logLevel : 'error',
+        shared : 'false',
+        transport : 'websocket' ,
+        fallbackTransport: 'long-polling'};
+
+         request.onMessage = function (response) {
+
+        // We need to be logged first.
+
+        var message = response.responseBody;
+        //console.log('response is ')
+        //console.log(response)
+        //console.log('message is ' + message)
+        try {
+            var json = jQuery.parseJSON(message);
+        } catch (e) {
+            //console.log('This doesn\'t look like a valid JSON: ', message);
+            return;
+        }
+         HandleBid(json.Aid, json.Amnt, json.Un, json.Bid, json.Ac);
+    };
+      //function callback(response) {
+      function HandleBid(Aid, Amnt, Un, Bid, Ac) {
+      //if (response.status == 200) {
+        //var data = response.responseBody;
+        //if (data.length > 0) {
+            ////alert ("woohoo");
+            if (Aid = CurAuc){
+            switch (Ac){
             case 'N' :
-                $('tbody').append('<tr id ="' +data.split(',')[3].trim()+ '"> <td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td>' +Un+'</td> </tr>');
                 break;
              case 'U' :
-                $("#" + data.split(',')[3].trim() ).remove();
-                $('tbody').append('<tr id ="' +data.split(',')[3].trim()+ '"> <td>'+data.split(',')[1]+ '</td><td></td><td>' +data.split(',')[2]+'</td> </tr>');
+                $("#" + Bid ).remove();
+                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td>' +Un+'</td> </tr>');
                 break;
              case 'D' :
-                $("#" + data.split(',')[3].trim() ).remove();
+                $("#" + Bid ).remove();
                 break;
             }
-            $("#" + data.split(',')[3].trim() ).animate({"color":"#3a87ad"},1000).delay(500);
-            $("#" + data.split(',')[3].trim() ).animate({"color":" #333"},1000);
-            $("#" + data.split(',')[3].trim() ).animate({"color":"#3a87ad"},1000).delay(500);
-            $("#" + data.split(',')[3].trim() ).animate({"color":" #333"},1000);
+            $("#" + Bid ).animate({"color":"#3a87ad"},1000).delay(500);
+            $("#" + Bid ).animate({"color":" #333"},1000);
+            $("#" + Bid ).animate({"color":"#3a87ad"},1000).delay(500);
+            $("#" + Bid ).animate({"color":" #333"},1000);
             }
-        }
-     }
-   }
 
-    var url = '${createLink(uri:'/')}atmosphere/Bids';
-    $.atmosphere.subscribe(url, callback, $.atmosphere.request = {transport:'streaming', fallbackTransport: 'long-polling'});
+
+   };
+
+   // var url = '${createLink(uri:'/')}atmosphere/Bids';
+    //$.atmosphere.subscribe(url, callback, $.atmosphere.request = {transport:'long-polling'});
+    $.atmosphere.subscribe(request);
     </r:script>
 
 </head>

@@ -1,6 +1,7 @@
 package sheepers
 
 import org.springframework.dao.DataIntegrityViolationException
+import grails.converters.JSON
 
 class BidController {
 
@@ -27,7 +28,9 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
+        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "N"    )
+        broadcaster['/atmosphere/Bids'].broadcast(msg)
+        //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
         redirect(action: "list")
@@ -81,7 +84,9 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , U ")
+        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "U"    )
+        broadcaster['/atmosphere/Bids'].broadcast(msg)
+        //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , U ")
         flash.message = message(code: 'default.updated.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
         redirect(action: "list")
     }
@@ -97,7 +102,9 @@ class BidController {
         try {
             bidInstance.delete(flush: true)
             log.info 'broadcasting'
-            broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , D ")
+            def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "D"    )
+            broadcaster['/atmosphere/Bids'].broadcast(msg)
+           // broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , D ")
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'bid.label', default: 'Bid'), id])
             redirect(action: "list")
         }

@@ -6,7 +6,7 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
-grails.tomcat.nio = true
+//grails.tomcat.nio = true
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -35,12 +35,13 @@ grails.project.dependency.resolution = {
     }
     dependencies {
 
-        build("org.apache.tomcat:tomcat-catalina-ant:$grailsVersion") {
+/*        build("org.apache.tomcat:tomcat-catalina-ant:$grailsVersion") {
             transitive = false
         }
         build "org.apache.tomcat.embed:tomcat-embed-core:$grailsVersion"
         build "org.apache.tomcat.embed:tomcat-embed-jasper:$grailsVersion"
         build "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$grailsVersion"
+    */
     }
 
     plugins {
@@ -54,7 +55,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        build ":tomcat:$grailsVersion"
+        build ":jetty:2.0.3"
 
         runtime ":database-migration:1.2.1"
 
