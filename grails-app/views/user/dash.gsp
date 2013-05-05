@@ -20,8 +20,8 @@
         contentType : "application/json",
         logLevel : 'error',
         shared : 'false',
-        transport : 'websocket' ,
-        fallbackTransport: 'long-polling'};
+        transport : 'long-polling' ,
+        fallbackTransport: 'jsonp'};
 
          request.onMessage = function (response) {
 
@@ -219,6 +219,7 @@
 
 
         }
+
 
 </r:script>
 <r:layoutResources/>

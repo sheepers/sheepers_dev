@@ -35,7 +35,9 @@ class BidService {
         def onStateChange = { event ->
             if (event.cancelled){
                 log.info "onStateChange, cancelling $event"
+
             }
+            else{
             AtmosphereResource r = event.resource
             AtmosphereResponse res = r.response
            /* else if (event.message) {
@@ -65,8 +67,9 @@ class BidService {
                 log.info  "ERROR in onStateChange: $e"
             }
         }
+    }
+
     private String createMessage(Integer Aid, Integer  Amnt , String  Un , Integer  Bid , String Ac  ) {
         return new JSON( [Aid : Aid, Amnt : Amnt, Un : Un, Bid: Bid, Ac:Ac] )
     }
-
 }
