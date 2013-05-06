@@ -16,16 +16,26 @@
 
 
 </head>
+
+
+
 <body dir="rtl" class=" pull-right">
+
+
+<header class="page-header" dir="rtl" >
+    <span class="span12"/>
+    <div >
+        עוברים דירה        ...
+    </div>
+</header>
+
 <g:set var="userId" value="${sec.loggedInUserInfo(field: 'username')}"/>
 <g:set var="userType" value="${User.findByUsername(userId.toString()).profile.userType}" />
 <g:if test="${userType=='Customer'}" >
 
 
 <div class="container-fluid">
- <ul  dir="rtl" class="breadcrumb">
-        <li>האזור האישי שלי</li>
-  </ul>
+
 <div dir="rtl" class="well-white">
 <div>
     <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>

@@ -8,6 +8,7 @@
         <meta name="author" content="">
 
         <!-- Le styles -->
+
         <link href="../css/datepicker.css" rel="stylesheet">
         <link href="../css/bootstrap.css" rel="stylesheet">
         <link href="../css/layout.css" rel="stylesheet">
