@@ -47,22 +47,22 @@
 </div>
 </div>
     <div class="row-fluid ">
-            <div class=" well span4 " id="bids">
+            <div class=" span4 " id="bids">
             <span class="pull-right"><h5>בחר במכרז מן הרשימה </h5></span>
 
              <table id="cur_bids" class="pull-right table">
 
              </table>
             </div>
-            <div   class="span8 pull-right well " dir="rtl" id="auctions">
+            <div   class="span8 pull-right  " dir="rtl" id="auctions">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
-                            <li class=""><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                            <li class="pull-right"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
                         </g:each>
                     </ul>
                     <div id="auctions_content" class="tab-content">
                         <g:each in="${Auction.list()}" var="auction">
-                            <div id="auction_num_${auction.id}" class="tab-pane fade">
+                            <div id="auction_num_${auction.id}" class="tab-pane fade well-white">
                                 <a  href="#AuctionEditModal${auction.id}" role="button"  class="edit icon-edit"  data-remote="../auction/edit/${auction.id}"   data-toggle="modal"  ></a>
                             <div class="modal wide  hide fade " id="AuctionEditModal${auction.id}"  role="dialog">
                                 <div class="modal-header">
@@ -82,6 +82,24 @@
                                         <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
                                     </g:each>
                                 </ul>
+
+                                <div id="myCarousel" class="carousel slide">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- Carousel items -->
+
+                                    <div class="carousel-inner">
+                                        <div class="active item"><img src="http://image.subscribe.ru/list/digest/business/sheeps.jpg"/></div>
+                                        <div class="item"><img src="http://www.gapa.co.il/wp-content/uploads/2011/05/900X300-Sheep-300x150.jpg"/></div>
+                                        <div class="item"><img src="http://www.farmeramania.de/wp-content/blogs.dir/19/files/2011/08/sheeps_22-300x150.png"/></div>
+                                    </div>
+                                    <!-- Carousel nav -->
+                                    <a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                </div>
                             </div>
                         </g:each>
                      </div>
