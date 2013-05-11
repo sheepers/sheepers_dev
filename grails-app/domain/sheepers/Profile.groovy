@@ -2,7 +2,7 @@ package sheepers
 
 class Profile {
 
-    //EUserType userType
+
     String userPhoneNumber
     String userType
     static belongsTo = [user : User]

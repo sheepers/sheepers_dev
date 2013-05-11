@@ -93,6 +93,7 @@ log4j = {
         info 'stdout'
     }
 
+
 }
 
 // Added by the Spring Security Core plugin:

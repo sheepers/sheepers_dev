@@ -1,6 +1,6 @@
 
 <%@ page import="sheepers.Profile; sheepers.User; sheepers.Auction" %>
-<%@ page import="sheepers.Bid; sheepers.ESize; sheepers.EtypeOfItem" %>
+<%@ page import="sheepers.Bid" %>
 <%@ page import="sheepers.UserController" %>
 <%@ page import="grails.converters.JSON" %>
 <!DOCTYPE html>

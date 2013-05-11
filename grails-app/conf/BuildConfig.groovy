@@ -1,4 +1,4 @@
-grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
+grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
@@ -7,6 +7,7 @@ grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.tomcat.nio = true
+//grails.glassfish.websocket = true
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -37,18 +38,24 @@ grails.project.dependency.resolution = {
         compile('org.atmosphere:atmosphere-runtime:1.0.0.beta5') {
             excludes 'slf4j-api', 'atmosphere-ping'
         }
+//        build ":glassfish:0.1.2"
 /*        build("org.apache.tomcat:tomcat-catalina-ant:$grailsVersion") {
         transitive = false
     }
     build "org.apache.tomcat.embed:tomcat-embed-core:$grailsVersion"
     build "org.apache.tomcat.embed:tomcat-embed-jasper:$grailsVersion"
     build "org.apache.tomcat.embed:tomcat-embed-logging-log4j:$grailsVersion"
+
 */
+//        build 'org.slf4j:slf4j-api:1.6.6'
+//        build 'org.slf4j:slf4j-log4j12:1.6.6'
+//
+//        build 'org.glassfish.main.extras:glassfish-embedded-all:3.1.2'
     }
 
     plugins {
         runtime ":hibernate:$grailsVersion"
-        runtime ":jquery:1.8.0"
+        runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
         runtime (":atmosphere:0.4.2.3"){
             exclude 'atmosphere-runtime'
@@ -59,7 +66,7 @@ grails.project.dependency.resolution = {
         //runtime ":cached-resources:1.0"
         //runtime ":yui-minify-resources:0.1.4"
 
-        build ":tomcat:2.1.2"
+        build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.2.1"
 
