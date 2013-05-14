@@ -143,11 +143,16 @@
 
 <div class="modal wide  hide fade " id="AuctionCreateModal"  role="dialog">
     <div class="modal-header">
-        <div class="container-fluid">
-            <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
-        </div>
+        %{--<div class="container-fluid">--}%
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>אנא מלא פרטים ליצירת הובלה חדשה</h3>
+        %{--</div>--}%
     </div>
     <div class="modal-body">
+        <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn pull-right">ביטול</a>
     </div>
 
 </div>

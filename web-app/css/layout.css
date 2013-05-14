@@ -33,6 +33,8 @@ body {
   }
 .modal{
     z-index: 20;
+    overflow-y:auto;
+    max-height:90%;
 }
 .modal.wide{
     min-width:860px;

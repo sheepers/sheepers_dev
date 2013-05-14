@@ -8,10 +8,10 @@
                 %{--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">--}%
                 <span class="form-inline">
 
-                        <g:textField class="input-mini" name="fromFloor"  placeholder="מספר" value="${auctionInstance?.fromFloor}"/>
-                        <label class="control-label " for="fromFloor">קומה </label>
-                        <g:textField   name="fromAdr"   placeholder="הכנס כתובת" value="${auctionInstance?.fromAdr}"/>
-                        <label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>
+                        <g:textField class="input-mini" name="fromFloor"  placeholder="קומה" value="${auctionInstance?.fromFloor}"/>
+                        %{--<label class="control-label " for="fromFloor">קומה </label>--}%
+                        <g:textField   name="fromAdr"   placeholder="הכנס כתובת יציאה" value="${auctionInstance?.fromAdr}"/>
+                        %{--<label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>--}%
                         <g:hiddenField name="fromAdrLat" value="${auctionInstance?.fromAdrLat}"/>
                         <g:hiddenField name="fromAdrLng" value="${auctionInstance?.fromAdrLng}"/>
             %{--<g:textField name="ooo" value="aaa" placeholder="mmm" />--}%
@@ -20,10 +20,10 @@
                 %{--</div>--}%
                 %{--<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">--}%
 
-                        <g:textField class="input-mini" name="toFloor" placeholder="מספר" value="${auctionInstance?.toFloor}"/>
-                        <label for="toFloor">קומה </label>
-                        <g:textField name="toAdr" placeholder="הכנס כתובת"  value="${auctionInstance?.toAdr}"/>
-                        <label  class="control-label" for="toAdr"> לאן מגיעים</label>
+                        <g:textField class="input-mini" name="toFloor" placeholder="קומה" value="${auctionInstance?.toFloor}"/>
+                        %{--<label for="toFloor">קומה </label>--}%
+                        <g:textField name="toAdr" placeholder="הכנס כתובת הגעה"  value="${auctionInstance?.toAdr}"/>
+                        %{--<label  class="control-label" for="toAdr"> לאן מגיעים</label>--}%
                         <g:hiddenField name="toAdrLat" value="${auctionInstance?.toAdrLat}"/>
                         <g:hiddenField name="toAdrLng" value="${auctionInstance?.toAdrLng}"/>
                 %{--</div>--}%
@@ -35,7 +35,7 @@
         <div class="well pull-right">
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'items', 'error')} ">
                     <label for="items">
-                        <g:message code="auction.items.label" default="Items" />
+                        <g:message code="auction.items.label" default="בחר פריטים להעברה:" />
                     </label>
 
 
@@ -43,10 +43,10 @@
                         <table class="table table-condensed table-hover" data="{tableName:'items'}">
                             <thead>
                             <tr>
-                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'[Closet,Bed,Piano,Refrigerator,Stove,Table,Box,Extra]'}">Type of item</th>
-                                <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'[Small,Medium,Large,XtraLarge]'}">Size </th>
-                                <th data="{required:false, name:'amountOfBoxes', placeholder:'Required' }">Amount of boxes</th>
-                                <th data="{required:false, name:'comments', placeholder:'Required'}">Comments </th>
+                                <th data="{required:false, name:'comments', placeholder:'הערות'}">הערות </th>
+                                <th data="{required:false, name:'amountOfBoxes', placeholder:'מספר' }">מספר</th>
+                                <th data="{required:true, name:'size', placeholder:'Required', selectType:true, fromList:'[Small,Medium,Large,XtraLarge]'}">גודל </th>
+                                <th data="{required:true, name:'typeOfItem', placeholder:'Required', selectType:true, fromList:'[Closet,Bed,Piano,Refrigerator,Stove,Table,Box,Extra]'}">סוג</th>
                                 <th data="{editable:false}">&nbsp;</th>
                             </tr>
                             </thead>
@@ -87,7 +87,7 @@
             <div class="well pull-right">
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'deadlineDate', 'error')} required">
                     <label for="deadlineDate">
-                        <g:message code="auction.deadlineDate.label" default="Deadline Date" />
+                        <g:message code="auction.deadlineDate.label" default="תאריך מבוקש" />
                         <span class="required-indicator">*</span>
                     </label>
                     <g:textField id="dp2" name="deadlineDate" value="${auctionInstance?.deadlineDate}"  />
@@ -95,7 +95,7 @@
                 </div>
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
                     <label for="maxAmount">
-                        <g:message code="auction.maxAmount.label" default="maxAmount" />
+                        <g:message code="auction.maxAmount.label" default="סכום מקסימלי" />
 
                     </label>
                     <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
