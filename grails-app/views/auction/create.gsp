@@ -26,7 +26,7 @@
     %{--}--}%
     %{--</style>--}%
     <meta name="layout" content="main">
-    <r:require module="application"/>
+    %{--<r:require module="application"/>--}%
     %{--<r:require module="fileuploader"/>--}%
     <r:require module="forms"/>
     <r:layoutResources/>
@@ -69,7 +69,7 @@
 
 
 <script src="../js/jquery.fineuploader-3.5.0.js"></script>
-<script src="../js/bootstrap.js"></script>
+%{--<script src="../js/bootstrap.js"></script>--}%
 <script>
     $(document).ready(function () {
         var uploader = new qq.FineUploader({
