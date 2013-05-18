@@ -29,6 +29,7 @@
     %{--<r:require module="application"/>--}%
     %{--<r:require module="fileuploader"/>--}%
     <r:require module="forms"/>
+    <r:require module="upload"/>
     <r:layoutResources/>
 </head>
 <body>
@@ -68,9 +69,9 @@
 %{--</div>--}%
 
 
-<script src="../js/jquery.fineuploader-3.5.0.js"></script>
+%{--<script src="../js/jquery.fineuploader-3.5.0.js"></script>--}%
 %{--<script src="../js/bootstrap.js"></script>--}%
-<script>
+<r:script>
     $(document).ready(function () {
         var uploader = new qq.FineUploader({
             element: document.getElementById('bootstrapped-fine-uploader'),
@@ -121,7 +122,7 @@
 
 
 
-</script>
+</r:script>
 <r:layoutResources/>
 </body>
 </html>

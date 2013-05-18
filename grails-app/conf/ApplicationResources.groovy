@@ -13,5 +13,8 @@ modules = {
         resource url:'/js/jquery.ui.writetable.js'
         resource url:'/js/bootstrap-datepicker.js'
     }
+    upload {
+        resource url:'js/jquery.fineuploader-3.5.0.js'
+    }
 }
 
