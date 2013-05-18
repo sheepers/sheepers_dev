@@ -3,7 +3,7 @@
 <html dir="rtl">
 <head>
     <g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
-    %{--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>--}%
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
     %{--<link href="/css/fineuploader.css" rel="stylesheet">--}%
     %{--<style>--}%
     %{--/* Fine Uploader--}%
@@ -25,7 +25,7 @@
     %{--display: inline;--}%
     %{--}--}%
     %{--</style>--}%
-    <meta name="layout" content="main">
+    %{--<meta name="layout" content="main">--}%
     %{--<r:require module="application"/>--}%
     %{--<r:require module="fileuploader"/>--}%
     <r:require module="forms"/>

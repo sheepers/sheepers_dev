@@ -144,7 +144,7 @@
 <div class="modal wide  hide fade" tabindex="-1" id="AuctionCreateModal"  role="dialog" aria-labelledby="createLabel">
     <div class="modal-header">
         %{--<div class="container-fluid">--}%
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button type="button" class="close icon-remove" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3 id="createLabel" class="pull-right">אנא מלא פרטים ליצירת הובלה חדשה</h3>
         %{--</div>--}%
     </div>

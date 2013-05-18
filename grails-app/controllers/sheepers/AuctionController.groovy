@@ -2,6 +2,7 @@ package sheepers
 
 import org.springframework.dao.DataIntegrityViolationException
 import grails.converters.JSON
+import org.springframework.web.multipart.MultipartFile
 
 class AuctionController {
     //static scaffold = true
@@ -52,10 +53,12 @@ class AuctionController {
 
         def auctionInstance = new Auction(params)
         if (!auctionInstance.save(flush: true)) {
+            //todo: add to delete the tmp file directory
             render(view: "create", model: [auctionInstance: auctionInstance])
             return
         }
-
+        //copy photos from tmp to auctionID directory
+        transfer(user.getId(),auctionInstance.getId())
         flash.message = message(code: 'default.created.message', args: [message(code: 'auction.label', default: 'Auction'), auctionInstance.id])
         redirect(uri: "/")
     }
@@ -141,6 +144,7 @@ class AuctionController {
     def search (){
 
     }
+
     def searchp(){
 
 //        Auction.findAll("from Auction auc where  ( 6371 * acos( cos( radians(37) ) * cos( radians( :ulat ) ) * cos( radians( :ulng ) - radians(-122) ) + sin( radians(37) ) * sin( radians( :ulat ) ) ) ) AS distance1  HAVING distance < 25 ORDER BY distance LIMIT 0 , 20", [ulat:"32.1111", ulng :"34.0001"] );
@@ -164,6 +168,30 @@ class AuctionController {
 
 
 
+    }
+
+    def transfer(Long userId, Long auctionId){
+        String tmpStorageDirectory = grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
+
+        String newStorageDirectory = tmpStorageDirectory + '/' + userId + '/' + auctionId
+        tmpStorageDirectory += '/' + userId   + '/tmp'
+
+        def newStorageDirectoryFolder = new File(newStorageDirectory)
+        if( !newStorageDirectoryFolder.exists() ){
+            newStorageDirectoryFolder .mkdirs()
+        }
+
+        def folder = new File( "$tmpStorageDirectory" )
+        folder.eachFile {
+            if (it.isFile()){
+                def tmpFile = new File (it.path)
+                def newFile = new File (newStorageDirectory + '/' + it.name)
+                tmpFile.withInputStream { is->
+                    newFile << is
+                }
+            }
+        }
+        folder.deleteDir()
     }
 
 }
