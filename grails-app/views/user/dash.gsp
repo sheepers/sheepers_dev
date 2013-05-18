@@ -55,6 +55,7 @@
              </table>
             </div>
             <div   class="span8 pull-right  " dir="rtl" id="auctions">
+                  <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
                             <li class="pull-right"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
@@ -103,6 +104,7 @@
                             </div>
                         </g:each>
                      </div>
+                  </div>
                 <!--
                     <g:each in="${Auction.list()}" var="auction">
                      <div  id="auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}')">
@@ -143,10 +145,11 @@
 
 <div class="modal wide  hide fade" tabindex="-1" id="AuctionCreateModal"  role="dialog" aria-labelledby="createLabel">
     <div class="modal-header">
-        %{--<div class="container-fluid">--}%
-        <button type="button" class="close icon-remove" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <div class="container-fluid">
+        <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">x</button>
+        %{--<a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>--}%
         <h3 id="createLabel" class="pull-right">אנא מלא פרטים ליצירת הובלה חדשה</h3>
-        %{--</div>--}%
+        </div>
     </div>
     <div class="modal-body pull-right">
         %{--<a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>--}%
