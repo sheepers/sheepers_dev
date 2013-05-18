@@ -170,23 +170,23 @@ class AuctionController {
 
     }
 
-    def transfer(Long userId, Long auctionId){
-        String tmpStorageDirectory = grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
+    private transfer = { Long userId, Long auctionId ->
+        String tmpStorageDirectory = grailsApplication.config.fileupload.directory ?: '/Users/Ofir/sheepers_dev/user-images'
 
         String newStorageDirectory = tmpStorageDirectory + '/' + userId + '/' + auctionId
-        tmpStorageDirectory += '/' + userId   + '/tmp'
+        tmpStorageDirectory += '/' + userId + '/tmp'
 
         def newStorageDirectoryFolder = new File(newStorageDirectory)
-        if( !newStorageDirectoryFolder.exists() ){
-            newStorageDirectoryFolder .mkdirs()
+        if (!newStorageDirectoryFolder.exists()) {
+            newStorageDirectoryFolder.mkdirs()
         }
 
-        def folder = new File( "$tmpStorageDirectory" )
+        def folder = new File("$tmpStorageDirectory")
         folder.eachFile {
-            if (it.isFile()){
-                def tmpFile = new File (it.path)
-                def newFile = new File (newStorageDirectory + '/' + it.name)
-                tmpFile.withInputStream { is->
+            if (it.isFile()) {
+                def tmpFile = new File(it.path)
+                def newFile = new File(newStorageDirectory + '/' + it.name)
+                tmpFile.withInputStream { is ->
                     newFile << is
                 }
             }
