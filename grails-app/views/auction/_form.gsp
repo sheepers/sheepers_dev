@@ -96,9 +96,10 @@
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
                     <label for="maxAmount">
                         <g:message code="auction.maxAmount.label" default="סכום מקסימלי" />
-
                     </label>
+                    <span class="add-on">ש"ח</span>
                     <g:textField name="maxAmount" value="${auctionInstance?.maxAmount}"/>
+                    <span class="add-on">.00</span>
                 </div>
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'comments', 'error')} ">
                     <label for="comments">הערות נוספות </label>

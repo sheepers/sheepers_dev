@@ -138,5 +138,6 @@ grails.plugins.springsecurity. ui.password.validationRegex = '^.*(?=.*\\d).*$'
 
 grails.plugins.springsecurity.ui.encodePassword = false
 
+fileupload.directory = '/Users/Ofir/sheepers_dev/user-images'
 
-
+mytry = '${userHome}/.grails/${appName}'

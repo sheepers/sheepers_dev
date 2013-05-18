@@ -141,18 +141,18 @@
 
 </g:if>
 
-<div class="modal wide  hide fade " id="AuctionCreateModal"  role="dialog">
+<div class="modal wide  hide fade" tabindex="-1" id="AuctionCreateModal"  role="dialog" aria-labelledby="createLabel">
     <div class="modal-header">
         %{--<div class="container-fluid">--}%
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>אנא מלא פרטים ליצירת הובלה חדשה</h3>
+        <h3 id="createLabel" class="pull-right">אנא מלא פרטים ליצירת הובלה חדשה</h3>
         %{--</div>--}%
     </div>
-    <div class="modal-body">
-        <a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>
+    <div class="modal-body pull-right">
+        %{--<a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>--}%
     </div>
     <div class="modal-footer">
-        <a href="#" class="btn pull-right">ביטול</a>
+        <button data-dismiss="modal" aria-hidden="true" class="btn pull-right">ביטול</button>
     </div>
 
 </div>
