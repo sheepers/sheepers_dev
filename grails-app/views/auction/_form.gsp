@@ -106,21 +106,21 @@
                     <g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
                 </div>
 
-                %{--<g:if test="${auctionInstance?.Photos}">--}%
-                %{--<div id="myCarousel" class="carousel slide">--}%
-                    %{--<!-- Carousel items -->--}%
+                <g:if test="${auctionInstance?.Images}">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- Carousel items -->
 
-                    %{--<div id="CarouselIn" class="carousel-inner">--}%
+                    <div id="CarouselIn" class="carousel-inner">
 
-                    %{--<g:each in="${auctionInstance?.Photos}" var="image">--}%
-                        %{--<div class="item"><img src="${grailsApplication.config.fileupload.directory}/${auctionInstance.profile.user.id}/${auctionInstance.id}/${image}"/></div>--}%
-                    %{--</g:each>--}%
-                    %{--</div>--}%
-                    %{--<!-- Carousel nav -->--}%
-                    %{--<a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>--}%
-                    %{--<a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>--}%
-                %{--</div>--}%
-                %{--</g:if>--}%
+                    <g:each in="${auctionInstance?.Images}" var="image">
+                        <div class="item"><img src="${grailsApplication.config.fileupload.directory}/${auctionInstance.profile.user.id}/${auctionInstance.id}/${image}"/></div>
+                    </g:each>
+                    </div>
+                    <!-- Carousel nav -->
+                    <a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+                </g:if>
             </div>
         </div>
 

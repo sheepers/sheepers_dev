@@ -57,7 +57,7 @@ class AuctionController {
             return
         }
         //copy photos from tmp to auctionID directory
-        transfer(user.getId(),auctionInstance.getId())
+        transfer(user.getId(),auctionInstance.getId(), auctionInstance)
         flash.message = message(code: 'default.created.message', args: [message(code: 'auction.label', default: 'Auction'), auctionInstance.id])
         redirect(uri: "/")
     }
@@ -161,7 +161,7 @@ class AuctionController {
 
     }
 
-    private transfer = { Long userId, Long auctionId ->
+    private transfer = { Long userId, Long auctionId , Auction auction ->
         String tmpStorageDirectory = grailsApplication.config.fileupload.directory ?: '/Users/Ofir/sheepers_dev/user-images'
 
         String newStorageDirectory = tmpStorageDirectory + '/' + userId + '/' + auctionId
@@ -173,7 +173,7 @@ class AuctionController {
         }
 
         def folder = new File("$tmpStorageDirectory")
-        def Auc = Auction.get(auctionId);
+
         folder.eachFile {
             if (it.isFile()) {
                 def tmpFile = new File(it.path)
@@ -183,8 +183,8 @@ class AuctionController {
                 }
             }
         }
-        Auc.save()
         folder.deleteDir()
+
     }
 
 }

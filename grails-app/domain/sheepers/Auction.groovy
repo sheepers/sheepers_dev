@@ -1,9 +1,5 @@
 package sheepers
 
-import sheepers.AuctionItem
-import  sheepers.Address
-import grails.converters.JSON
-
 class Auction {
 
 
@@ -30,6 +26,8 @@ class Auction {
     String comments
     List items
 
+
+
     static belongsTo = Profile
     static hasOne = [profile : Profile]
     static hasMany = [bids: Bid, items:AuctionItem]
@@ -42,9 +40,7 @@ class Auction {
         status inList: ['open','expired','closed']
 
 
-        //photos nullable: true
 
-        //photos size : 0..15
 
     }
 
