@@ -18,7 +18,6 @@ class Auction {
 
     String fromFloor
     String toFloor
-    Set<byte[]> photos
 
     String status
 

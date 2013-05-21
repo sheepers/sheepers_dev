@@ -173,6 +173,7 @@ class AuctionController {
         }
 
         def folder = new File("$tmpStorageDirectory")
+        def Auc = Auction.get(auctionId);
         folder.eachFile {
             if (it.isFile()) {
                 def tmpFile = new File(it.path)
@@ -182,6 +183,7 @@ class AuctionController {
                 }
             }
         }
+        Auc.save()
         folder.deleteDir()
     }
 

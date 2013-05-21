@@ -3,7 +3,10 @@
 <html dir="rtl">
 <head>
     <g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
+    <meta name="layout" content="main">
+
+    %{--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>--}%
     %{--<link href="/css/fineuploader.css" rel="stylesheet">--}%
     %{--<style>--}%
     %{--/* Fine Uploader--}%
@@ -28,6 +31,7 @@
     %{--<meta name="layout" content="main">--}%
     %{--<r:require module="application"/>--}%
     %{--<r:require module="fileuploader"/>--}%
+    <r:require module="application"/>
     <r:require module="forms"/>
     <r:require module="upload"/>
     <r:layoutResources/>
@@ -73,6 +77,51 @@
 %{--<script src="../js/bootstrap.js"></script>--}%
 <r:script>
     $(document).ready(function () {
+         //Handle Datepicker
+        $('#null_date').datepicker().on('changeDate',function(){
+            $('#null_date').datepicker('hide');
+        });
+
+        // Handle Google
+
+
+
+        var options = {
+//           types: ['(cities)'],
+            componentRestrictions: {country: 'il'}
+        };
+
+        var fromInput = document.getElementById("null_fromAdr");
+        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
+        var toInput = document.getElementById("null_toAdr");
+        var toAutocomplete = new google.maps.places.Autocomplete(toInput, options);
+
+
+
+        google.maps.event.addListener(fromAutocomplete, 'place_changed', function() {
+            var place = fromAutocomplete.getPlace();
+            if (!place.geometry) {
+                // Inform the user that the place was not found and return.
+                fromAutocomplete.className = 'notfound';
+                return;
+            }
+            $('#null_fromAdrLat').val(place.geometry.location.lat());
+            $('#null_fromAdrLng').val(place.geometry.location.lng());
+        });
+
+        google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
+            var place = toAutocomplete.getPlace();
+            if (!place.geometry) {
+                // Inform the user that the place was not found and return.
+                toAutocomplete.className = 'notfound';
+                return;
+            }
+            $('#null_toAdrLat').val(place.geometry.location.lat());
+            $('#null_toAdrLng').val(place.geometry.location.lng());
+
+        });
+
+//Uploader
         var uploader = new qq.FineUploader({
             element: document.getElementById('bootstrapped-fine-uploader'),
 

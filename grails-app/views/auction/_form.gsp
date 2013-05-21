@@ -8,24 +8,24 @@
                 %{--<div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'fromAdr', 'error')} ">--}%
                 <span class="form-inline">
 
-                        <g:textField class="input-mini" name="fromFloor"  placeholder="קומה" value="${auctionInstance?.fromFloor}"/>
+                        <g:textField class="input-mini" id="${auctionInstance?.id}_fromFloor" name="fromFloor"  placeholder="קומה" value="${auctionInstance?.fromFloor}"/>
                         %{--<label class="control-label " for="fromFloor">קומה </label>--}%
-                        <g:textField   name="fromAdr"   placeholder="הכנס כתובת יציאה" value="${auctionInstance?.fromAdr}"/>
+                        <g:textField   id="${auctionInstance?.id}_fromAdr" name="fromAdr"   placeholder="הכנס כתובת יציאה" value="${auctionInstance?.fromAdr}"/>
                         %{--<label class="control-label" for="fromAdr" data-toggle="tooltip" title="first tooltip"> מאיפה יוצאים </label>--}%
-                        <g:hiddenField name="fromAdrLat" value="${auctionInstance?.fromAdrLat}"/>
-                        <g:hiddenField name="fromAdrLng" value="${auctionInstance?.fromAdrLng}"/>
+                        <g:hiddenField id="${auctionInstance?.id}_fromAdrLat" name="fromAdrLat" value="${auctionInstance?.fromAdrLat}"/>
+                        <g:hiddenField id="${auctionInstance?.id}_fromAdrLng" name="fromAdrLng" value="${auctionInstance?.fromAdrLng}"/>
             %{--<g:textField name="ooo" value="aaa" placeholder="mmm" />--}%
                 <br>
 
                 %{--</div>--}%
                 %{--<div  class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'toAdr', 'error')} ">--}%
 
-                        <g:textField class="input-mini" name="toFloor" placeholder="קומה" value="${auctionInstance?.toFloor}"/>
+                        <g:textField class="input-mini" id="${auctionInstance?.id}_toFloor" name="toFloor" placeholder="קומה" value="${auctionInstance?.toFloor}"/>
                         %{--<label for="toFloor">קומה </label>--}%
-                        <g:textField name="toAdr" placeholder="הכנס כתובת הגעה"  value="${auctionInstance?.toAdr}"/>
+                        <g:textField id="${auctionInstance?.id}_toAdr" name="toAdr" placeholder="הכנס כתובת הגעה"  value="${auctionInstance?.toAdr}"/>
                         %{--<label  class="control-label" for="toAdr"> לאן מגיעים</label>--}%
-                        <g:hiddenField name="toAdrLat" value="${auctionInstance?.toAdrLat}"/>
-                        <g:hiddenField name="toAdrLng" value="${auctionInstance?.toAdrLng}"/>
+                        <g:hiddenField id="${auctionInstance?.id}_toAdrLat" name="toAdrLat" value="${auctionInstance?.toAdrLat}"/>
+                        <g:hiddenField id="${auctionInstance?.id}_toAdrLng" name="toAdrLng" value="${auctionInstance?.toAdrLng}"/>
                 %{--</div>--}%
                 </span>
             </div>
@@ -90,7 +90,7 @@
                         <g:message code="auction.deadlineDate.label" default="תאריך מבוקש" />
                         <span class="required-indicator">*</span>
                     </label>
-                    <g:textField id="dp2" name="deadlineDate" value="${auctionInstance?.deadlineDate}"  />
+                    <g:textField id="${auctionInstance?.id}_date" class="DP" name="deadlineDate" value="${auctionInstance?.deadlineDate?.dateString}"  />
                     %{--<input id="dp2" class="span2" type="text" data-date-format="mm/dd/yy" value="${auctionInstance?.deadlineDate}"></input>--}%
                 </div>
                 <div class="fieldcontain ${hasErrors(bean: auctionInstance, field: 'maxAmount', 'error')} ">
@@ -105,6 +105,22 @@
                     <label for="comments">הערות נוספות </label>
                     <g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
                 </div>
+
+                %{--<g:if test="${auctionInstance?.Photos}">--}%
+                %{--<div id="myCarousel" class="carousel slide">--}%
+                    %{--<!-- Carousel items -->--}%
+
+                    %{--<div id="CarouselIn" class="carousel-inner">--}%
+
+                    %{--<g:each in="${auctionInstance?.Photos}" var="image">--}%
+                        %{--<div class="item"><img src="${grailsApplication.config.fileupload.directory}/${auctionInstance.profile.user.id}/${auctionInstance.id}/${image}"/></div>--}%
+                    %{--</g:each>--}%
+                    %{--</div>--}%
+                    %{--<!-- Carousel nav -->--}%
+                    %{--<a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>--}%
+                    %{--<a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>--}%
+                %{--</div>--}%
+                %{--</g:if>--}%
             </div>
         </div>
 
@@ -114,50 +130,6 @@
 
 <r:script>
 
- $(function(){
-    $('#dp2').datepicker().on('changeDate',function(){
-         $('#dp2').datepicker('hide');
-        });
-
-
-        var options = {
-//           types: ['(cities)'],
-           componentRestrictions: {country: 'il'}
-        };
-
-        var fromInput = document.getElementById("fromAdr");
-        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
-        var toInput = document.getElementById("toAdr");
-        var toAutocomplete = new google.maps.places.Autocomplete(toInput, options);
-
-
-
-        google.maps.event.addListener(fromAutocomplete, 'place_changed', function() {
-         var place = fromAutocomplete.getPlace();
-         if (!place.geometry) {
-             // Inform the user that the place was not found and return.
-            fromAutocomplete.className = 'notfound';
-            return;
-         }
-         $('#fromAdrLat').val(place.geometry.location.lat());
-         $('#fromAdrLng').val(place.geometry.location.lng());
-        });
-
-        google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
-         var place = toAutocomplete.getPlace();
-         if (!place.geometry) {
-             // Inform the user that the place was not found and return.
-            toAutocomplete.className = 'notfound';
-            return;
-         }
-        $('#toAdrLat').val(place.geometry.location.lat());
-         $('#toAdrLng').val(place.geometry.location.lng());
-
-        });
-
-
-
-    });
 
 
 

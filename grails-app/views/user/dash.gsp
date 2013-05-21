@@ -11,6 +11,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
     <r:require module="application"/>
     <r:require modules="atmosphere"/>
+    <r:require modules="forms"/>
+    <r:require module="upload"/>
+
     <r:layoutResources/>
 
 
@@ -38,8 +41,8 @@
 
 <div dir="rtl" class="well-white">
 <div>
-    <a  href="#AuctionCreateModal" role="button"  class="create icon-tasks"  data-remote="../auction/create"   data-toggle="modal"  ></a>
-    <a  href="#AuctionCreateModal"  role="button"  class="create"    data-remote="../auction/create" data-toggle="modal"  >צור מכרז חדש</a>
+    <a  href="/sheepers/auction/create" role="button"  class="create icon-tasks"   ></a>
+    <a  href="/sheepers/auction/create"  role="button"  class="create"   >צור מכרז חדש</a>
 </div>
 <div>
     <g:link class="edit icon-user" controller="Profile" action="edit" />
@@ -58,49 +61,30 @@
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
-                            <li class="pull-right"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="kvetch('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                            <li class="pull-right"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="switchAuction('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
                         </g:each>
                     </ul>
                     <div id="auctions_content" class="tab-content">
                         <g:each in="${Auction.list()}" var="auction">
                             <div id="auction_num_${auction.id}" class="tab-pane fade well-white">
-                                <a  href="#AuctionEditModal${auction.id}" role="button"  class="edit icon-edit"  data-remote="../auction/edit/${auction.id}"   data-toggle="modal"  ></a>
-                            <div class="modal wide  hide fade " id="AuctionEditModal${auction.id}"  role="dialog">
-                                <div class="modal-header">
-                                    <div class="container-fluid">
-                                        <a href="" id="closeEditModal${auction.id}" data-dismiss="modal" class=" pull-left icon-remove" ></a>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                </div>
-                                </div>
-                                <span>העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}</span>
 
-                                <ul >
-                                    <li>נוצרה בתאריך ${auction.dateCreated.dateString}</li>
-                                    <li>פריטים בהעברה</li>
-                                    <g:each in="${auction.items}"  var="item">
-                                        <div> ${item.amountOfBoxes} ${item.size} ${item.typeOfItem} </div>
-                                    </g:each>
-                                </ul>
+                                <g:form method="post" class="from-inline" >
 
-                                <div id="myCarousel" class="carousel slide">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                                    </ol>
-                                    <!-- Carousel items -->
+                                        <g:hiddenField name="id" value="${auction.id}" />
+                                        <g:hiddenField name="version" value="${auction.version}" />
+                                        <fieldset class="form">
+                                            <g:render template="/auction/form" model= "['auctionInstance':auction]"/>
+                                        </fieldset>
 
-                                    <div class="carousel-inner">
-                                        <div class="active item"><img src="http://image.subscribe.ru/list/digest/business/sheeps.jpg"/></div>
-                                        <div class="item"><img src="http://www.gapa.co.il/wp-content/uploads/2011/05/900X300-Sheep-300x150.jpg"/></div>
-                                        <div class="item"><img src="http://www.farmeramania.de/wp-content/blogs.dir/19/files/2011/08/sheeps_22-300x150.png"/></div>
-                                    </div>
-                                    <!-- Carousel nav -->
-                                    <a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                                    <a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>
-                                </div>
+                                    <fieldset class="buttons">
+
+                                        <div id="${auction.id}_bootstrapped-fine-uploader"></div>
+
+                                        <g:submitToRemote class="btn btn-primary pull-right" controller="Auction" action="update" value="עדכן"  update="update_auction_stat" after="closeAllTabs()" />
+                                            <g:submitToRemote class="btn btn-danger pull-right" controller="Auction" action="delete" value="מחק" update="update_auction_stat" formnovalidate=""  before= "confirm ('Are you Sure?')" after="closeAllTabs()" />
+                                        </fieldset>
+
+                                </g:form>
                             </div>
                         </g:each>
                      </div>
@@ -143,25 +127,29 @@
 
 </g:if>
 
-<div class="modal wide  hide fade" tabindex="-1" id="AuctionCreateModal"  role="dialog" aria-labelledby="createLabel">
-    <div class="modal-header">
-        <div class="container-fluid">
-        <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">x</button>
+%{--<div class="modal wide  hide fade" tabindex="-1" id="AuctionCreateModal"  role="dialog" aria-labelledby="createLabel">--}%
+    %{--<div class="modal-header">--}%
+        %{--<div class="container-fluid">--}%
+        %{--<button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">x</button>--}%
         %{--<a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>--}%
-        <h3 id="createLabel" class="pull-right">אנא מלא פרטים ליצירת הובלה חדשה</h3>
-        </div>
-    </div>
-    <div class="modal-body pull-right">
+        %{--<h3 id="createLabel" class="pull-right">אנא מלא פרטים ליצירת הובלה חדשה</h3>--}%
+        %{--</div>--}%
+    %{--</div>--}%
+    %{--<div class="modal-body pull-right">--}%
         %{--<a href="" id="closeCreateModal" data-dismiss="modal" class=" pull-left icon-remove" ></a>--}%
-    </div>
-    <div class="modal-footer">
-        <button data-dismiss="modal" aria-hidden="true" class="btn pull-right">ביטול</button>
-    </div>
 
-</div>
+    %{--</div>--}%
+    %{--<div class="modal-footer">--}%
+        %{--<button data-dismiss="modal" aria-hidden="true" class="btn pull-right">ביטול</button>--}%
+    %{--</div>--}%
+
+%{--</div>--}%
+<div id="update_auction_stat"></div>
+
 
 <r:script>
       var CurAuc = 0;
+
       var request = { url:'${createLink(uri:'/')}atmosphere/Bids',
         contentType : "application/json",
         logLevel : 'error',
@@ -220,8 +208,109 @@
 
 <r:script>
 
-    function kvetch( controleron, bids_amounts, bidders, bids_id){
+    function closeAllTabs(){
+
+        $(".tab-pane").each(function(){
+             $(this).removeClass("active");
+        });
+    }
+    function switchAuction( controleron, bids_amounts, bidders, bids_id){
+
+
                 CurAuc = controleron;
+
+        //Uplader
+        var uploader = new qq.FineUploader({
+            element: document.getElementById(CurAuc + '_bootstrapped-fine-uploader'),
+
+            request: {
+                endpoint: '../image/upload'
+            },
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'img']
+//                sizeLimit: 51200 // 50 kB = 50 * 1024 bytes
+            },
+            text: {
+                uploadButton: '<div> ...הוסף תמונות <i class="icon-plus icon-white"></i></div>',
+                retryButton:  '',
+                deleteButton: ''
+
+            },
+            template: '<div class="qq-uploader">' +
+                    '<div class="qq-upload-button btn btn-success pull-right">{uploadButtonText}</div>' +
+                    '<ul  class="qq-upload-list span4" style="margin-top: 10px; text-align: center;"></ul>' +
+                    '</div>',
+//                fileTemplate: '<li  class="span2">' +
+//                        '<span class="qq-upload-file"></span>' +
+//                        '<span class="qq-upload-size"></span>' +
+//                        '<span class="qq-upload-thumbnail"></span>' +
+//                        '<div class="thumbnail"> <img src="../images/grails_logo.jpg" alt="160x120"></div>' +
+//                        '</li>',
+
+            classes: {
+                success: 'alert alert-success',
+                fail: 'alert alert-error'
+
+
+            }
+//            callbacks: {
+//                onComplete: function(id, fileName, responseJSON) {
+//                    if (responseJSON.success) {
+//                        $('#sample').append('<li class="span2">' +
+//                                '<div class="thumbnail">' +
+//                                '<img src="../images/grails_logo.jpg" class="img-rounded" alt="' + fileName + '">' +
+//                                '</div>' +
+//                                '</li>');
+//                    }
+//
+//                }}
+        });
+                // Handle Date
+                   $('#'+CurAuc+'_date').datepicker().on('changeDate',function(){
+                     $('#'+CurAuc+'_date').datepicker('hide');
+                  });
+
+                // Handle Google
+
+
+
+        var options = {
+//           types: ['(cities)'],
+            componentRestrictions: {country: 'il'}
+        };
+
+        var fromInput = document.getElementById(CurAuc+"_fromAdr");
+        var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
+        var toInput = document.getElementById(CurAuc+"_toAdr");
+        var toAutocomplete = new google.maps.places.Autocomplete(toInput, options);
+
+
+
+        google.maps.event.addListener(fromAutocomplete, 'place_changed', function() {
+            var place = fromAutocomplete.getPlace();
+            if (!place.geometry) {
+                // Inform the user that the place was not found and return.
+                fromAutocomplete.className = 'notfound';
+                return;
+            }
+            $('#'+CurAuc+'_fromAdrLat').val(place.geometry.location.lat());
+            $('#'+CurAuc+'_fromAdrLng').val(place.geometry.location.lng());
+        });
+
+        google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
+            var place = toAutocomplete.getPlace();
+            if (!place.geometry) {
+                // Inform the user that the place was not found and return.
+                toAutocomplete.className = 'notfound';
+                return;
+            }
+            $('#'+CurAuc+'_toAdrLat').val(place.geometry.location.lat());
+            $('#'+CurAuc+'_toAdrLng').val(place.geometry.location.lng());
+
+        });
+
+
+        // Handle Bids
                 $("#cur_bids").children("th").each(function(){
                   $(this).remove();
                 });
