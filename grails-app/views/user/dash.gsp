@@ -214,57 +214,13 @@
              $(this).removeClass("active");
         });
     }
+
     function switchAuction( controleron, bids_amounts, bidders, bids_id){
 
 
                 CurAuc = controleron;
 
-        //Uplader
-        var uploader = new qq.FineUploader({
-            element: document.getElementById(CurAuc + '_bootstrapped-fine-uploader'),
 
-            request: {
-                endpoint: '../image/upload'
-            },
-            validation: {
-                allowedExtensions: ['jpeg', 'jpg', 'img']
-//                sizeLimit: 51200 // 50 kB = 50 * 1024 bytes
-            },
-            text: {
-                uploadButton: '<div> ...הוסף תמונות <i class="icon-plus icon-white"></i></div>',
-                retryButton:  '',
-                deleteButton: ''
-
-            },
-            template: '<div class="qq-uploader">' +
-                    '<div class="qq-upload-button btn btn-success pull-right">{uploadButtonText}</div>' +
-                    '<ul  class="qq-upload-list span4" style="margin-top: 10px; text-align: center;"></ul>' +
-                    '</div>',
-//                fileTemplate: '<li  class="span2">' +
-//                        '<span class="qq-upload-file"></span>' +
-//                        '<span class="qq-upload-size"></span>' +
-//                        '<span class="qq-upload-thumbnail"></span>' +
-//                        '<div class="thumbnail"> <img src="../images/grails_logo.jpg" alt="160x120"></div>' +
-//                        '</li>',
-
-            classes: {
-                success: 'alert alert-success',
-                fail: 'alert alert-error'
-
-
-            }
-//            callbacks: {
-//                onComplete: function(id, fileName, responseJSON) {
-//                    if (responseJSON.success) {
-//                        $('#sample').append('<li class="span2">' +
-//                                '<div class="thumbnail">' +
-//                                '<img src="../images/grails_logo.jpg" class="img-rounded" alt="' + fileName + '">' +
-//                                '</div>' +
-//                                '</li>');
-//                    }
-//
-//                }}
-        });
                 // Handle Date
                    $('#'+CurAuc+'_date').datepicker().on('changeDate',function(){
                      $('#'+CurAuc+'_date').datepicker('hide');
@@ -345,7 +301,57 @@
                 });
 
 
-        }
+        //Uplader
+
+        var uploader = new qq.FineUploader({
+            element: document.getElementById(CurAuc+'_bootstrapped-fine-uploader'),
+
+            request: {
+                endpoint: '../image/upload'
+            },
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'img']
+//                sizeLimit: 51200 // 50 kB = 50 * 1024 bytes
+            },
+            text: {
+                uploadButton: '<div> ...הוסף תמונות <i class="icon-plus icon-white"></i></div>',
+                retryButton:  '',
+                deleteButton: ''
+
+            },
+            template: '<div class="qq-uploader">' +
+                    '<div class="qq-upload-button btn btn-success pull-right">{uploadButtonText}</div>' +
+                    '<ul  class="qq-upload-list span4" style="margin-top: 10px; text-align: center;"></ul>' +
+                    '</div>',
+//                fileTemplate: '<li  class="span2">' +
+//                        '<span class="qq-upload-file"></span>' +
+//                        '<span class="qq-upload-size"></span>' +
+//                        '<span class="qq-upload-thumbnail"></span>' +
+//                        '<div class="thumbnail"> <img src="../images/grails_logo.jpg" alt="160x120"></div>' +
+//                        '</li>',
+
+            classes: {
+                success: 'alert alert-success',
+                fail: 'alert alert-error'
+
+
+            }
+//            callbacks: {
+//                onComplete: function(id, fileName, responseJSON) {
+//                    if (responseJSON.success) {
+//                        $('#sample').append('<li class="span2">' +
+//                                '<div class="thumbnail">' +
+//                                '<img src="../images/grails_logo.jpg" class="img-rounded" alt="' + fileName + '">' +
+//                                '</div>' +
+//                                '</li>');
+//                    }
+//
+//                }}
+        });
+
+
+    }
+
 
 
 </r:script>
