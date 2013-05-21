@@ -61,7 +61,7 @@
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
-                            <li class="pull-right"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="switchAuction('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                            <li class="pull-right tab_trig"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="switchAuction('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
                         </g:each>
                     </ul>
                     <div id="auctions_content" class="tab-content">
@@ -212,6 +212,9 @@
 
         $(".tab-pane").each(function(){
              $(this).removeClass("active");
+        });
+        $(".tab_trig").each(function(){
+            $(this).removeClass("active");
         });
     }
 
