@@ -12,38 +12,38 @@
     <div class="row-fluid" dir="rtl">
         <div class="span9 offset3" >
             <div class="well">
-        <g:form controller="auction" class="form-search">
-        <fieldset>
-             <legend class="">חיפוש הובלות</legend>
-        %{--<label>עיר מוצא:</label>--}%
-            <g:textField name="fromArea"  class="input-small"  placeholder = "מאיפה יוצאים"/>
-            <g:checkBox name="fromCloseArea" />
-            <label class="label label-info">והסביבה הקרובה </label>
-        %{--<label>עיר יעד</label>--}%
-            <g:textField name="toArea"  class="input-small" placeholder="לאיפה מגיעים"/>
-            <g:checkBox name="toCloseArea" />
-            <label class="label label-info">והסביבה הקרובה </label>
+                <g:form controller="auction" class="form-search">
+                    <fieldset>
+                        <legend class="">חיפוש הובלות</legend>
+                        %{--<label>עיר מוצא:</label>--}%
+                        <g:textField name="fromArea"  class="input-small"  placeholder = "מאיפה יוצאים"/>
+                        <g:checkBox name="fromCloseArea" />
+                        <label class="label label-info">והסביבה הקרובה </label>
+                        %{--<label>עיר יעד</label>--}%
+                        <g:textField name="toArea"  class="input-small" placeholder="לאיפה מגיעים"/>
+                        <g:checkBox name="toCloseArea" />
+                        <label class="label label-info">והסביבה הקרובה </label>
 
-        %{--<label>תאריך סיום:</label>--}%
-            <g:textField id="searchDate" name="searchDate" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>
+                        %{--<label>תאריך סיום:</label>--}%
+                        <g:textField id="searchDate" name="searchDate" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>
 
 
 
-            <g:actionSubmit name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp" />
-            <g:set var="frmAdrlat" scope="flash" value="1112"/>
-            <g:hiddenField name="fromAdrLat" />
-            <g:hiddenField name="fromAdrLng" />
-            <g:hiddenField name="toAdrLat" />
-            <g:hiddenField name="toAdrLng"/>
-        </fieldset>
-        </g:form>
+                        <g:submitToRemote name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp" update="searchRes"/>
+                        <g:set var="frmAdrlat" scope="flash" value="1112"/>
+                        <g:hiddenField name="fromAdrLat" />
+                        <g:hiddenField name="fromAdrLng" />
+                        <g:hiddenField name="toAdrLat" />
+                        <g:hiddenField name="toAdrLng"/>
+                    </fieldset>
+                </g:form>
             </div>
         </div>
-
-
-
-
     </div>
+    <div class="row-fluid" dir="rtl">
+        <section id="searchRes"></section>
+    </div>
+
 </div>
 
 
@@ -53,9 +53,9 @@
         $('#searchDate').datepicker('hide');
     });
 
-////// autocomplete input
+    ////// autocomplete input
     var options = {
-           types: ['(cities)'],
+        types: ['(cities)'],
         componentRestrictions: {country: 'il'}
     };
 
