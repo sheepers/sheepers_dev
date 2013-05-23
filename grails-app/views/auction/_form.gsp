@@ -1,4 +1,6 @@
 <%@ page import="sheepers.Auction" %>
+<%@ page import="sheepers.ImageController" %>
+
 <div class="container-fluid" id="AucForm">
     <div class="row-fluid">
         <div class="span9 offset3">
@@ -106,21 +108,16 @@
                     <g:textArea cols="1" rows="5" name="comments" value="${auctionInstance?.comments}"/>
                 </div>
 
-                <g:if test="${auctionInstance?.Images}">
-                <div id="myCarousel" class="carousel slide">
+                <div id="myCarousel" class="carousel slide hide">
                     <!-- Carousel items -->
 
                     <div id="CarouselIn" class="carousel-inner">
 
-                    <g:each in="${auctionInstance?.Images}" var="image">
-                        <div class="item"><img src="${grailsApplication.config.fileupload.directory}/${auctionInstance.profile.user.id}/${auctionInstance.id}/${image}"/></div>
-                    </g:each>
                     </div>
                     <!-- Carousel nav -->
                     <a class="carousel-control right" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                     <a class="carousel-control left" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
-                </g:if>
             </div>
         </div>
 
@@ -134,7 +131,15 @@
 
 
 // table managment script
+    function showImg(){
+   if ($("#CarouselIn").children('div').length > 0 ){
+         $("#myCarousel").removeClass("hide");
+         $("#CarouselIn").children('div').last().addClass('active');
+    }
+    }
+
     $(function() {
+        <g:remoteFunction id="${auctionInstance.id}" action="getImages" controller="image" update="[success:'CarouselIn']"  onComplete="showImg()"/>
         $.metadata.setType("attr", "data");
 
         $("table").writetable({

@@ -55,23 +55,32 @@ class ImageController {
 //    }
     def index() {}
 
-    def getImages(Long auctionID){
+    def getImages(Long id){
 
         def userID = sec.loggedInUserInfo(field: "id").toLong()
-        String storageDirectory = grailsApplication.config.fileupload.directory
+        String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory
 
-        storageDirectory +=  '/' + userID + '/' + auctionID
+        String HTMLResp   =  ""
+        storageDirectory +=  '/' + userID + '/' + id
         def folder = new File("$storageDirectory")
 
-        ArrayList images = new ArrayList()
+        //ArrayList images = new ArrayList()
 
         folder.eachFile {
             if (it.isFile()) {
-               images.add(it.name)
+                if (HTMLResp == "")
+                {
+                    HTMLResp =  "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
+                }
+                else
+                {
+                    HTMLResp = HTMLResp  + "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
+                }
+               //images.add(it.name)
                 }
             }
 
-        return images as JSON
+      render HTMLResp
 
 
     }

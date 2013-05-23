@@ -162,7 +162,7 @@ class AuctionController {
     }
 
     private transfer = { Long userId, Long auctionId , Auction auction ->
-        String tmpStorageDirectory = grailsApplication.config.fileupload.directory ?: '/Users/Ofir/sheepers_dev/user-images'
+        String tmpStorageDirectory =  servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory ?: '/Users/Ofir/sheepers_dev/user-images'
 
         String newStorageDirectory = tmpStorageDirectory + '/' + userId + '/' + auctionId
         tmpStorageDirectory += '/' + userId + '/tmp'
