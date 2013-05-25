@@ -38,6 +38,7 @@ grails.project.dependency.resolution = {
         compile('org.atmosphere:atmosphere-runtime:1.0.0.beta5') {
             excludes 'slf4j-api', 'atmosphere-ping'
         }
+        compile 'org.imgscalr:imgscalr-lib:4.2'
 //        build ":glassfish:0.1.2"
 /*        build("org.apache.tomcat:tomcat-catalina-ant:$grailsVersion") {
         transitive = false

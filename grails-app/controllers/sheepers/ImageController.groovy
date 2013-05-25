@@ -1,10 +1,12 @@
 package sheepers
 import grails.converters.JSON
+import org.imgscalr.Scalr
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
-//import uk.co.desirableobjects.ajaxuploader.AjaxUploadController
-//import uk.co.desirableobjects.ajaxuploader.exception.FileUploadException
-//class ImageController extends AjaxUploadController {
+
+import javax.imageio.ImageIO
+import java.awt.image.BufferedImage
+
 class ImageController {
 
     def upload() {
@@ -31,10 +33,8 @@ class ImageController {
             File newFile = new File("$storageDirectory/$newFilename")
             uploadedFile.transferTo(newFile)
 
-
-
-//            ajaxUploaderService.upload(inputStream, newFile)
-//            newFile << inputStream
+            BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
+            ImageIO.write(bufferedImage,'jpg',newFile)
             return render(text: [success:true] as JSON, contentType:'text/json')
 
         } catch (Exception e) {
