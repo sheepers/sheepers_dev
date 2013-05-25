@@ -89,13 +89,37 @@
     });
 
 
+//    button expansion
+    function showAdditionalInfo(aucId){
+     if ($("#auc_addtional_info_"+ aucId).hasClass("hide")) {
+       $(".auc_addtional_info_"+ aucId).removeClass("hide");
+       $("#btn_"+ aucId).html('<i class="icon-minus icon-white"></i> סגור').removeClass('btn-success').addClass('btn-warning');
+       if ($("#CarouselIn_" + aucId).children('div').length == 0 ){
+        loadImages(aucId)
+       }
+     }
+     else {
+       $("#btn_"+ aucId).html('<i class="icon-plus icon-white"></i> הרחב...').removeClass('btn-warning').addClass('btn-success');
+      $(".auc_addtional_info_"+ aucId).addClass("hide");
 
-    function doit () {
-
-        alert('sss');
+     }
     }
 
+    function loadImages (aucId) {
+     %{--<g:remoteFunction params="[aucId:aucId]"  action="getImages" controller="image" update="[success:('CarouselIn_'+ aucId)]"  onComplete="showImg(${aucId})"/>--}%
+    var url = '/sheepers/image/getImages/' + aucId;
+    var carouselIn_num = '#CarouselIn_' + aucId;
+    $.ajax({type:'POST', url:url,success:function(data,textStatus){jQuery(carouselIn_num).html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){},complete:function(XMLHttpRequest,textStatus){showImg(aucId)}});
+}
 
+    function showImg(aucId){
+    $(".auc_addtional_info_"+ aucId).removeClass("hide");
+    if ($("#CarouselIn_" + aucId).children('div').length > 0 ){
+         $("#myCarousel_" + aucId ).removeClass("hide");
+         $("#CarouselIn_" + aucId).children('div').last().addClass('active');
+        }
+    }
+//    End of button expansion
 </r:script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
 <r:layoutResources/>

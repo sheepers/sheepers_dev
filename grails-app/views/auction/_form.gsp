@@ -131,7 +131,7 @@
 
 
 // table managment script
-    function showImg(){
+   function showImg(){
    if ($("#CarouselIn").children('div').length > 0 ){
          $("#myCarousel").removeClass("hide");
          $("#CarouselIn").children('div').last().addClass('active');

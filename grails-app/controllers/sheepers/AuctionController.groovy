@@ -85,6 +85,7 @@ class AuctionController {
     }
 
     def update(Long id, Long version) {
+        def user = User.get(sec.loggedInUserInfo(field: "id").toLong())
         def auctionInstance = Auction.get(id)
         if (!auctionInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'auction.label', default: 'Auction'), id])
@@ -110,7 +111,7 @@ class AuctionController {
             render(view: "edit", model: [auctionInstance: auctionInstance])
             return
         }
-
+        transfer(user.getId(),auctionInstance.getId(), auctionInstance)
         flash.message = message(code: 'default.updated.message', args: [message(code: 'auction.label', default: 'Auction'), auctionInstance.id])
         redirect(action: "show", id: auctionInstance.id)
     }
