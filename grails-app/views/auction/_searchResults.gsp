@@ -10,10 +10,10 @@
                     <h2>הובלת דירה  </h2>
                     <p> תוקף: <g:formatDate type="date" style="short" date="${auctionInstance.deadlineDate}" /> </p>
                     <p>סכום מבוקש: ${fieldValue(bean: auctionInstance, field: "maxAmount")}</p>
-                    <p> מ ${fieldValue(bean: auctionInstance, field: "fromAdr")} </p>
-                    <p> ל ${fieldValue(bean: auctionInstance, field: "toAdr")} </p>
+                    <p>מ${fieldValue(bean: auctionInstance, field: "fromAdr")} </p>
+                    <p>ל${fieldValue(bean: auctionInstance, field: "toAdr")} </p>
                     <p> ${fieldValue(bean: auctionInstance, field: "disassmble")} </p>
-                    <button class="btn btn-mini btn-success"> הרחב</button>
+                    <button class="btn btn-mini btn-success" onclick="doit()"><i class="icon-plus icon-resize-small icon-white"></i> ...הרחב </button>
                 </li>
             %{--</g:link>--}%
         </g:each>
@@ -22,3 +22,6 @@
         %{--<g:paginate total="${auctionInstanceTotal}" />--}%
     %{--</div>--}%
 </div>
+<r:script>
+
+</r:script>

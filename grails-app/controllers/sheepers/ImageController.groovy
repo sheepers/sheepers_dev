@@ -17,7 +17,7 @@ class ImageController {
             String originalFileExtension = uploadedFile.originalFilename.substring(uploadedFile.originalFilename.lastIndexOf("."))
 //            String originalFileExtension = request.queryString.substring(request.queryString.lastIndexOf("."))
             String newFilename = newFilenameBase + originalFileExtension
-            String storageDirectory = grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
+            String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
 //            def auctionInstance = new Auction(params)
 
             def userID = sec.loggedInUserInfo(field: "id").toLong()
@@ -64,8 +64,6 @@ class ImageController {
         storageDirectory +=  '/' + userID + '/' + id
         def folder = new File("$storageDirectory")
 
-        //ArrayList images = new ArrayList()
-
         folder.eachFile {
             if (it.isFile()) {
                 if (HTMLResp == "")
@@ -76,13 +74,9 @@ class ImageController {
                 {
                     HTMLResp = HTMLResp  + "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
                 }
-               //images.add(it.name)
-                }
             }
-
-      render HTMLResp
-
-
+        }
+        render HTMLResp
     }
 
 

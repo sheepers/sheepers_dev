@@ -44,28 +44,32 @@
 
                  <!--<a class="pull-left"  href="#"><img class="img-circle"  src="${resource(dir: 'images', file: 'sheeps.jpg')}"></a>-->
 
-                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                 </a>
+                 %{--<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">--}%
+                     %{--<span class="icon-bar"></span>--}%
+                     %{--<span class="icon-bar"></span>--}%
+                     %{--<span class="icon-bar"></span>--}%
+                 %{--</a>--}%
 
-                 <a class="brand" href="/sheepers/user/dash">Sheepers</a>
+                 <a class="brand pull-right" href="/sheepers/user/dash">Sheepers</a>
                  <div class="nav-collapse collapse">
+                 <p class="navbar-text pull-left">
                      <sec:ifLoggedIn>
-                     <p class="navbar-text pull-right">
                           <a href="/sheepers/profile/show" class="navbar-link"><sec:username/></a> :ברוך הבא
-                     </p>
                      </sec:ifLoggedIn>
                      <sec:ifNotLoggedIn>
-                         <p class="navbar-text pull-right">
                              שלום אורח
                          </p>
                      </sec:ifNotLoggedIn>
-                     <ul class="nav">
-                         <li class="active"><a href="#">Home</a></li>
-                         <li><a href="#about">About</a></li>
-                         <li><a href="#contact">Contact</a></li>
+                     <ul class="nav pull-right">
+                         <li>
+                             <a href="#">צור קשר <i class="icon-envelope icon-white"></i></a>
+                         </li>
+                         <li>
+                             <a href="#">מי אנחנו <i class="icon-heart icon-white"></i></a>
+                         </li>
+                         <li >
+                             <a href="#">בית <i class="icon-home icon-white"></i></a>
+                         </li>
                      </ul>
                  </div><!--/.nav-collapse -->
              </div>

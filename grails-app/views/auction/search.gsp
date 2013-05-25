@@ -10,7 +10,7 @@
 <body>
 <div class="container-fluid">
     <div class="row-fluid" dir="rtl">
-        <div class="span9 offset3" >
+        <section class="search-pane span6 offset3" >
             <div class="well">
                 <g:form controller="auction" class="form-search">
                     <fieldset>
@@ -38,10 +38,10 @@
                     </fieldset>
                 </g:form>
             </div>
-        </div>
+        </section>
     </div>
     <div class="row-fluid" dir="rtl">
-        <section id="searchRes"></section>
+        <section id="searchRes" class="span6 offset3"></section>
     </div>
 
 </div>
@@ -90,7 +90,10 @@
 
 
 
+    function doit () {
 
+        alert('sss');
+    }
 
 
 </r:script>
