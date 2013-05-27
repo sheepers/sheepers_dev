@@ -50,14 +50,14 @@
 </div>
 </div>
     <div class="row-fluid ">
-            <div class=" span4 " id="bids">
+            <div class=" span3 " id="bids">
             <span class="pull-right"><h5>בחר במכרז מן הרשימה </h5></span>
 
              <table id="cur_bids" class="pull-right table">
 
              </table>
             </div>
-            <div   class="span8 pull-right" dir="rtl" id="auctions">
+            <div   class="span9 pull-right" dir="rtl" id="auctions">
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
