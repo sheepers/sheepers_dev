@@ -57,7 +57,7 @@
 
              </table>
             </div>
-            <div   class="span8 pull-right  " dir="rtl" id="auctions">
+            <div   class="span8 pull-right" dir="rtl" id="auctions">
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">

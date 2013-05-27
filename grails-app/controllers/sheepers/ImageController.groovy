@@ -70,11 +70,11 @@ class ImageController {
             if (it.isFile()) {
                 if (HTMLResp == "")
                 {
-                    HTMLResp =  "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
+                    HTMLResp =  "<div class='item'><img alt ='300x200' src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
                 }
                 else
                 {
-                    HTMLResp = HTMLResp  + "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
+                    HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
                 }
                //images.add(it.name)
                 }
