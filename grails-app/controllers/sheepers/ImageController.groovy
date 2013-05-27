@@ -1,10 +1,12 @@
 package sheepers
 import grails.converters.JSON
+import org.imgscalr.Scalr
 import org.springframework.web.multipart.MultipartFile
 import org.springframework.web.multipart.MultipartHttpServletRequest
-//import uk.co.desirableobjects.ajaxuploader.AjaxUploadController
-//import uk.co.desirableobjects.ajaxuploader.exception.FileUploadException
-//class ImageController extends AjaxUploadController {
+
+import javax.imageio.ImageIO
+import java.awt.image.BufferedImage
+
 class ImageController {
 
     def upload() {
@@ -17,7 +19,7 @@ class ImageController {
             String originalFileExtension = uploadedFile.originalFilename.substring(uploadedFile.originalFilename.lastIndexOf("."))
 //            String originalFileExtension = request.queryString.substring(request.queryString.lastIndexOf("."))
             String newFilename = newFilenameBase + originalFileExtension
-            String storageDirectory = grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
+            String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory?:'/Users/Ofir/sheepers_dev/user-images'
 //            def auctionInstance = new Auction(params)
 
             def userID = sec.loggedInUserInfo(field: "id").toLong()
@@ -31,10 +33,8 @@ class ImageController {
             File newFile = new File("$storageDirectory/$newFilename")
             uploadedFile.transferTo(newFile)
 
-
-
-//            ajaxUploaderService.upload(inputStream, newFile)
-//            newFile << inputStream
+            BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
+            ImageIO.write(bufferedImage,'jpg',newFile)
             return render(text: [success:true] as JSON, contentType:'text/json')
 
         } catch (Exception e) {
@@ -64,8 +64,6 @@ class ImageController {
         storageDirectory +=  '/' + userID + '/' + id
         def folder = new File("$storageDirectory")
 
-        //ArrayList images = new ArrayList()
-
         folder.eachFile {
             if (it.isFile()) {
                 if (HTMLResp == "")
@@ -76,13 +74,9 @@ class ImageController {
                 {
                     HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
                 }
-               //images.add(it.name)
-                }
             }
-
-      render HTMLResp
-
-
+        }
+        render HTMLResp
     }
 
 
