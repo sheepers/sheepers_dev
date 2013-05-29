@@ -55,18 +55,34 @@ class ImageController {
         String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory
 
         String HTMLResp   =  ""
-        storageDirectory +=  '/' + userID + '/' + id
+        if (id != null) {
+            storageDirectory +=  '/' + userID + '/' + id
+        }
+        else {
+            storageDirectory +=  '/' + userID
+        }
+
         def folder = new File("$storageDirectory")
 
         folder.eachFile {
             if (it.isFile()) {
                 if (HTMLResp == "")
                 {
-                    HTMLResp =  "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
+                    if  (id!=null) {
+                        HTMLResp =  "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
+                    }
+                    else{
+                        HTMLResp =  "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + it.name +"'/></div>"
+                    }
                 }
                 else
                 {
-                    HTMLResp = HTMLResp  + "<div class='item'><img src='../" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
+                    if (id!=null){
+                        HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
+                    }
+                    else{
+                        HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/"  + it.name  + "'/></div>"
+                    }
                 }
             }
         }

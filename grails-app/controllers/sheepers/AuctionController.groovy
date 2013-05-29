@@ -103,6 +103,7 @@ class AuctionController {
             }
         }
         params.setProperty("deadlineDate",new Date((String)params.deadlineDate))
+//        auctionInstance.items.removeAll()
         auctionInstance.properties = params
         auctionInstance.items.removeAll{it.deleted}
 

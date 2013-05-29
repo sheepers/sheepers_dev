@@ -50,14 +50,14 @@
 </div>
 </div>
     <div class="row-fluid ">
-            <div class=" span4 " id="bids">
+            <div class=" span3 " id="bids">
             <span class="pull-right"><h5>בחר במכרז מן הרשימה </h5></span>
 
              <table id="cur_bids" class="pull-right table">
 
              </table>
             </div>
-            <div   class="span8 pull-right  " dir="rtl" id="auctions">
+            <div   class="span9 pull-right" dir="rtl" id="auctions">
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
@@ -117,6 +117,7 @@
 </g:if>
 <g:if test="${userType=='Carrier'}">
     <div>Im a carrier - let me bid</div>
+
     %{--<div class="container-fluid">--}%
     %{--<g:textField name="fromArea" value="fromwhere"/>--}%
     %{--<g:textField name="toArea" value="towhere"/>--}%
@@ -124,6 +125,10 @@
 
     <g:link controller="auction" action="search" >link to search page for auctions</g:link>
     %{--</div>--}%
+    <div>
+        <g:link class="edit icon-user" controller="Profile" action="edit" />
+        <g:link class="edit" controller="Profile" action="edit">ערוך את הפרופיל האישי שלך</g:link>
+    </div>
 
 </g:if>
 
@@ -317,7 +322,7 @@
 //                sizeLimit: 51200 // 50 kB = 50 * 1024 bytes
             },
             text: {
-                uploadButton: '<div> ...הוסף תמונות <i class="icon-plus icon-white"></i></div>',
+                uploadButton: '<div> ...הוסף נות <i class="icon-plus icon-white"></i></div>',
                 retryButton:  '',
                 deleteButton: ''
 

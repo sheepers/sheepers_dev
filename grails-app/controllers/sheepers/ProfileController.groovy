@@ -25,7 +25,7 @@ class ProfileController {
             render(view: "create", model: [profileInstance: profileInstance])
             return
         }
-
+        transfer(profileInstance.user.getId())
         flash.message = message(code: 'default.created.message', args: [message(code: 'profile.label', default: 'Profile'), profileInstance.id])
         redirect(action: "show", id: profileInstance.id)
     }
@@ -77,7 +77,7 @@ class ProfileController {
             render(view: "edit", model: [profileInstance: profileInstance])
             return
         }
-
+        transfer(profileInstance.user.getId())
         flash.message = message(code: 'default.updated.message', args: [message(code: 'profile.label', default: 'Profile'), profileInstance.id])
         redirect(action: "show", id: profileInstance.id)
     }
@@ -100,4 +100,31 @@ class ProfileController {
             redirect(action: "show", id: id)
         }
     }
+
+    private transfer = { Long userId ->
+        String tmpStorageDirectory =  servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory ?: '/Users/Ofir/sheepers_dev/user-images'
+
+        String newStorageDirectory = tmpStorageDirectory + '/' + userId
+        tmpStorageDirectory += '/' + userId + '/tmp'
+
+        def newStorageDirectoryFolder = new File(newStorageDirectory)
+        if (!newStorageDirectoryFolder.exists()) {
+            newStorageDirectoryFolder.mkdirs()
+        }
+
+        def folder = new File("$tmpStorageDirectory")
+
+        folder.eachFile {
+            if (it.isFile()) {
+                def tmpFile = new File(it.path)
+                def newFile = new File(newStorageDirectory + '/' + it.name)
+                tmpFile.withInputStream { is ->
+                    newFile << is
+                }
+            }
+        }
+        folder.deleteDir()
+
+    }
+
 }
