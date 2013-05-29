@@ -1,3 +1,4 @@
+<%@ page import="sheepers.Auction" %>
 <!DOCTYPE html>
 <html dir='rtl'>
 <head>
@@ -30,7 +31,7 @@
 
 
                         <g:submitToRemote name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp" update="searchRes"/>
-                        <g:set var="frmAdrlat" scope="flash" value="1112"/>
+                        %{--<g:set var="frmAdrlat" scope="flash" value="1112"/>--}%
                         <g:hiddenField name="fromAdrLat" />
                         <g:hiddenField name="fromAdrLng" />
                         <g:hiddenField name="toAdrLat" />
@@ -45,7 +46,7 @@
     </div>
 
 </div>
-
+<div class="alert alert-success fade in"> <button class="close" data-dismiss="alert" type="button">×</button> <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.</div>
 
 <r:script>
     //    datepicker
@@ -109,7 +110,13 @@
      %{--<g:remoteFunction params="[aucId:aucId]"  action="getImages" controller="image" update="[success:('CarouselIn_'+ aucId)]"  onComplete="showImg(${aucId})"/>--}%
     var url = '/sheepers/image/getImages/' + aucId;
     var carouselIn_num = '#CarouselIn_' + aucId;
-    $.ajax({type:'POST', url:url,success:function(data,textStatus){jQuery(carouselIn_num).html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){},complete:function(XMLHttpRequest,textStatus){showImg(aucId)}});
+    $.ajax({
+        type:'POST',
+        url:url,
+        success:function(data,textStatus){jQuery(carouselIn_num).html(data);},
+        error:function(XMLHttpRequest,textStatus,errorThrown){},
+        complete:function(XMLHttpRequest,textStatus){showImg(aucId)}
+    });
 }
 
     function showImg(aucId){
@@ -120,6 +127,20 @@
         }
     }
 //    End of button expansion
+
+/* Submitting bid*/
+    function submitBid(aucId){
+    var bid = $("#bid_"+ aucId).val();
+     $.ajax({
+        type:'POST',
+//        data:jQuery(this).parents('form:first').serialize(),
+        url:'/sheepers/bid/save?auction.id='+aucId +'&amount='+bid,
+        success:function(data,textStatus){$("#Pbid_"+aucId).append(data)},
+        error:function(XMLHttpRequest,textStatus,errorThrown){}
+
+     });
+    }
+
 </r:script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
 <r:layoutResources/>

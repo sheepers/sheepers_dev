@@ -21,6 +21,8 @@ class BidController {
     }
 
     def save() {
+        def user = User.get(sec.loggedInUserInfo(field: "id").toLong())
+        params.setProperty('bid_profile.id',user.profile.id)
         def bidInstance = new Bid(params)
         if (!bidInstance.save(flush: true)) {
             render(view: "create", model: [bidInstance: bidInstance])
@@ -33,7 +35,8 @@ class BidController {
         //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
 
         flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
-        redirect(action: "list")
+        render '<p></p><div class="alert alert-success fade in"> <button class="close" data-dismiss="alert" type="button">×</button> הצעתך הוגשה. בהצלחה. </div>'
+//   redirect(action: "list")
     }
 
     def show(Long id) {

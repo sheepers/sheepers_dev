@@ -7,6 +7,7 @@
         <g:each in="${auctionInstanceList}" status="i" var="auctionInstance">
         %{--<g:link action="show" id="${auctionInstance.id}">--}%
             <li class="divider">
+                %{--<g:formRemote name="placeBid" url="[controller:'Auction', action:'placeBid']" params="[id:'auctionInstance.id']" >--}%
                 <div class="row-fluid" dir="rtl">
                     <div class="span6">
                         <div class="auc_addtional_info_${auctionInstance.id} hide" id="auc_addtional_info_${auctionInstance.id}">
@@ -27,12 +28,17 @@
                         <p>מ${auctionInstance.fromAdr} </p>
                         <p>ל${auctionInstance.toAdr} </p>
                         <p> <g:if test="${auctionInstance.disassmble}">נדרש פירוק</g:if></p>
-                        <button id="btn_${auctionInstance.id}" class="btn btn-success" onclick="showAdditionalInfo('${auctionInstance.id}')"><i class="icon-plus icon-white"></i> ...הרחב </button>
                         <div class="auc_addtional_info_${auctionInstance.id} hide" id="auc_addtional_info_${auctionInstance.id}">
-                            <p><label for="bid"> תן הצעה </label><input id="bid" class="input-mini"/></p>
+                        %{--<g:form controller="auction">--}%
+                            <p id="Pbid_${auctionInstance.id}"><label for="bid_${auctionInstance.id}"> תן הצעה </label><input id="bid_${auctionInstance.id}" class="input-mini"/><button name="submitBid"  class="btn btn-success" value="שלח" onclick="submitBid('${auctionInstance.id}')" >שלח</button></p>
+
+                            %{--<p><g:submitToRemote name="submitBid" class="btn signup-btn" value="שלח" action="placeBid" params="[id:'${auctionInstance.id}']" />  <label for="bid"> תן הצעה </label><input id="bid" class="input-mini"/></p>--}%
+                         %{--</g:form>--}%
                         </div>
+                        <button id="btn_${auctionInstance.id}" class="btn btn-primary" onclick="showAdditionalInfo('${auctionInstance.id}')"><i class="icon-plus icon-white"></i> ...הרחב </button>
                     </div>
                 </div>
+                %{--</g:formRemote>--}%
             </li>
         %{--</g:link>--}%
         </g:each>
