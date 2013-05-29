@@ -15,7 +15,7 @@
     </head>
 	<body>
     <header class="page-header pull-right">
-         <span class="span12"/>
+         <span class="span6"/>
         <div class="pull-right"><h1> ${profileInstance?.perName}</h1></div>
     </header>
     <div class="container-fluid">
@@ -26,26 +26,24 @@
 
             <g:if test="${profileInstance?.userType}='Carrier">
 
-                <div class="pull-left" id="profImg"></div>
+                <div class="pull-left span6" id="profImg"></div>
             </g:if>
 
             <g:if test="${profileInstance?.perAdd}">
-                <div class="fieldcontain">
+                <div class="fieldcontain span6">
 
-                    <span class="property-value pull-right" ><h3><g:fieldValue bean="${profileInstance}" field="perAdd"/></h3></span>
+                    <div class="property-value pull-right" ><h3><g:fieldValue bean="${profileInstance}" field="perAdd"/></h3></div>
 
                 </div>
             </g:if>
             <g:if test="${profileInstance?.userPhoneNumber}">
-				<div class="fieldcontain">
-                        <span class="span12"/>
+				<div class="fieldcontain span6">
 						<div class="property-value pull-right" ><h3><g:fieldValue bean="${profileInstance}" field="userPhoneNumber"/></h3></div>
 					
 				</div>
 				</g:if>
             <g:if test="${profileInstance?.user.username}">
-                <div class="fieldcontain">
-                    <span class="span12"/>
+                <div class="fieldcontain span6">
                     <div class="property-value pull-right" ><h3><g:fieldValue bean="${profileInstance}" field="user.username"/></h3></div>
 
                 </div>
@@ -53,9 +51,8 @@
 
             <g:if test="${profileInstance?.userType}='Carrier">
                 <g:if test="${profileInstance?.aboutTxt}">
-                    <div class="fieldcontain">
-                        <span class="span12"/>
-                        <div class="property-value pull-right" ><p class="span6"><h4>${profileInstance.aboutTxt}</h4></p></div>
+                    <div class="fieldcontain span4 pull-right">
+                        <div class="property-value" ><p ><h4 dir="rtl">${profileInstance.aboutTxt}</h4></p></div>
 
                     </div>
 
