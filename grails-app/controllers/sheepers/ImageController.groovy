@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage
 
 class ImageController {
 
-    def upload() {
+    def upload(boolean  Large) {
         try {
             String newFilenameBase = UUID.randomUUID().toString()
 
@@ -27,7 +27,12 @@ class ImageController {
             File newFile = new File("$storageDirectory/$newFilename")
             uploadedFile.transferTo(newFile)
 
-            BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
+            if (!Large) {
+                BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
+            }
+            else{
+                BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,600, 400, Scalr.OP_ANTIALIAS)
+            }
             ImageIO.write(bufferedImage,'jpg',newFile)
             return render(text: [success:true] as JSON, contentType:'text/json')
 

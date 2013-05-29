@@ -44,7 +44,7 @@
         element: document.getElementById('bootstrapped-fine-uploader'),
 
         request: {
-            endpoint: '../image/upload'
+            endpoint: '../image/upload?Large=true'
         },
         validation: {
             allowedExtensions: ['jpeg', 'jpg', 'img']

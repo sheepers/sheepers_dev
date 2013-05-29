@@ -112,6 +112,11 @@ class ProfileController {
             newStorageDirectoryFolder.mkdirs()
         }
 
+        newStorageDirectoryFolder.eachFile {
+            if(it.isFile()){
+                it.delete()
+            }
+        }
         def folder = new File("$tmpStorageDirectory")
 
         folder.eachFile {
