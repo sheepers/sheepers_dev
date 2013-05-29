@@ -34,8 +34,8 @@ class BidController {
         broadcaster['/atmosphere/Bids'].broadcast(msg)
         //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
 
-        flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
-        render '<p></p><div class="alert alert-success fade in"> <button class="close" data-dismiss="alert" type="button">×</button> הצעתך הוגשה. בהצלחה. </div>'
+//        flash.message = message(code: 'default.created.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
+        render '<p></p><div class="alert alert-success fade in">הצעתך הוגשה. בהצלחה. <button class="close" data-dismiss="alert" type="button">×</button></div>'
 //   redirect(action: "list")
     }
 

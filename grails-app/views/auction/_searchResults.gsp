@@ -6,7 +6,9 @@
     <ul class="auction_item_search">
         <g:each in="${auctionInstanceList}" status="i" var="auctionInstance">
         %{--<g:link action="show" id="${auctionInstance.id}">--}%
+
             <li class="divider">
+                <div class="well well-white">
                 %{--<g:formRemote name="placeBid" url="[controller:'Auction', action:'placeBid']" params="[id:'auctionInstance.id']" >--}%
                 <div class="row-fluid" dir="rtl">
                     <div class="span6">
@@ -35,10 +37,11 @@
                             %{--<p><g:submitToRemote name="submitBid" class="btn signup-btn" value="שלח" action="placeBid" params="[id:'${auctionInstance.id}']" />  <label for="bid"> תן הצעה </label><input id="bid" class="input-mini"/></p>--}%
                          %{--</g:form>--}%
                         </div>
-                        <button id="btn_${auctionInstance.id}" class="btn btn-primary" onclick="showAdditionalInfo('${auctionInstance.id}')"><i class="icon-plus icon-white"></i> ...הרחב </button>
+                        <button id="btn_${auctionInstance.id}" class="btn btn-primary" onclick="showAdditionalInfo('${auctionInstance.id}')"><i class="icon-chevron-sign-left"></i>  הצג עוד </button>
                     </div>
                 </div>
                 %{--</g:formRemote>--}%
+                </div>
             </li>
         %{--</g:link>--}%
         </g:each>

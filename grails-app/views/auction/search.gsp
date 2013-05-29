@@ -11,8 +11,8 @@
 <body>
 <div class="container-fluid">
     <div class="row-fluid" dir="rtl">
-        <section class="search-pane span6 offset3" >
-            <div class="well">
+        <section class="search-pane span8 offset2" >
+            <div class="well well-white">
                 <g:form controller="auction" class="form-search">
                     <fieldset>
                         <legend class="">חיפוש הובלות</legend>
@@ -42,7 +42,7 @@
         </section>
     </div>
     <div class="row-fluid" dir="rtl">
-        <section id="searchRes" class="span6 offset3"></section>
+        <section id="searchRes" class="span8 offset2"></section>
     </div>
 
 </div>
@@ -94,13 +94,13 @@
     function showAdditionalInfo(aucId){
      if ($("#auc_addtional_info_"+ aucId).hasClass("hide")) {
        $(".auc_addtional_info_"+ aucId).removeClass("hide");
-       $("#btn_"+ aucId).html('<i class="icon-minus icon-white"></i> סגור').removeClass('btn-success').addClass('btn-warning');
+       $("#btn_"+ aucId).html('<i class="icon-chevron-sign-right"></i>  הצג פחות').removeClass('btn-success').addClass('btn-warning');
        if ($("#CarouselIn_" + aucId).children('div').length == 0 ){
         loadImages(aucId)
        }
      }
      else {
-       $("#btn_"+ aucId).html('<i class="icon-plus icon-white"></i> הרחב...').removeClass('btn-warning').addClass('btn-success');
+       $("#btn_"+ aucId).html('<i class="icon-chevron-sign-left"></i>  הצג עוד').removeClass('btn-warning').addClass('btn-success');
       $(".auc_addtional_info_"+ aucId).addClass("hide");
 
      }

@@ -12,6 +12,8 @@
         <link href="/sheepers/css/datepicker.css" rel="stylesheet">
         <link href="/sheepers/css/bootstrap.css" rel="stylesheet">
         <link href="/sheepers/css/layout.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
 
         <style>
         body {
