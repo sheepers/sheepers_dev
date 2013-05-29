@@ -46,7 +46,7 @@
     </div>
 
 </div>
-<div class="alert alert-success fade in"> <button class="close" data-dismiss="alert" type="button">×</button> <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.</div>
+
 
 <r:script>
     //    datepicker
