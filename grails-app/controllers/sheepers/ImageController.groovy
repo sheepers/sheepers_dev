@@ -26,12 +26,16 @@ class ImageController {
 
             File newFile = new File("$storageDirectory/$newFilename")
             uploadedFile.transferTo(newFile)
-
+             int imgWidth, imgHeight
             if (!Large) {
-                BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
-            }  else {
-                BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,600, 400, Scalr.OP_ANTIALIAS)
+                imgWidth = 200
+                imgHeight = 100
             }
+            else{
+                imgWidth = 600
+                imgHeight = 400
+            }
+            BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,imgWidth, imgHeight, Scalr.OP_ANTIALIAS)
             ImageIO.write(bufferedImage,'jpg',newFile)
             return render(text: [success:true] as JSON, contentType:'text/json')
 
