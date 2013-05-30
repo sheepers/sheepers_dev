@@ -52,7 +52,7 @@ class BidService {
                 log.info "onStateChange, $event"
                 if (event.isSuspended()) {
                     def msg = JSON.parse(event.message.toString())
-                    res.writer.write( createMessage(msg.Aid, msg.Amnt, msg.Un, msg.Bid, msg.Ac) )
+                    res.writer.write( createMessage(msg.Aid, msg.Amnt, msg.Un, msg.Bid, msg.Ac, msg.Uid) )
 
                     switch (r.transport()) {
                         case TRANSPORT.JSONP:
@@ -69,7 +69,7 @@ class BidService {
         }
     }
 
-    private String createMessage(Integer Aid, Integer  Amnt , String  Un , Integer  Bid , String Ac  ) {
-        return new JSON( [Aid : Aid, Amnt : Amnt, Un : Un, Bid: Bid, Ac:Ac] )
+    private String createMessage(Long Aid, Integer  Amnt , String  Un , Long  Bid , String Ac, Long Uid  ) {
+        return new JSON( [Aid : Aid, Amnt : Amnt, Un : Un, Bid: Bid, Ac:Ac, Uid:Uid] )
     }
 }

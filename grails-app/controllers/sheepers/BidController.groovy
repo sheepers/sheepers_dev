@@ -30,7 +30,7 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "N"    )
+        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.perName, Bid:bidInstance.id, Ac: "N", Uid: bidInstance.bid_profile.id )
         broadcaster['/atmosphere/Bids'].broadcast(msg)
         //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount ,  $bidInstance.bid_profile.user.username , $bidInstance.id , N ")
 
@@ -87,7 +87,7 @@ class BidController {
         }
 
         log.info 'broadcasting'
-        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "U"    )
+        def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.perName, Bid:bidInstance.id, Ac: "U", Uid: bidInstance.bid_profile.id )
         broadcaster['/atmosphere/Bids'].broadcast(msg)
         //broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , U ")
         flash.message = message(code: 'default.updated.message', args: [message(code: 'bid.label', default: 'Bid'), bidInstance.id])
@@ -105,7 +105,7 @@ class BidController {
         try {
             bidInstance.delete(flush: true)
             log.info 'broadcasting'
-            def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.user.username, Bid:bidInstance.id, Ac: "D"    )
+            def  msg = new JSON (Aid:bidInstance.auction.id, Amnt: bidInstance.amount, Un: bidInstance.bid_profile.perName, Bid:bidInstance.id, Ac: "D", Uid: bidInstance.bid_profile.id )
             broadcaster['/atmosphere/Bids'].broadcast(msg)
            // broadcaster['/atmosphere/Bids'].broadcast("$bidInstance.auction.id , $bidInstance.amount , $bidInstance.bid_profile.user.username , $bidInstance.id , D ")
             flash.message = message(code: 'default.deleted.message', args: [message(code: 'bid.label', default: 'Bid'), id])

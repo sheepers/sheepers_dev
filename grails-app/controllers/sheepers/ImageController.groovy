@@ -63,12 +63,31 @@ class ImageController {
         String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory
 
         String HTMLResp   =  ""
-        if (id != null) {
-            storageDirectory +=  '/' + userID + '/' + id
+        storageDirectory +=  '/' + userID + '/' + id
+        def folder = new File("$storageDirectory")
+
+        folder.eachFile {
+            if (it.isFile()) {
+                if (HTMLResp == "")
+                {
+                        HTMLResp =  "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
+                }
+                else
+                {
+                        HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
+                }
+            }
         }
-        else {
-            storageDirectory +=  '/' + userID
-        }
+        render HTMLResp
+    }
+
+    def getProfileImages(Long id){
+
+         def userID = id
+        String storageDirectory = servletContext.getRealPath("/") + grailsApplication.config.fileupload.directory
+
+        String HTMLResp   =  ""
+        storageDirectory +=  '/' + userID
 
         def folder = new File("$storageDirectory")
 
@@ -76,27 +95,16 @@ class ImageController {
             if (it.isFile()) {
                 if (HTMLResp == "")
                 {
-                    if  (id!=null) {
-                        HTMLResp =  "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name +"'/></div>"
-                    }
-                    else{
                         HTMLResp =  "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + it.name +"'/></div>"
-                    }
                 }
                 else
                 {
-                    if (id!=null){
-                        HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/" + id + "/" + it.name  + "'/></div>"
-                    }
-                    else{
                         HTMLResp = HTMLResp  + "<div class='item'><img alt ='300x200' src='/sheepers/" + grailsApplication.config.fileupload.directory + "/" + userID + "/"  + it.name  + "'/></div>"
-                    }
                 }
             }
         }
         render HTMLResp
     }
-
 
 
 }
