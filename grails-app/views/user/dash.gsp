@@ -61,7 +61,7 @@
                   <div class="tabbable tabs-right">
                     <ul id="auctions_nav" class="nav nav-tabs">
                         <g:each in="${Auction.list()}" var="auction">
-                            <li class="pull-right tab_trig"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="switchAuction('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.user.username.toString()}','${auction.bids.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
+                            <li class="pull-right tab_trig"><a data-toggle="tab" title='העברה מ ${auction.fromAdr} ל ${auction.toAdr} בתאריך ${auction.deadlineDate.dateString}' href="#auction_num_${auction.id}" onclick="switchAuction('${auction.id}','${auction.bids.amount.toString()}','${auction.bids.bid_profile.perName.toString()}','${auction.bids.id.toString()}','${auction.bids.bid_profile.id.toString()}')">${auction.deadlineDate.dateString}</a></li>
                         </g:each>
                     </ul>
                     <div id="auctions_content" class="tab-content">
@@ -176,10 +176,10 @@
             //console.log('This doesn\'t look like a valid JSON: ', message);
             return;
         }
-         HandleBid(json.Aid, json.Amnt, json.Un, json.Bid, json.Ac);
+         HandleBid(json.Aid, json.Amnt, json.Un, json.Bid, json.Ac, json.Uid);
     };
       //function callback(response) {
-      function HandleBid(Aid, Amnt, Un, Bid, Ac) {
+      function HandleBid(Aid, Amnt, Un, Bid, Ac, Uid) {
       //if (response.status == 200) {
         //var data = response.responseBody;
         //if (data.length > 0) {
@@ -187,11 +187,11 @@
             if (Aid = CurAuc){
             switch (Ac){
             case 'N' :
-                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td>' +Un+'</td> </tr>');
+                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></td> </tr>');
                 break;
              case 'U' :
                 $("#" + Bid ).remove();
-                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td>' +Un+'</td> </tr>');
+                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></td> </tr>');
                 break;
              case 'D' :
                 $("#" + Bid ).remove();
@@ -223,7 +223,7 @@
         });
     }
 
-    function switchAuction( controleron, bids_amounts, bidders, bids_id){
+    function switchAuction( controleron, bids_amounts, bidders, bids_id, bidders_id){
 
 
                 CurAuc = controleron;
@@ -292,19 +292,23 @@
                 bids_amounts = bids_amounts.replace("[","");
                 bidders = bidders.replace("]","");
                 bids_id = bids_id.replace("]","");
+                bidders_id =  bidders_id.replace("]","");
                 bids_amounts = bids_amounts.replace("]","");
                 bidders = bidders.replace("[","");
                 bids_id = bids_id.replace("[","");
+                bidders_id = bidders_id.replace("[","");
+
                 bidAmountArray = bids_amounts.split(",");
                 biddersArray = bidders.split(",");
                 bids_idArray = bids_id.split(",");
+                bidders_idArray = bidders_id.split(",");
                 $("#bids").animate({minHeight: '300px'},200,function(){
                     $("#cur_bids"). append('<th >סכום</th><th>משוב</th><th>מוביל</th>');
 
                     for (var i = 0; i < bidAmountArray.length; i += 1) {
 
 
-                        $("#cur_bids"). append('<tr id=' + bids_idArray[i] + '><td>' +  bidAmountArray[i] + '</td><td></td><td>' + biddersArray[i] + '</td></tr>');
+                        $("#cur_bids"). append('<tr id=' + bids_idArray[i] + '><td>' +  bidAmountArray[i] + '</td><td></td><td><a href="/sheepers/profile/show/' + bidders_idArray[i] + '">' + biddersArray[i] + '</a></td></tr>');
                     }
                 });
 
