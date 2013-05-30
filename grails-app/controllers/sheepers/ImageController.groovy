@@ -29,8 +29,7 @@ class ImageController {
 
             if (!Large) {
                 BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,200, 100, Scalr.OP_ANTIALIAS)
-            }
-            else{
+            }  else {
                 BufferedImage bufferedImage = Scalr.resize(ImageIO.read(newFile) , Scalr.Method.SPEED, Scalr.Mode.FIT_TO_WIDTH,600, 400, Scalr.OP_ANTIALIAS)
             }
             ImageIO.write(bufferedImage,'jpg',newFile)
