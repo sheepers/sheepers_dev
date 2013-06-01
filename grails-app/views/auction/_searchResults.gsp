@@ -35,7 +35,7 @@
                                 %{--<g:form controller="auction">--}%
                                 <div>
                                     <g:if test="${auctionInstance.bids.size()>0}">
-                                        <h4> הצעות שהתקבלו</h4>
+                                        <h3 class="badge badge-success"> הצעות שהתקבלו</h3>
                                         <table class="table table-hover">
                                             <thead>
                                             <tr>
@@ -57,6 +57,7 @@
                                                         <i class="icon-star-empty"/>
                                                         <i class="icon-star-empty"/>
                                                         <i class="icon-star-empty"/>
+                                                        <div > 23 מדרגים | 2.1/5 </div>
                                                     </td>
                                                 </tr>
                                             </g:each>
@@ -65,7 +66,11 @@
                                     </g:if>
                                 </div>
 
-                                <p id="Pbid_${auctionInstance.id}"><label for="bid_${auctionInstance.id}"> תן הצעה </label><input id="bid_${auctionInstance.id}" class="input-mini"/><button name="submitBid"  class="btn btn-success" value="שלח" onclick="submitBid('${auctionInstance.id}')" >שלח</button></p>
+                                <p id="Pbid_${auctionInstance.id}">
+                                    <label for="bid_${auctionInstance.id}"> תן הצעה </label>
+                                    <input id="bid_${auctionInstance.id}" class="input-mini"/>
+                                     <button name="submitBid"  class="btn btn-success" value="שלח" onclick="submitBid('${auctionInstance.id}')" >
+                                        <i class="icon-share-alt icon-white"></i> שלח</button></p>
 
                                 %{--<p><g:submitToRemote name="submitBid" class="btn signup-btn" value="שלח" action="placeBid" params="[id:'${auctionInstance.id}']" />  <label for="bid"> תן הצעה </label><input id="bid" class="input-mini"/></p>--}%
                                 %{--</g:form>--}%
