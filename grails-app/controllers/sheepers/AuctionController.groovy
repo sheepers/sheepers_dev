@@ -39,7 +39,7 @@ class AuctionController {
 
     def create() {
 
-       [auctionInstance: new Auction(params)]
+        [auctionInstance: new Auction(params)]
 
     }
 
@@ -152,12 +152,12 @@ class AuctionController {
             AND 6371.0*ACOS(COS(RADIANS(a.fromAdrLat))*COS(RADIANS(:qlatf))*COS(RADIANS(a.fromAdrLng)-RADIANS(:qlngf)) + SIN(RADIANS(a.fromAdrLat))*SIN(RADIANS(:qlatf)) ) < :qfradius
             AND 6371.0*ACOS(COS(RADIANS(a.toAdrLat))*COS(RADIANS(:qlatt))*COS(RADIANS(a.toAdrLng)-RADIANS(:qlngt)) + SIN(RADIANS(a.toAdrLat))*SIN(RADIANS(:qlatt)) ) < :qtradius
             AND a.deadlineDate <= :qsearchDate AND a.status ='open' """,
-            [qlatf:"${params.fromAdrLat}", qlngf:"${params.fromAdrLng}",qlatt:"${params.toAdrLat}",qlngt:"${params.toAdrLng}", qfradius:fromRadius, qtradius:toRadius ,qsearchDate:sd]);
+                [qlatf:"${params.fromAdrLat}", qlngf:"${params.fromAdrLng}",qlatt:"${params.toAdrLat}",qlngt:"${params.toAdrLng}", qfradius:fromRadius, qtradius:toRadius ,qsearchDate:sd]);
 
 //      Get the relevant auctions
         def auctions =  Auction.findAllByIdInList(res)
 
-       render (view: "_searchResults" , model:[auctionInstanceList : auctions] )
+        render (view: "_searchResults" , model:[auctionInstanceList : auctions] )
 
 
 
@@ -176,16 +176,18 @@ class AuctionController {
 
         def folder = new File("$tmpStorageDirectory")
 
-        folder.eachFile {
-            if (it.isFile()) {
-                def tmpFile = new File(it.path)
-                def newFile = new File(newStorageDirectory + '/' + it.name)
-                tmpFile.withInputStream { is ->
-                    newFile << is
+        if (folder.exists()){
+            folder.eachFile {
+                if (it.isFile()) {
+                    def tmpFile = new File(it.path)
+                    def newFile = new File(newStorageDirectory + '/' + it.name)
+                    tmpFile.withInputStream { is ->
+                        newFile << is
+                    }
                 }
             }
+            folder.deleteDir()
         }
-        folder.deleteDir()
 
     }
 

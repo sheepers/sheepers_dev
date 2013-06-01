@@ -93,7 +93,7 @@
 //    button expansion
     function showAdditionalInfo(aucId){
      if ($("#auc_addtional_info_"+ aucId).hasClass("hide")) {
-       $(".auc_addtional_info_"+ aucId).slideToggle();
+       $(".auc_addtional_info_"+ aucId).slideToggle("slow");
        $("#btn_"+ aucId).html('<i class="icon-chevron-sign-right"></i>  הצג פחות').removeClass('btn-success').addClass('btn-warning');
        if ($("#CarouselIn_" + aucId).children('div').length == 0 ){
         loadImages(aucId)
@@ -101,7 +101,7 @@
      }
      else {
        $("#btn_"+ aucId).html('<i class="icon-chevron-sign-left"></i>  הצג עוד').removeClass('btn-warning').addClass('btn-primary');
-      $(".auc_addtional_info_"+ aucId).slideToggle();
+      $(".auc_addtional_info_"+ aucId).slideToggle("slow");
 
      }
     }

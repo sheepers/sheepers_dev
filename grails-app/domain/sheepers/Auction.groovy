@@ -2,9 +2,6 @@ package sheepers
 
 class Auction {
 
-
-
-    //BigInteger auctionId
     String fromAdr
     Double fromAdrLat
     Double fromAdrLng
@@ -16,8 +13,6 @@ class Auction {
     String toFloor
 
     String status
-
-    //String name
     Date dateCreated
     Date deadlineDate
     boolean IsElevator
@@ -26,6 +21,7 @@ class Auction {
     String comments
     List items
 
+    String type
 
 
     static belongsTo = Profile
@@ -38,7 +34,7 @@ class Auction {
         maxAmount (nullable: true)
         comments (nullable: true)
         status inList: ['open','expired','closed']
-
+        type inList: [ 'הובלה קטנה','סטודיו קטן','סטודיו גדול/דירת חדר','2 חדרים','3 חדרים','4 חדרים','5 חדרים','5+ חדרים']
 
 
 
