@@ -1,6 +1,6 @@
 <%@ page import="sheepers.Auction" %>
 <!DOCTYPE html>
-<html dir="rtl">
+<html>
 <head>
     <g:set var="entityName" value="${message(code: 'auction.label', default: 'Auction')}" />
     <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
@@ -39,11 +39,12 @@
 <body>
 
 %{--<div class="container-fluid">--}%
-<div id="create-auction"  role="main">
+<div id="create-auction"  dir="rtl" role="main">
 %{--<h1><g:message code="default.create.label" args="[entityName]" /></h1>--}%
 %{--<div class="page-header">--}%
 %{--<h1 dir="rtl" >זה מה שיש לי להוביל </h1>--}%
 %{--</div>--}%
+    <div class="span9 pull-right">
     <g:if test="${flash.message}">
         <div class="message row-fluid" role="status">${flash.message}</div>
     </g:if>
@@ -69,6 +70,7 @@
         </fieldset>
 
     </g:form>
+    </div>
 </div>
 %{--</div>--}%
 
