@@ -11,26 +11,53 @@
 <body>
 <div class="container-fluid">
     <div class="row-fluid" dir="rtl">
-        <section class="search-pane span8 offset2" >
-            <div class="well well-white">
+        <section class="search-pane span10 offset1" >
+            <div class="searchBar">
                 <g:form controller="auction" class="form-search">
                     <fieldset>
-                        <legend class="">חיפוש הובלות</legend>
-                        %{--<label>עיר מוצא:</label>--}%
-                        <g:textField name="fromArea"  class="input-small"  placeholder = "מאיפה יוצאים"/>
-                        <g:checkBox name="fromCloseArea" />
-                        <label class="label label-info">והסביבה הקרובה </label>
+                        <legend class="searchLegend">חיפוש הובלות</legend>
+                        <span class="span2">
+                            <g:submitToRemote name="search" class="btn signup-btn" value="מצא" action="searchp" update="searchRes"/>
+                        </span>
+
                         %{--<label>עיר יעד</label>--}%
-                        <g:textField name="toArea"  class="input-small" placeholder="לאיפה מגיעים"/>
-                        <g:checkBox name="toCloseArea" />
-                        <label class="label label-info">והסביבה הקרובה </label>
+                     <ul class="unstyled span3">
+                        <li><input  id="toaddSel" readonly="readOnly" name="toArea"  class="search-input "  placeholder="לאיפה מגיעים"  /></li>
+                                    <div id="ToAdrSel"  class="addrSearch span3 hide">
+                                          <legend class="pull-right"><h5> הכנס כתובת </h5></legend>
+                                         <span class="span3 pull-right">
+                                          <input  id="toAreaSel" name="toAreaSel" class="input-medium" placeholder="לאיפה מגיעים"/>
+                                          </span>
+                                            <span class="span3 pull-leftt">
+                                         <button id="ToAdrSub" class="btn signup-btn pull-left">עדכן</button>
+                                        </span>
+                                    </div>
+                        <li><g:checkBox name="toCloseArea" />
+                        <label class="label label-search">והסביבה הקרובה </label></li>
+                    </ul>
+                        %{--<label>עיר מוצא:</label>--}%
+                        <ul class="unstyled span3">
+                            <li><input  id="fromaddSel" readonly="readOnly" name="fromArea"  class="search-input"  placeholder = "מאיפה יוצאים"/></li>
+
+                            <div id="FromAdrSel"  class="addrSearch span3 hide">
+                                <legend class="pull-right"><h5> הכנס כתובת </h5></legend>
+                                <span class="span3 pull-right">
+                                    <input  id="fromAreaSel" name="fromAreaSel" class="input-medium" placeholder="מאיפה מגיעים"/>
+                                </span>
+                                <span class="span3 pull-leftt">
+                                    <button id="FromAdrSub" class="btn signup-btn pull-left">עדכן</button>
+                                </span>
+                            </div>
+                            <li><g:checkBox name="fromCloseArea" />
+                                <label class="label label-search">והסביבה הקרובה </label></li>
+                        </ul>
 
                         %{--<label>תאריך סיום:</label>--}%
-                        <g:textField id="searchDate" name="searchDate" class="input-medium" placeholder="בחר תאריך אחרון להובלה"/>
+                        <span class="span3">
+                        <input id="searchDate" readonly="readOnly" name="searchDate" class="search-input" placeholder="בחר תאריך אחרון להובלה"/>
+                    </span>
 
 
-
-                        <g:submitToRemote name="search" class="btn signup-btn" value="מצא לי הובלות" action="searchp" update="searchRes"/>
                         %{--<g:set var="frmAdrlat" scope="flash" value="1112"/>--}%
                         <g:hiddenField name="fromAdrLat" />
                         <g:hiddenField name="fromAdrLng" />
@@ -49,21 +76,51 @@
 
 
 <r:script>
+$("#toaddSel").css("cursor","default");
+$("#fromaddSel").css("cursor","default");
+$("#searchDate").css("cursor","default");
+
     //    datepicker
     $('#searchDate').datepicker().on('changeDate',function(){
         $('#searchDate').datepicker('hide');
     });
 
+
     ////// autocomplete input
+function gooInitTo(){
+
     var options = {
         types: ['(cities)'],
         componentRestrictions: {country: 'il'}
     };
 
-    var fromInput = document.getElementById("fromArea");
-    var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
-    var toInput = document.getElementById("toArea");
+    var toInput = document.getElementById("toAreaSel");
     var toAutocomplete = new google.maps.places.Autocomplete(toInput, options);
+
+
+
+
+    google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
+        var place = toAutocomplete.getPlace();
+        if (!place.geometry) {
+            // Inform the user that the place was not found and return.
+            toAutocomplete.className = 'notfound';
+            return;
+        }
+        $('#toAdrLat').val(place.geometry.location.lat());
+        $('#toAdrLng').val(place.geometry.location.lng());
+    });
+    }
+
+function gooInitFrom(){
+
+    var options = {
+        types: ['(cities)'],
+        componentRestrictions: {country: 'il'}
+    };
+
+    var fromInput = document.getElementById("fromAreaSel");
+    var fromAutocomplete = new google.maps.places.Autocomplete(fromInput,options);
 
 
 
@@ -78,17 +135,7 @@
         $('#fromAdrLng').val(place.geometry.location.lng());
     });
 
-    google.maps.event.addListener(toAutocomplete, 'place_changed', function() {
-        var place = toAutocomplete.getPlace();
-        if (!place.geometry) {
-            // Inform the user that the place was not found and return.
-            toAutocomplete.className = 'notfound';
-            return;
-        }
-        $('#toAdrLat').val(place.geometry.location.lat());
-        $('#toAdrLng').val(place.geometry.location.lng());
-    });
-
+    }
 
 //    button expansion
     function showAdditionalInfo(aucId){
@@ -141,6 +188,35 @@
 
      });
     }
+    // Address selectors
+$("#toaddSel").on('click',function(){
+    $(".pac-container").remove();
+    $("#FromAdrSel").addClass('hide');
+    $("#ToAdrSel").removeClass('hide');
+    gooInitTo();
+});
+$("#fromaddSel").on('click',function(){
+    $(".pac-container").remove();
+    $("#ToAdrSel").addClass('hide');
+    $("#FromAdrSel").removeClass('hide');
+    gooInitFrom();
+});
+
+
+$("#ToAdrSub").on('click',function(e){
+    $("#ToAdrSel").addClass('hide');
+    $(".pac-container").remove();
+    $("#toaddSel").val($("#toAreaSel").val());
+    e.preventDefault();
+});
+
+    $("#FromAdrSub").on('click',function(e){
+    $("#FromAdrSel").addClass('hide');
+    $(".pac-container").remove();
+    $("#fromaddSel").val($("#fromAreaSel").val());
+    e.preventDefault();
+});
+
 
 </r:script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false&libraries=places&language=he&region=il"></script>
