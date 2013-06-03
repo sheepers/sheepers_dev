@@ -42,7 +42,7 @@
                             <div id="FromAdrSel"  class="addrSearch span3 hide">
                                 <legend class="pull-right"><h5> הכנס כתובת </h5></legend>
                                 <span class="span3 pull-right">
-                                    <input  id="fromAreaSel" name="fromAreaSel" class="input-medium" placeholder="מאיפה מגיעים"/>
+                                    <input  id="fromAreaSel" name="fromAreaSel" class="input-medium" placeholder="מאיפה יוצאים"/>
                                 </span>
                                 <span class="span3 pull-leftt">
                                     <button id="FromAdrSub" class="btn signup-btn pull-left">עדכן</button>
@@ -193,12 +193,16 @@ $("#toaddSel").on('click',function(){
     $(".pac-container").remove();
     $("#FromAdrSel").addClass('hide');
     $("#ToAdrSel").removeClass('hide');
+    $("#ToAdrSel").css('opacity','0.0');
+    $("#ToAdrSel").animate({'opacity': 1.0},300);
     gooInitTo();
 });
 $("#fromaddSel").on('click',function(){
     $(".pac-container").remove();
     $("#ToAdrSel").addClass('hide');
     $("#FromAdrSel").removeClass('hide');
+    $("#FromAdrSel").css('opacity','0.0');
+    $("#FromAdrSel").animate({'opacity': 1.0},300);
     gooInitFrom();
 });
 
