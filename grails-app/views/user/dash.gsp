@@ -187,11 +187,21 @@
             if (Aid = CurAuc){
             switch (Ac){
             case 'N' :
-                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></td> </tr>');
+                $('tbody').append('<tr id ="' +Bid+ '"> <td><h4>'+Amnt+ '</h4></td><td><span class="ratings pull-left"><h4><span class="icon-star"></span>' +
+                                                                                                                                             '<span class="icon-star"></span>' +
+                                                                                                                                            '<span class="icon-star" ></span>' +
+                                                                                                                                            '<span class="icon-star-empty" ></span>' +
+                                                                                                                                            '<span class="icon-star-empty" ></span>' +
+                                                                                                                                              '</h4></span></td><td><h4><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></h4></td> </tr>');
                 break;
              case 'U' :
                 $("#" + Bid ).remove();
-                $('tbody').append('<tr id ="' +Bid+ '"> <td>'+Amnt+ '</td><td></td><td><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></td> </tr>');
+                $('tbody').append('<tr id ="' +Bid+ '"> <td><h4>'+Amnt+ '</h4></td><td><span class="ratings pull-left"><h4><span class="icon-star"></span>' +
+                                                                                                                                                                        '<span class="icon-star"></span>' +
+                                                                                                                                                                        '<span class="icon-star" ></span>' +
+                                                                                                                                                                        '<span class="icon-star-empty" ></span>' +
+                                                                                                                                                                        '<span class="icon-star-empty" ></span>' +
+                                                                                                                                                                        '</h4></span></td><td><h4><a href="/sheepers/profile/show/' + Uid + '">' + Un+'</a></h4></td> </tr>');
                 break;
              case 'D' :
                 $("#" + Bid ).remove();
@@ -308,7 +318,12 @@
                     for (var i = 0; i < bidAmountArray.length; i += 1) {
 
 
-                        $("#cur_bids"). append('<tr id=' + bids_idArray[i] + '><td>' +  bidAmountArray[i] + '</td><td></td><td><a href="/sheepers/profile/show/' + bidders_idArray[i] + '">' + biddersArray[i] + '</a></td></tr>');
+                        $("#cur_bids"). append('<tr id=' + bids_idArray[i] + '><td><h5>' +  bidAmountArray[i] + '</h5></td><td><span class="ratings pull-left"><h5><span class="icon-star"></span>' +
+                                                                                                                                                                                                                                                                '<span class="icon-star"></span>' +
+                                                                                                                                                                                                                                                                '<span class="icon-star" ></span>' +
+                                                                                                                                                                                                                                                                '<span class="icon-star-empty" ></span>' +
+                                                                                                                                                                                                                                                                '<span class="icon-star-empty" ></span>' +
+                                                                                                                                                                                                                                                                '</h5></span></td><td><h5><a href="/sheepers/profile/show/' + bidders_idArray[i] + '">' + biddersArray[i] + '</a></h5></td></tr>');
                     }
                 });
 
