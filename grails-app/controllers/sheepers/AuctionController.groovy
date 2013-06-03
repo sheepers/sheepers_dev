@@ -151,8 +151,9 @@ class AuctionController {
             SELECT id FROM Auction AS a WHERE a.fromAdrLat IS NOT NULL AND a.fromAdrLng IS NOT NULL AND a.toAdrLat IS NOT NULL AND a.toAdrLng IS NOT NULL
             AND 6371.0*ACOS(COS(RADIANS(a.fromAdrLat))*COS(RADIANS(:qlatf))*COS(RADIANS(a.fromAdrLng)-RADIANS(:qlngf)) + SIN(RADIANS(a.fromAdrLat))*SIN(RADIANS(:qlatf)) ) < :qfradius
             AND 6371.0*ACOS(COS(RADIANS(a.toAdrLat))*COS(RADIANS(:qlatt))*COS(RADIANS(a.toAdrLng)-RADIANS(:qlngt)) + SIN(RADIANS(a.toAdrLat))*SIN(RADIANS(:qlatt)) ) < :qtradius
+            AND a.type = :qtype
             AND a.deadlineDate <= :qsearchDate AND a.status ='open' """,
-                [qlatf:"${params.fromAdrLat}", qlngf:"${params.fromAdrLng}",qlatt:"${params.toAdrLat}",qlngt:"${params.toAdrLng}", qfradius:fromRadius, qtradius:toRadius ,qsearchDate:sd]);
+                [qlatf:"${params.fromAdrLat}", qlngf:"${params.fromAdrLng}",qlatt:"${params.toAdrLat}",qlngt:"${params.toAdrLng}", qfradius:fromRadius, qtradius:toRadius ,qsearchDate:sd, qtype: "${params.type}"]);
 
 //      Get the relevant auctions
         def auctions =  Auction.findAllByIdInList(res)

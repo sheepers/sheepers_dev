@@ -53,6 +53,7 @@ body {
 
  .searchBar{
 
+     height: 150px;
      border-radius: 2px;
      background-image: linear-gradient(bottom, rgb(99,99,99) 0%, rgb(92,92,92) 100%);
      background-image: -o-linear-gradient(bottom, rgb(99,99,99) 0%, rgb(92,92,92) 100%);
@@ -70,6 +71,7 @@ body {
   }
 
  .search-input:hover{
+     min-width: 50px;
      background-image: linear-gradient(bottom, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
      background-image: -o-linear-gradient(bottom, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
      background-image: -moz-linear-gradient(bottom, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
@@ -91,8 +93,11 @@ body {
  .searchLegend{
      color: #ffffff;
  }
-
+ .date-search.search-input{
+     width: 130px;
+ }
  .search-input{
+     width: 180px;
      background-image: linear-gradient(top, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
      background-image: -o-linear-gradient(top, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
      background-image: -moz-linear-gradient(top, rgb(189,189,189) 0%, rgb(38,38,38) 100%);
@@ -126,3 +131,7 @@ body {
    position: absolute;
     min-height: 200px;
    }
+
+option{
+    color: #000000;
+}

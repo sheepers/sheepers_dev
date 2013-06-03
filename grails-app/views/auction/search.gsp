@@ -16,27 +16,15 @@
                 <g:form controller="auction" class="form-search">
                     <fieldset>
                         <legend class="searchLegend">חיפוש הובלות</legend>
-                        <span class="span2">
-                            <g:submitToRemote name="search" class="btn signup-btn" value="מצא" action="searchp" update="searchRes"/>
+                        <span class="pull-left">
+                            <g:submitToRemote name="search" class="btn signup-btn"  value='מצא' action="searchp" update="searchRes"/>
                         </span>
 
                         %{--<label>עיר יעד</label>--}%
-                     <ul class="unstyled span3">
-                        <li><input  id="toaddSel" readonly="readOnly" name="toArea"  class="search-input "  placeholder="לאיפה מגיעים"  /></li>
-                                    <div id="ToAdrSel"  class="addrSearch span3 hide">
-                                          <legend class="pull-right"><h5> הכנס כתובת </h5></legend>
-                                         <span class="span3 pull-right">
-                                          <input  id="toAreaSel" name="toAreaSel" class="input-medium" placeholder="לאיפה מגיעים"/>
-                                          </span>
-                                            <span class="span3 pull-leftt">
-                                         <button id="ToAdrSub" class="btn signup-btn pull-left">עדכן</button>
-                                        </span>
-                                    </div>
-                        <li><g:checkBox name="toCloseArea" />
-                        <label class="label label-search">והסביבה הקרובה </label></li>
-                    </ul>
-                        %{--<label>עיר מוצא:</label>--}%
-                        <ul class="unstyled span3">
+                        <span class="span3 pull-right">
+                            <g:select id="type" name="type" class="search-input" from="${Auction.constraints.type.inList}"/>
+                        </span>
+                        <ul class="unstyled span3 pull-right">
                             <li><input  id="fromaddSel" readonly="readOnly" name="fromArea"  class="search-input"  placeholder = "מאיפה יוצאים"/></li>
 
                             <div id="FromAdrSel"  class="addrSearch span3 hide">
@@ -52,9 +40,25 @@
                                 <label class="label label-search">והסביבה הקרובה </label></li>
                         </ul>
 
+                        <ul class="unstyled span3 pull-right">
+                        <li><input  id="toaddSel" readonly="readOnly" name="toArea"  class="search-input "  placeholder="לאיפה מגיעים"  /></li>
+                                    <div id="ToAdrSel"  class="addrSearch span3 hide">
+                                          <legend class="pull-right"><h5> הכנס כתובת </h5></legend>
+                                         <span class="span3 pull-right">
+                                          <input  id="toAreaSel" name="toAreaSel" class="input-medium" placeholder="לאיפה מגיעים"/>
+                                          </span>
+                                            <span class="span3 pull-leftt">
+                                         <button id="ToAdrSub" class="btn signup-btn pull-left">עדכן</button>
+                                        </span>
+                                    </div>
+                        <li><g:checkBox name="toCloseArea" />
+                        <label class="label label-search">והסביבה הקרובה </label></li>
+                    </ul>
+                        %{--<label>עיר מוצא:</label>--}%
+
                         %{--<label>תאריך סיום:</label>--}%
-                        <span class="span3">
-                        <input id="searchDate" readonly="readOnly" name="searchDate" class="search-input" placeholder="בחר תאריך אחרון להובלה"/>
+                        <span class="span1 pull-right">
+                        <input id="searchDate" readonly="readOnly" name="searchDate" class="search-input date-search" placeholder="בחר תאריך להובלה"/>
                     </span>
 
 
@@ -220,6 +224,7 @@ $("#ToAdrSub").on('click',function(e){
     $("#fromaddSel").val($("#fromAreaSel").val());
     e.preventDefault();
 });
+
 
 
 </r:script>
